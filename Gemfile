@@ -14,6 +14,10 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
+
+  gem 'devise'
+  gem 'omniauth-google-oauth2'
+  gem 'haml'
 end
 
 group :production do
