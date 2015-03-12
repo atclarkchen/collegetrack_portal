@@ -19,6 +19,7 @@ group :development, :test do
   gem 'omniauth-google-oauth2'
   gem 'haml'
   gem 'pundit'
+  gem 'rake'
 end
 
 group :production do
