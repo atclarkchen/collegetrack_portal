@@ -18,6 +18,7 @@ group :development, :test do
   gem 'devise'
   gem 'omniauth-google-oauth2'
   gem 'haml'
+  gem 'pundit'
 end
 
 group :production do
