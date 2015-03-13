@@ -3,7 +3,6 @@ ruby '1.9.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-gem 'haml'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -15,16 +14,12 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
-
-  gem 'devise'
-  gem 'omniauth-google-oauth2'
-  gem 'haml'
-  gem 'pundit'
   gem 'rake'
 end
 
 group :production do
 	gem 'pg'
+  gem 'rails_12factor'
 end
 
   gem 'bootstrap-sass', '~> 3.3.3'
@@ -41,6 +36,10 @@ group :assets do
   # gem 'therubyracer', platforms: :ruby
 end
 
+gem 'devise'
+gem 'omniauth-google-oauth2'
+gem 'haml'
+gem 'pundit'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
