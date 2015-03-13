@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.create!(:email => 'jason.chern93@gmail.com', :password => 'password')
 User.create!(:email => 'alam@collegetrack.org', :password => 'password')
+User.create!(:email => 'petrduong@gmail.com', :password => 'password')
