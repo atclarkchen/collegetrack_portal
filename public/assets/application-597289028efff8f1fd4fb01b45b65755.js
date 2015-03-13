@@ -13677,22 +13677,19 @@ else
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 ;
-$(document).ready(function () {
+function popupCenter(linkUrl, width, height, name) {
+    var separator = (linkUrl.indexOf('?') !== -1) ? '&' : '?',
+        url = linkUrl + separator + 'popup=true',
+        left = (screen.width - width) / 2,
+        top = (screen.height - height) / 2,
+        windowFeatures = 'menubar=no,toolbar=no,status=no,width=' + width +
+            ',height=' + height + ',left=' + left + ',top=' + top;
+    return window.open(url, name, windowFeatures);
+}
 
-  function popupCenter(linkUrl, width, height, name) {
-      var separator = (linkUrl.indexOf('?') !== -1) ? '&' : '?',
-          url = linkUrl + separator + 'popup=true',
-          left = (screen.width - width) / 2,
-          top = (screen.height - height) / 2,
-          windowFeatures = 'menubar=no,toolbar=no,status=no,width=' + width +
-              ',height=' + height + ',left=' + left + ',top=' + top;
-      return window.open(url, name, windowFeatures);
-  }
-
-  $("a.popup").on("click", function(e) {
-    popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
-    e.stopPropagation(); return false;
-  });
+$("a.popup").on("click", function(e) {
+  popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
+  e.stopPropagation(); return false;
 });
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
