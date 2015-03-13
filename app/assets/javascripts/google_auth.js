@@ -1,4 +1,4 @@
-$(document).on('ready page:load', function () {
+$(document).ready(function () {
 
 	function popupCenter(linkUrl, width, height, name) {
 	    var separator = (linkUrl.indexOf('?') !== -1) ? '&' : '?',
