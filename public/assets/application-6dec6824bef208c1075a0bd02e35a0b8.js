@@ -13677,7 +13677,7 @@ else
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 ;
-jQuery(document).ready(function ($) {
+$(document).ready(function () {
 
   function popupCenter(linkUrl, width, height, name) {
       var separator = (linkUrl.indexOf('?') !== -1) ? '&' : '?',
@@ -13690,7 +13690,6 @@ jQuery(document).ready(function ($) {
   }
 
   $("a.popup").on("click", function(e) {
-    alert("wtf");
     popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
     e.stopPropagation(); return false;
   });
