@@ -1,17 +1,19 @@
 %h1 Email
 
--# = form_tag email_index_path
-
-  -# = label :send_to, 'To'
-  -# = text_field :send_to, 'title'
-
-  -# = label :movie, :director, 'Director'
-  -# = text_field :movie, 'director'
-
-  -# = label :movie, :rating, 'Rating'
-  -# = select :movie, :rating, ['G','PG','PG-13','R','NC-17']
-
-  -# = label :movie, :release_date, 'Released On'
-  -# = date_select :movie, :release_date
-
-  -# = submit_tag 'Send'
+= form_tag email_index_path do
+  %table
+    %tr
+      %td= label :email, :lable_to, 'To'
+      %td= text_field :email, :to, :size => 80
+    %tr
+      %td= label :email, :label_cc, 'CC'
+      %td= text_field :email, :cc, :size => 80
+    %tr
+      %td= label :email, :label_bcc, 'BCC'
+      %td= text_field :email, :bcc, :size => 80
+  
+  %table
+    %tr
+      %td= text_area :email, :content, :size => "83.5x30"
+    %tr
+      %td{:style => "text-align:right"}= submit_tag 'Send'
