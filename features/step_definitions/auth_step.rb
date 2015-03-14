@@ -37,11 +37,6 @@ end
 When /^(?:|I )try to login as "(.+)"$/ do |user_email|
 	set_omniauth(user_email)
 	click_link("Sign in with Google")
-  if User.find_by_email(user_email).nil?
-    steps %Q{Then I should be rejected}
-  else
-    visit email_index_path
-  end
 end
 
 Then /I should be rejected/ do
