@@ -15,6 +15,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
   gem 'rake'
+  gem 'simplecov'
 end
 
 group :production do

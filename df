@@ -1,0 +1,21 @@
+                                           Table "public.users"
+         Column         |            Type             |                     Modifiers                      
+------------------------+-----------------------------+----------------------------------------------------
+ id                     | integer                     | not null default nextval('users_id_seq'::regclass)
+ email                  | character varying           | not null default ''::character varying
+ encrypted_password     | character varying           | not null default ''::character varying
+ reset_password_token   | character varying           | 
+ reset_password_sent_at | timestamp without time zone | 
+ remember_created_at    | timestamp without time zone | 
+ sign_in_count          | integer                     | not null default 0
+ current_sign_in_at     | timestamp without time zone | 
+ last_sign_in_at        | timestamp without time zone | 
+ current_sign_in_ip     | character varying           | 
+ last_sign_in_ip        | character varying           | 
+ created_at             | timestamp without time zone | 
+ updated_at             | timestamp without time zone | 
+Indexes:
+    "users_pkey" PRIMARY KEY, btree (id)
+    "index_users_on_email" UNIQUE, btree (email)
+    "index_users_on_reset_password_token" UNIQUE, btree (reset_password_token)
+
