@@ -37,6 +37,7 @@ group :assets do
   # gem 'therubyracer', platforms: :ruby
 end
 
+gem 'databasedotcom'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'haml'
