@@ -1,4 +1,4 @@
-jQuery(document).on('ready page:load', function ($) {
+$(document).on('ready page:load', function ($) {
 
   Console.log( 'jQuery loaded');
 
