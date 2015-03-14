@@ -74,6 +74,9 @@ GEM
       nokogiri (~> 1.5)
       rails (>= 3, < 5)
     database_cleaner (1.4.1)
+    databasedotcom (1.0.7)
+      json
+      multipart-post (>= 1.1.3)
     debug_inspector (0.0.2)
     debugger (1.6.8)
       columnize (>= 0.3.1)
@@ -250,6 +253,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   cucumber-rails
   database_cleaner
+  databasedotcom
   debugger
   devise
   font-awesome-sass
