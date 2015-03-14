@@ -41,8 +41,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-  Omniauth.config.test_mode = true
-  Omniauth.config.add_mock(:google_oauth2, {
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.add_mock(:google_oauth2, {
         :provider => 'google_oauth2',
         :uid => '12345',
         :info => {

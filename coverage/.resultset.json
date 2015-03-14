@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/models/user.rb": [
+      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/spring2015/cs169/proj/collegetrack_portal/app/models/user.rb": [
         1,
         null,
         null,
@@ -16,28 +16,28 @@
         null,
         null
       ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/home_controller.rb": [
+      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/spring2015/cs169/proj/collegetrack_portal/app/controllers/home_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/application_controller.rb": [
+      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/spring2015/cs169/proj/collegetrack_portal/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/helpers/application_helper.rb": [
+      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/spring2015/cs169/proj/collegetrack_portal/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/helpers/email_helper.rb": [
+      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/spring2015/cs169/proj/collegetrack_portal/app/helpers/email_helper.rb": [
         1,
         null
       ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/users/omniauth_callbacks_controller.rb": [
+      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/spring2015/cs169/proj/collegetrack_portal/app/controllers/users/omniauth_callbacks_controller.rb": [
         1,
         1,
         null,
@@ -75,13 +75,13 @@
         null,
         null
       ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/email_controller.rb": [
+      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/spring2015/cs169/proj/collegetrack_portal/app/controllers/email_controller.rb": [
         1,
         1,
         null,
         null
       ]
     },
-    "timestamp": 1426313423
+    "timestamp": 1426315911
   }
 }
