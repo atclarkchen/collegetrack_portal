@@ -1,4 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'simplecov'
+SimpleCov.start 'rails'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
@@ -39,4 +41,13 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  Omniauth.config.test_mode = true
+  Omniauth.config.add_mock(:google_oauth2, {
+        :provider => 'google_oauth2',
+        :uid => '12345',
+        :info => {
+          :name => 'fake user',
+          :email => 'fake@gmail.com'
+        }
+      })
 end
