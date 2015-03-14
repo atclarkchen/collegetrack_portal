@@ -48,11 +48,6 @@
         1,
         1,
         1,
-        1,
-        0,
-        null,
-        1,
-        null,
         null,
         0,
         0,
@@ -71,6 +66,19 @@
         1,
         null,
         0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        2,
+        2,
+        0,
+        null,
+        2,
         null,
         null,
         null
@@ -82,11 +90,11 @@
         null
       ]
     },
-    "timestamp": 1426324674
+    "timestamp": 1426333404
   },
   "RSpec": {
     "coverage": {
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/models/user.rb": [
+      "/cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/models/user.rb": [
         1,
         null,
         null,
@@ -95,28 +103,43 @@
         null,
         null,
         1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
         null,
         null
       ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/helpers/application_helper.rb": [
+      "/cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/helpers/email_helper.rb": [
+      "/cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/helpers/email_helper.rb": [
         1,
         null
       ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/users/omniauth_callbacks_controller.rb": [
+      "/cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/controllers/users/omniauth_callbacks_controller.rb": [
         1,
         1,
         null,
-        1,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
         null,
         1,
-        null,
         0,
         0,
         0,
@@ -125,19 +148,12 @@
         0,
         null,
         null,
-        1,
-        1,
-        1,
-        1,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
         null,
         1,
         0,
+        null,
+        null,
+        1,
         0,
         0,
         0,
@@ -147,7 +163,7 @@
         null,
         null
       ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/application_controller.rb": [
+      "/cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -155,6 +171,6 @@
         null
       ]
     },
-    "timestamp": 1426323597
+    "timestamp": 1426343470
   }
 }
