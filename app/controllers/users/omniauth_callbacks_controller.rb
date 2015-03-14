@@ -20,7 +20,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       session["devise.google_data"] = request.env["omniauth.auth"]
       flash[:notice] = "This email is not authorized. Please log out and log in with an authorized account. Contact an admin if not yet authorized"
-      redirect_to root_path
+      @after_sign_in_url = root_path
+      if request.env['omniauth.params']['popup']
+        render 'callback', :layout => false
+      else
+        redirect_to @after_sign_in_url
+      end
     end
   end
 
@@ -31,6 +36,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       return true
     rescue
       return false
+    end
+  end
+
+  def failure
+    @after_sign_in_url = root_path
+    if request.env['omniauth.params']['popup']
+      render 'callback', :layout => false
+    else
+      redirect_to @after_sign_in_url
     end
   end
 end
