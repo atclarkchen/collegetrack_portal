@@ -4,12 +4,23 @@ Feature: login through Google
   So that I can email groups of students using my Google account,
   I want to link my Google account to this webapp
 
-Background: Any user must pass Google authentication
-  
-  Given I am on the login page
-  And I should see "Sign in with Google"
+Background: Users have been added to the database  
 
-Scenario: Signing in with Google for the first time
+  Given the following users exist:
+  | email                   | password |
+  | petrduong@gmail.com     | password |
+  | jason.chern93@gmail.com | password |
+  | shinyenhuang@gmail.com  | password |
+
+  And I am on the login page
+  Then I should see "Sign in with Google"
+
+Scenario: Signing in as an unauthorized user
   Given I am an unauthorized user
-  When I press "Sign in with Google"
-  Then I should be on email page
+  And I try to login as "hacker@gmail.com"
+  Then I should be rejected
+
+Scenario: Signing in as an authorized user
+	Given I am an authorized user
+	And I try to login as "petrduong@gmail.com"
+	Then I should be on the email page
