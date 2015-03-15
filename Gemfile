@@ -16,7 +16,8 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'rake'
   gem 'simplecov'
-  gem 'rspec-rails', '~> 2.14.0'
+  gem 'rspec-rails', '~> 3.2.1'
+  gem 'warden-rspec-rails'
 end
 
 group :production do
