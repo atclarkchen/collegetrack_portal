@@ -14,4 +14,4 @@ $(document).on('ready page:load', function () {
     popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
     e.stopPropagation(); return false;
   });
-});
+}); 
