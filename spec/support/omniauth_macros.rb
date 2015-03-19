@@ -5,7 +5,7 @@ module OmniauthMacros
     OmniAuth.config.add_mock(:google_oauth2, {
       :uid => "12345",
       :info => {
-        :email => "fake@gmail.com",
+        :email => "fake@gmail.com"
       }
     })
     request.env["devise.mapping"] = Devise.mappings[:user]

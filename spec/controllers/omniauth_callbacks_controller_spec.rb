@@ -4,31 +4,37 @@ describe Users::OmniauthCallbacksController do
 
   describe 'google_oauth2' do
     
-    context 'happy path' do
+    context 'when logging in with a valid email' do
       before :each do
-        @user = User.create(:email => "fake@gmail.com", :password => "password")
         google_hash
-        get :google_oauth2
       end
 
-      it 'sets the user' do
-        expect(assigns(:user)).to eq(@user)
+      it 'should verify if email belongs to a registered user' do
+        expect(User).to receive(:find_for_google_oauth2).with(request.env["omniauth.auth"], nil)
+        get :google_oauth2
       end
     
-      it 'redirects to email page' do
-        expect(response).to redirect_to email_index_path   
+      it 'should redirect to the email page' do
+        user = double('user', :email => 'fake@gmail.com')
+        User.stub(:find_for_google_oauth2).and_return(user)
+        get :google_oauth2
+        response.should redirect_to email_index_path
       end
     end
 
-    context 'invalid credentials' do
+    context 'when logging with with an invalid email' do
       before :each do
         google_hash
-        request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
-        get :google_oauth2
+        #oauth_hash = request.env["omniauth.auth"]
+        #request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
+        #get :google_oauth2
       end
 
-      it 'redirects to the root_path' do
-        expect(response).to redirect_to root_path
+      it 'should redirect to the login page' do
+        @user = double('user')
+        User.stub(:find_for_google_oauth2).and_return(@user)
+        get :google_oauth2
+        response.should redirect_to root_path
       end
     end
   end
