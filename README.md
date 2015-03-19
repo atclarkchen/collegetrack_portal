@@ -2,4 +2,3 @@
 [![Code Climate](https://codeclimate.com/github/forgottn/collegetrack_portal/badges/gpa.svg)](https://codeclimate.com/github/forgottn/collegetrack_portal)
 
 # College Track Student/Staff Portal
-
