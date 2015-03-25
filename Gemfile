@@ -18,6 +18,10 @@ group :development, :test do
   gem 'simplecov'
   gem 'rspec-rails', '~> 3.2.1'
   gem 'warden-rspec-rails'
+
+  gem 'factory_girl_rails'
+  gem 'guard-rspec', require: false
+
 end
 
 group :production do
