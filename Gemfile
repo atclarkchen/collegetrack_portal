@@ -43,6 +43,8 @@ group :assets do
   # gem 'therubyracer', platforms: :ruby
 end
 
+gem 'gmail'
+gem 'json'
 gem 'databasedotcom'
 gem 'devise'
 gem 'omniauth-google-oauth2'
