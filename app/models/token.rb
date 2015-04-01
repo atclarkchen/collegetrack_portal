@@ -24,7 +24,7 @@ class Token < ActiveRecord::Base
     access_token: data['access_token'],
     expires_at: Time.now + (data['expires_in'].to_i).seconds)
   end
- 
+
   def expired?
     expires_at < Time.now
   end

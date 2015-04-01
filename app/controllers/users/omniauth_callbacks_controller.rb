@@ -4,6 +4,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if not @user.nil?
       sign_in @user, :event => :authentication
+      set_token
+
       if sales_auth
         popup(email_index_path)
       else
@@ -39,4 +41,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to @after_sign_in_url
     end
   end
+
+  def set_token
+    # add set token method
+  end
+
 end
