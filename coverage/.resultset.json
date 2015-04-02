@@ -1,96 +1,76 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/models/user.rb": [
+      "/home/saasbook/collegetrack_portal/app/models/user.rb": [
         1,
         null,
         null,
         1,
-        null,
-        null,
-        null,
-        1,
-        2,
-        2,
-        2,
-        null,
-        null
-      ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/home_controller.rb": [
-        1,
-        1,
-        null,
-        null
-      ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
-        null
-      ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/helpers/email_helper.rb": [
-        1,
-        null
-      ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/users/omniauth_callbacks_controller.rb": [
-        1,
-        1,
-        null,
-        2,
-        null,
-        2,
-        null,
-        1,
-        1,
-        1,
-        null,
-        0,
-        0,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        0,
         null,
         null,
         null,
         1,
         0,
-        null,
-        null,
-        1,
-        2,
-        2,
         0,
-        null,
-        2,
-        null,
+        0,
         null,
         null
       ],
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/email_controller.rb": [
+      "/home/saasbook/collegetrack_portal/app/controllers/email_controller.rb": [
         1,
         1,
         null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/home/saasbook/collegetrack_portal/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/home/saasbook/collegetrack_portal/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/saasbook/collegetrack_portal/app/helpers/email_helper.rb": [
+        1,
         null
       ]
     },
-    "timestamp": 1426333404
+    "timestamp": 1427982020
   },
   "RSpec": {
     "coverage": {

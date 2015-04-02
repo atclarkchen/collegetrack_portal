@@ -1,6 +1,8 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+
+
 var EmailFilter = {
 	setup: function() {
 		$('#email_form').on('click', '#change_filter', EmailFilter.slideOpen);
@@ -18,6 +20,7 @@ var EmailFilter = {
 				return false;
     		}
     	});
+	Filter.pull_emails();
     }
 };
 
