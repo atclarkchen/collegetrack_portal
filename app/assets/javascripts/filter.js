@@ -17,7 +17,7 @@ var Filter = {
 	save: function() {
 		$('#filters').empty();
 		$(this).parent().find('.selected').each(function () {
-			$('#filters').append($(this).text() + " ");
+			$('#filters').append("<span class='ui_fil'><div class='left_fil'>" + $(this).text() + "</div><div class='x'></div></span>");
 		});
 	}
 };

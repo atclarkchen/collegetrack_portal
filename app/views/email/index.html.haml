@@ -18,7 +18,8 @@
       %td= text_field :email, :bcc, :size => 80
   #filter_label 
     Filters:
-    %span{:id => "filters"}
+    #filters
+  = link_to "change filters", "#"
   %table
     %tr
       %td= text_area :email, :content, :size => "83.5x30"
