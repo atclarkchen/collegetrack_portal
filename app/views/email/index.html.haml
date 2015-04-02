@@ -1,5 +1,6 @@
 - content_for(:head) do
   = javascript_include_tag 'filter'
+  = javascript_include_tag 'email'
   = stylesheet_link_tag 'email'
 
 
@@ -19,10 +20,10 @@
   #filter_label 
     Filters:
     #filters
-      %span{:class => ui_fil }
+      %span{:class => "ui_fil" }
         .left_fil Oakland
         .x
-  = link_to "change filters", "#"
+  = link_to "change filters", "#", :id => "change_filter"
   %table
     %tr
       %td= text_area :email, :content, :size => "83.5x30"
