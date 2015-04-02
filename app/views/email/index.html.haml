@@ -1,6 +1,11 @@
+- content_for(:head) do
+  = javascript_include_tag 'filter'
+  = stylesheet_link_tag 'email'
+
+
 %h1 Email
 
-= form_tag email_index_path do
+= form_tag email_index_path, :id => "email_form" do
   %table
     %tr
       %td= label :email, :lable_to, 'To'
@@ -11,9 +16,41 @@
     %tr
       %td= label :email, :label_bcc, 'BCC'
       %td= text_field :email, :bcc, :size => 80
-  
   %table
     %tr
       %td= text_area :email, :content, :size => "83.5x30"
     %tr
       %td{:style => "text-align:right"}= submit_tag 'Send'
+
+#accordian
+  %ul
+    %li
+      %h3 Location
+      %ul
+        %li
+          = link_to "Oakland", "#"
+    %li
+      %h3 Race
+      %ul
+        %li
+          = link_to "Asian", "#"
+        %li
+          = link_to "Black", "#"
+        %li
+          = link_to "White", "#"
+    %li
+      %h3 Gender
+      %ul
+        %li
+          = link_to "Male", "#"
+        %li
+          = link_to "Female", "#"
+    %li
+      %h3 Year
+      %ul
+        %li
+          = link_to "2010", "#"
+        %li
+          = link_to "2011", "#"
+        %li
+          = link_to "2012", "#"

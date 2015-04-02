@@ -4,7 +4,8 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  config.secret_key = '317b2ef3a01a702d5cf5336a9d71f179dd1e324538e8e42b9310cd2f2040530c3af1879dc36a83c5f0bade7b1f4a1ac60760497be20fadc5e402a121c3919945'
+  config.secret_key = ENV["DEVISE_SECRET_KEY"]
+  #config.secret_key = 'bdaf629cc9038a0ffb2d670c97d421bc867c689fba09ddfebb9f4a1083f7a834ec9a8d27b61e5cb9bfa57c973183114ce4f483be0daa6892ff1179948e2c6e16'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -232,7 +233,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :google_oauth2, ENV["GOOGLE_ID"], ENV["GOOGLE_SECRET"], :display => 'popup'
+  config.omniauth :google_oauth2, ENV["GOOGLE_ID"], ENV["GOOGLE_SECRET"], :display => 'popup', :scope => "email, profile, https://www.googleapis.com/auth/gmail.compose"
   #Rails.application.secrets.client_id, Rails.application.secrets.client_secret, 
 
   # ==> Warden configuration
