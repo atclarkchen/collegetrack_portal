@@ -12,3 +12,4 @@ Rails.application.config.assets.version = '1.1'
 Rails.application.config.assets.precompile += %w( google_auth.js )
 Rails.application.config.assets.precompile += %w( email.css )
 Rails.application.config.assets.precompile += %w( filter.js )
+Rails.application.config.assets.precompile += %w( email.js )
