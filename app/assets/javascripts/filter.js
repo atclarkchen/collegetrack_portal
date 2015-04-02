@@ -3,6 +3,7 @@ var Filter = {
 	setup: function() {
 		$('#accordian').on('click', 'h3', Filter.slide);
 		$('#accordian').on('click', 'a', Filter.highlight);
+		$('#accordian').on('click', '#save_filter', Filter.save);
 	},
 	slide: function() {
 		$('#accordian ul ul').slideUp();
@@ -13,6 +14,12 @@ var Filter = {
 	highlight: function() {
 		$(this).toggleClass('selected');
 	},
+	save: function() {
+		$('#filters').empty();
+		$(this).parent().find('.selected').each(function () {
+			$('#filters').append($(this).text() + " ");
+		});
+	}
 };
 
 $(Filter.setup);

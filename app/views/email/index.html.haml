@@ -16,6 +16,9 @@
     %tr
       %td= label :email, :label_bcc, 'BCC'
       %td= text_field :email, :bcc, :size => 80
+  #filter_label 
+    Filters:
+    %span{:id => "filters"}
   %table
     %tr
       %td= text_area :email, :content, :size => "83.5x30"
@@ -28,7 +31,7 @@
       %h3 Location
       %ul
         %li
-          = link_to "Oakland", "#"
+          = link_to "Oakland", "#", :class => "selected"
     %li
       %h3 Race
       %ul
@@ -54,3 +57,4 @@
           = link_to "2011", "#"
         %li
           = link_to "2012", "#"
+  %button{:id => 'save_filter'} Save
