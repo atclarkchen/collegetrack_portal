@@ -1,10 +1,15 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
+    @auth = request.env["omniauth.auth"]['credentials']
 
     if not @user.nil?
       sign_in @user, :event => :authentication
-      set_token
+      if @user.token.blank?
+        set_access_token
+      else
+        update_access_token
+      end
 
       if sales_auth
         popup(email_index_path)
@@ -42,8 +47,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  def set_token
-    # add set token method
+  def set_access_token
+    @user.create_token(
+      access_token:   @auth['token'],
+      refresh_token:  @auth['refresh_token'],
+      expires_at:     Time.at(@auth['expires_at']).to_datetime)
+  end
+
+  def update_access_token
+    @user.token.update_attributes(
+      access_token:   @auth['token'],
+      refresh_token:  @auth['refresh_token'],
+      expires_at:     Time.at(@auth['expires_at']).to_datetime)
   end
 
 end

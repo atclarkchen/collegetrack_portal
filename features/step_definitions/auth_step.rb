@@ -1,7 +1,7 @@
-require 'uri'
-require 'cgi'
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
+# require 'uri'
+# require 'cgi'
+# require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
+# require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
 
 module WithinHelpers
   def with_scope(locator)
@@ -20,13 +20,7 @@ Given /the following users exist/ do |user_table|
   end
 end
 
-Given /^(?:|I )am an (un)?authorized user$/ do |authorized|
-	if authorized
-
-	end
-end
-
-Then /^(?:|I )should see "([^"]*)"$/ do |text|
+Then /^(?:|I )should see "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_content(text)
   else

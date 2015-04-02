@@ -1,9 +1,12 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/models/user.rb": [
+      "/Volumes/Resources/Dropbox/2015SP/cs169/collegetrack_portal/app/models/user.rb": [
         1,
         null,
+        null,
+        null,
+        1,
         null,
         1,
         null,
@@ -13,11 +16,12 @@
         0,
         0,
         0,
+        null,
         null,
         null
       ]
     },
-    "timestamp": 1426743105
+    "timestamp": 1427936702
   },
   "RSpec": {
     "coverage": {

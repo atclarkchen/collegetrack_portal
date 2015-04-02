@@ -14,6 +14,7 @@
   
   %table
     %tr
-      %td= text_area :email, :content, :size => "83.5x30"
+      %td= text_area :email, :body, :size => "83.5x30"
     %tr
-      %td{:style => "text-align:right"}= submit_tag 'Send'
+      %td= submit_tag 'Send'
+      %td= submit_tag 'Save Draft'
