@@ -19,6 +19,8 @@ var Filter = {
 		$(this).parent().find('.selected').each(function () {
 			$('#filters').append("<span class='ui_fil'><div class='left_fil'>" + $(this).text() + "</div><div class='x'></div></span>");
 		});
+		$('#accordian ul ul').slideUp();
+		$('#accordian').animate({width: 'toggle'});
 	}
 };
 
