@@ -29,9 +29,9 @@ group :production do
   gem 'rails_12factor'
 end
 
-  gem 'bootstrap-sass', '~> 3.3.3'
-  gem 'font-awesome-sass'
-  
+gem 'bootstrap-sass', '~> 3.3.3'
+gem 'font-awesome-sass'
+
 group :assets do
   # Use SCSS for stylesheets
   gem 'sass-rails', '~> 5.0'
