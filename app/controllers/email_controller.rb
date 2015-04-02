@@ -8,8 +8,7 @@ class EmailController < ApplicationController
   end
 
   def send_message
-    debugger
-    Gmail.connect(:xoauth2, current_user.email, current_user.token.fresh_token) do |gmail|
+    # Gmail.connect(:xoauth2, current_user.email, current_user.token.fresh_token) do |gmail|
       # gmail.deliver do
       #   to "llss14@daum.net"
       #   bcc "hchang239@berkeley.edu, llss14@naver.com"
@@ -18,7 +17,7 @@ class EmailController < ApplicationController
       #     content_type 'text/html; charset=UTF-8'
       #     body "<p>Text of <em>html</em> message.</p>"
       # end
-    end
+    # end
 
     redirect_to email_index_path
   end

@@ -58,3 +58,11 @@ Then /^(?:|I )should see the following fields:(.*)$/ do |fields|
     expect(page).to have_field field_id
   end
 end
+
+Then /^(?:|I )should see the following buttons:(.*)$/ do |buttons|
+  trim_buttons = buttons.gsub(/[,_]/, ' ')
+  trim_buttons.split.each do |name|
+    expect(page).to have_button name
+  end
+end
+

@@ -17,7 +17,9 @@
   
   %table
     %tr
-      %td= text_area :email, :body, :size => "83.5x30"
+      %td= text_area :email, :body, :size => "83.5x20"
     %tr
-      %td= submit_tag 'Send'
-      %td= submit_tag 'Save Draft'
+      %td
+        = submit_tag 'Send'
+        = submit_tag 'Draft'
+        = submit_tag 'Delete'
