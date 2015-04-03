@@ -23,7 +23,7 @@ Scenario: Successfully sending email
   Then I should see "Message sent successfully"
   And all fields on the email page should be empty
 
-Scenario: Should be able to delete message
+Scenario: Should be able to reset message
   Given I compose the following email:
   | to      | mail_to@gmail.com                   |
   | cc      | mail_cc@gmail.com                   |
@@ -34,9 +34,15 @@ Scenario: Should be able to delete message
   When I press "Delete"
   Then all fields on the email page should be empty
 
-# Scenario: Successfully save email draft
-#   When I press "Draft"
-#   Then I should see "Draft saved successfully"
+Scenario: Successfully save email draft
+  Given I compose the following email:
+  | to      | mail_to@gmail.com                   |
+  | cc      | mail_cc@gmail.com                   |
+  | bcc     | mail_bcc@gmail.com                  |
+  | subject | Hello from CollegeTrack             |
+  | body    | Test message from CollegeTrack      |
+  When I press "Draft"
+  Then I should see "Message saved in your Gmail Draftbox"
 
 # Scenario: Successfully undo the sent email
 #   Given I fill in “to field” with “asianM2010@gmail.com”

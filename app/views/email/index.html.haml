@@ -39,8 +39,8 @@
     %tr
       %td
         = submit_tag 'Send'
-        = submit_tag 'Draft', formaction: save_draft_url
-        = submit_tag 'Delete', data: { confirm: "Are you sure?" }, type: "reset"
+        = submit_tag 'Draft'
+        = button_to  'Delete', delete_message_path, :method => :delete, :confirm => 'Are you sure?'
 
 #accordian
   %ul

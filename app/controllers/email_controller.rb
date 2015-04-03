@@ -9,27 +9,37 @@ class EmailController < ApplicationController
 
   def send_message
     email = params[:email]
-    Gmail.connect(:xoauth2, current_user.email, current_user.token.fresh_token) do |gmail|
-      gmail.deliver do
-        to  email[:to]
-        cc  email[:cc]
-        bcc email[:bcc]
 
-        subject email[:subject]
-        html_part do
-          content_type 'text/html; charset=UTF-8'
-          body email[:body]
+    if params[:commit] == "Send"
+      Gmail.connect(:xoauth2, current_user.email, current_user.token.fresh_token) do |gmail|
+        gmail.deliver do
+          to  email[:to]
+          cc  email[:cc]
+          bcc email[:bcc]
+
+          subject email[:subject]
+          html_part do
+            content_type 'text/html; charset=UTF-8'
+            body email[:body]
+          end
         end
       end
+
+      flash[:notice] = "Message sent successfully"
+    else
+      save_draft
     end
 
-    flash[:notice] = "Message sent successfully"
+    redirect_to email_index_path
+  end
+
+  def delete_message
+    flash[:notice] = "Message is deleted"
     redirect_to email_index_path
   end
 
   def save_draft
     flash[:notice] = "Message saved in your Gmail Draftbox"
-    redirect_to email_index_path
   end
 
   @@categories = [{"Asian"=>"asian", "White"=>"white","Black"=>"black"},{"Male"=>"M","Female"=>"F"},{"2010"=>"2010","2011"=>"2011","2012"=>"2012"}]
