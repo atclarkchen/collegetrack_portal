@@ -1,6 +1,6 @@
 class EmailController < ApplicationController
 
-  # before_filter :ensure_sign_in
+  before_filter :ensure_sign_in
 
   def index
   end
