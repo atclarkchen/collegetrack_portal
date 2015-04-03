@@ -9,22 +9,30 @@ Background:
   | user@sample.com | password |
 
   Given I am on the login page
-  When I am logged into as "user@sample.com"
-  And I compose the following email:
+  Then I am logged into as "user@sample.com"
+
+Scenario: Successfully sending email
+  Given I compose the following email:
   | to      | mail_to@gmail.com                   |
   | cc      | mail_cc@gmail.com                   |
   | bcc     | mail_bcc@gmail.com                  |
   | subject | Hello from CollegeTrack             |
   | body    | Test message from CollegeTrack      |
 
-Scenario: Successfully sending email
   When I press "Send"
   Then I should see "Message sent successfully"
   And all fields on the email page should be empty
 
-# Scenario: Should be able to delete message
-#   When I press "Delete"
-#   Then all fields on the email page should be empty
+Scenario: Should be able to delete message
+  Given I compose the following email:
+  | to      | mail_to@gmail.com                   |
+  | cc      | mail_cc@gmail.com                   |
+  | bcc     | mail_bcc@gmail.com                  |
+  | subject | Hello from CollegeTrack             |
+  | body    | Test message from CollegeTrack      |
+  
+  When I press "Delete"
+  Then all fields on the email page should be empty
 
 # Scenario: Successfully save email draft
 #   When I press "Draft"

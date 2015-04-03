@@ -27,6 +27,11 @@ class EmailController < ApplicationController
     redirect_to email_index_path
   end
 
+  def save_draft
+    flash[:notice] = "Message saved in your Gmail Draftbox"
+    redirect_to email_index_path
+  end
+
   @@categories = [{"Asian"=>"asian", "White"=>"white","Black"=>"black"},{"Male"=>"M","Female"=>"F"},{"2010"=>"2010","2011"=>"2011","2012"=>"2012"}]
 
   def generate_email(filters, lvl, emails)
@@ -58,4 +63,5 @@ class EmailController < ApplicationController
     filters = params[:filters]
     render plain: generate_email(filters, 0, [""]).join(", ")
   end
+
 end
