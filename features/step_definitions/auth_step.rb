@@ -20,7 +20,7 @@ end
 
 Given /^(?:|I )am logged into as "(.+)"$/ do |user_email|
   steps %Q{
-    When I try to login as "#{user_email}"
+    When I login as "#{user_email}"
   }
 end
 
@@ -28,6 +28,10 @@ Given /the following users exist/ do |user_table|
   user_table.hashes.each do |user|
     User.create(user)
   end
+end
+
+Given /^(?:|I )am an (un)?authorized user$/ do |unauthorized|
+
 end
 
 Then /^(?:|I )should see "([^\"]*)"$/ do |text|

@@ -14,7 +14,7 @@ Scenario: Email page should not be access by an unauthorized user
 
 Scenario: An authorized user should see the full email page
   Given I am on the login page
-  When I try to login as "user@sample.com"
+  When I login as "user@sample.com"
   Then I should be on the email page
   And I should see the following fields: to, cc, bcc, subject, body
   And I should see the following buttons: Send, Draft
