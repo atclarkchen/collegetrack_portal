@@ -13,7 +13,7 @@ Scenario: User cannot reset Salesforce password
   
   When I login as a user
   And the password is outdated
-  Then I should see “Salesforce password outdated, please contact to an Admin”
+  Then I should see "Your salesforce account is invalid or not authorized. Please contact an admin”
 
 Scenario: Admin can reset Salesforce password
   
