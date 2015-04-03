@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get 'email/index'
-  get 'email/admin'
-  post 'email/new'
-  match 'email/admin/destroy' => 'email#destroy', :via => :delete, :as => :delete_user
+  match 'admin' => 'admin#index', :via => :get, :as => :admin
+  post 'admin/new'
+  match 'admin/destroy' => 'admin#destroy', :via => :delete, :as => :delete_user
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

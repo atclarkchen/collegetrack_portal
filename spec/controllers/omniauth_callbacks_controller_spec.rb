@@ -3,32 +3,44 @@ require 'rails_helper'
 describe Users::OmniauthCallbacksController do
 
   describe 'google_oauth2' do
+    before :each do
+      google_hash
+    end
     
-    context 'happy path' do
+    context 'when logging in with a valid email' do
       before :each do
-        @user = User.create(:email => "fake@gmail.com", :password => "password")
-        google_hash
-        get :google_oauth2
+        allow(User).to receive(:find_for_google_oauth2) { User.new }
       end
 
-      it 'sets the user' do
-        expect(assigns(:user)).to eq(@user)
+      it 'should verify if email belongs to a registered user' do
+        expect(User).to receive(:find_for_google_oauth2).with(request.env["omniauth.auth"], nil)
+        get :google_oauth2
       end
     
-      it 'redirects to email page' do
-        expect(response).to redirect_to email_index_path   
+      it 'should redirect to the email page' do
+        get :google_oauth2
+        expect(response).to redirect_to email_index_path
+      end
+
+      it 'should redirect to the root page if salesforce is invalid' do
+        allow(controller).to receive(:sales_auth) { false }
+        get :google_oauth2
+        expect(response).to redirect_to root_path
       end
     end
 
-    context 'invalid credentials' do
-      before :each do
-        google_hash
-        request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
+    context 'when logging with with an unauthorized email' do
+      it 'should redirect to the login page' do
         get :google_oauth2
-      end
-
-      it 'redirects to the root_path' do
         expect(response).to redirect_to root_path
+      end
+    end
+
+    context 'logging in when javascript is enabled' do
+      it 'should render a popup' do
+        request.env['omniauth.params']['popup'] = true
+        get :google_oauth2
+        expect(response).to render_template("callback")
       end
     end
   end
