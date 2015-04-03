@@ -4,7 +4,7 @@ class EmailController < ApplicationController
 
   def index
   end
-
+  
   def send_message
     if params[:send]
       send_email params[:email]
