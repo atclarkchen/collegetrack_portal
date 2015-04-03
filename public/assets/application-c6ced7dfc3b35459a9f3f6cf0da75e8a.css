@@ -11440,7 +11440,7 @@ button.close {
  *
  * https://github.com/lipis/bootstrap-social
  */
-/* line 15, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 15, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social, .btn-social-icon {
   position: relative;
   padding-left: 44px;
@@ -11449,7 +11449,7 @@ button.close {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 22, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 22, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social > :first-child, .btn-social-icon > :first-child {
   position: absolute;
   left: 0;
@@ -11461,64 +11461,64 @@ button.close {
   text-align: center;
   border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
-/* line 33, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 33, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social.btn-lg, .btn-group-lg > .btn-social.btn, .btn-group-lg > .btn.btn-social-icon, .btn-lg.btn-social-icon {
   padding-left: 61px;
 }
-/* line 35, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 35, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social.btn-lg :first-child, .btn-group-lg > .btn-social.btn :first-child, .btn-group-lg > .btn.btn-social-icon :first-child, .btn-lg.btn-social-icon :first-child {
   line-height: 45px;
   width: 45px;
   font-size: 1.8em;
 }
-/* line 41, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 41, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social.btn-sm, .btn-group-sm > .btn-social.btn, .btn-group-sm > .btn.btn-social-icon, .btn-sm.btn-social-icon {
   padding-left: 38px;
 }
-/* line 43, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 43, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social.btn-sm :first-child, .btn-group-sm > .btn-social.btn :first-child, .btn-group-sm > .btn.btn-social-icon :first-child, .btn-sm.btn-social-icon :first-child {
   line-height: 28px;
   width: 28px;
   font-size: 1.4em;
 }
-/* line 49, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 49, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social.btn-xs, .btn-group-xs > .btn-social.btn, .btn-group-xs > .btn.btn-social-icon, .btn-xs.btn-social-icon {
   padding-left: 30px;
 }
-/* line 51, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 51, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social.btn-xs :first-child, .btn-group-xs > .btn-social.btn :first-child, .btn-group-xs > .btn.btn-social-icon :first-child, .btn-xs.btn-social-icon :first-child {
   line-height: 20px;
   width: 20px;
   font-size: 1.2em;
 }
 
-/* line 59, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 59, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social-icon {
   height: 34px;
   width: 34px;
   padding: 0;
 }
-/* line 64, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 64, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social-icon :first-child {
   border: none;
   text-align: center;
   width: 100% !important;
 }
-/* line 69, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 69, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social-icon.btn-lg, .btn-group-lg > .btn-social-icon.btn {
   height: 45px;
   width: 45px;
   padding-left: 0;
   padding-right: 0;
 }
-/* line 75, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 75, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social-icon.btn-sm, .btn-group-sm > .btn-social-icon.btn {
   height: 30px;
   width: 30px;
   padding-left: 0;
   padding-right: 0;
 }
-/* line 81, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 81, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-social-icon.btn-xs, .btn-group-xs > .btn-social-icon.btn {
   height: 22px;
   width: 22px;
@@ -11526,7 +11526,7 @@ button.close {
   padding-right: 0;
 }
 
-/* line 95, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 95, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-adn {
   background-color: #d87a68;
   color: #fff;
@@ -11554,7 +11554,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 96, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 96, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-bitbucket {
   background-color: #205081;
   color: #fff;
@@ -11582,7 +11582,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 97, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 97, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-dropbox {
   background-color: #1087dd;
   color: #fff;
@@ -11610,7 +11610,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 98, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 98, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-facebook {
   background-color: #3b5998;
   color: #fff;
@@ -11638,7 +11638,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 99, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 99, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-flickr {
   background-color: #ff0084;
   color: #fff;
@@ -11666,7 +11666,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 100, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 100, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-foursquare {
   background-color: #f94877;
   color: #fff;
@@ -11694,7 +11694,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 101, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 101, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-github {
   background-color: #444444;
   color: #fff;
@@ -11722,7 +11722,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 102, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 102, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-google-plus {
   background-color: #dd4b39;
   color: #fff;
@@ -11750,7 +11750,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 103, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 103, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-instagram {
   background-color: #3f729b;
   color: #fff;
@@ -11778,7 +11778,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 104, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 104, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-linkedin {
   background-color: #007bb6;
   color: #fff;
@@ -11806,7 +11806,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 105, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 105, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-microsoft {
   background-color: #2672ec;
   color: #fff;
@@ -11834,7 +11834,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 106, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 106, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-openid {
   background-color: #f7931e;
   color: #fff;
@@ -11862,7 +11862,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 107, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 107, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-pinterest {
   background-color: #cb2027;
   color: #fff;
@@ -11890,7 +11890,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 108, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 108, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-reddit {
   background-color: #eff7ff;
   color: #000;
@@ -11918,7 +11918,7 @@ button.close {
   background-color: #000;
 }
 
-/* line 109, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 109, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-soundcloud {
   background-color: #ff5500;
   color: #fff;
@@ -11946,7 +11946,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 110, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 110, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-tumblr {
   background-color: #2c4762;
   color: #fff;
@@ -11974,7 +11974,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 111, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 111, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-twitter {
   background-color: #55acee;
   color: #fff;
@@ -12002,7 +12002,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 112, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 112, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-vimeo {
   background-color: #1ab7ea;
   color: #fff;
@@ -12030,7 +12030,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 113, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 113, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-vk {
   background-color: #587ea3;
   color: #fff;
@@ -12058,7 +12058,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 114, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
+/* line 114, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/bootstrap-social.scss */
 .btn-yahoo {
   background-color: #720e9e;
   color: #fff;
@@ -12086,7 +12086,7 @@ button.close {
   background-color: #fff;
 }
 
-/* line 1, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/center.scss */
+/* line 1, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/center.scss */
 html {
   height: 100%;
   width: 100%;
@@ -12095,7 +12095,7 @@ html {
   min-height: 100%;
 }
 
-/* line 9, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/center.scss */
+/* line 9, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/center.scss */
 body {
   height: 100%;
   width: 100%;
@@ -12103,7 +12103,7 @@ body {
   margin: 0;
 }
 
-/* line 16, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/center.scss */
+/* line 16, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/center.scss */
 .container {
   height: 100%;
   display: table;
@@ -12111,7 +12111,7 @@ body {
   padding: 0;
 }
 
-/* line 23, /cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/assets/stylesheets/center.scss */
+/* line 23, /cygdrive/c/users/forgottn/desktop/cs/169/collegetrack_portal/app/assets/stylesheets/center.scss */
 .center {
   height: 100%;
   display: table-cell;
