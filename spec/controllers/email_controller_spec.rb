@@ -34,7 +34,13 @@ RSpec.describe EmailController, type: :controller do
     after :each do
       expect(response).to redirect_to email_index_path
     end
+  end
 
+  describe "#delete_message" do
+    it "redirects to email_index_path" do
+      delete :delete_message
+      expect(response).to redirect_to email_index_path
+    end
   end
 
 end
