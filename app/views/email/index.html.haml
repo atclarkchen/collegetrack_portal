@@ -39,8 +39,8 @@
     %tr
       %td
         = submit_tag 'Send'
-        = submit_tag 'Draft'
-        = submit_tag 'Delete'
+        = submit_tag 'Draft', formaction: save_draft_url
+        = submit_tag 'Delete', data: { confirm: "Are you sure?" }, type: "reset"
 
 #accordian
   %ul
