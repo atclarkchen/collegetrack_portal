@@ -6,6 +6,13 @@ Then /^(?:|I )should see the following fields:(.*)$/ do |fields|
   end
 end
 
+Then /^(?:|I )should see the following links:(.*)$/ do |links|
+  trim_links = links.gsub(/[,_]/, ' ')
+  trim_links.split.each do |name|
+    steps %Q{Then I should see "#{name}"}
+  end
+end
+
 Then /^(?:|I )should see the following buttons:(.*)$/ do |buttons|
   trim_buttons = buttons.gsub(/[,_]/, ' ')
   trim_buttons.split.each do |name|

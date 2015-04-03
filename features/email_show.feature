@@ -17,4 +17,5 @@ Scenario: An authorized user should see the full email page
   When I try to login as "user@sample.com"
   Then I should be on the email page
   And I should see the following fields: to, cc, bcc, subject, body
-  And I should see the following buttons: Send, Delete, Draft
+  And I should see the following buttons: Send, Draft
+  And I should see the following links: Delete
