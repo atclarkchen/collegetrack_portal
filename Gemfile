@@ -16,7 +16,7 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'selenium-webdriver'
   gem 'rake'
-  gem 'simplecov'
+  gem 'simplecov', :require => false, :group => :test
   gem 'rspec-rails', '~> 3.2.1'
   gem 'warden-rspec-rails'
   gem 'factory_girl_rails'
