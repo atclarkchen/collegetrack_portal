@@ -5,11 +5,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if not @user.nil?
       sign_in @user, :event => :authentication
-      if @user.token.blank?
-        set_access_token
-      else
-        update_access_token
-      end
+      set_access_token
 
       if sales_auth
         popup(email_index_path)
@@ -49,13 +45,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def set_access_token
     @user.create_token(
-      access_token:   @auth['token'],
-      refresh_token:  @auth['refresh_token'],
-      expires_at:     Time.at(@auth['expires_at']).to_datetime)
-  end
-
-  def update_access_token
-    @user.token.update_attributes(
       access_token:   @auth['token'],
       refresh_token:  @auth['refresh_token'],
       expires_at:     Time.at(@auth['expires_at']).to_datetime)

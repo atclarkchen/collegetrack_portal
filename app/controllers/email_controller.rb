@@ -1,33 +1,17 @@
-require 'gmail'
-
 class EmailController < ApplicationController
 
-  before_filter :ensure_sign_in
+  # before_filter :ensure_sign_in
 
   def index
   end
 
   def send_message
-    email = params[:email]
-
-    if params[:commit] == "Send"
-      Gmail.connect(:xoauth2, current_user.email, current_user.token.fresh_token) do |gmail|
-        gmail.deliver do
-          to  email[:to]
-          cc  email[:cc]
-          bcc email[:bcc]
-
-          subject email[:subject]
-          html_part do
-            content_type 'text/html; charset=UTF-8'
-            body email[:body]
-          end
-        end
-      end
-
+    if params[:send]
+      send_email params[:email]
       flash[:notice] = "Message sent successfully"
     else
       save_draft
+      flash[:notice] = "Message saved in your Gmail Draftbox"
     end
 
     redirect_to email_index_path
@@ -73,5 +57,5 @@ class EmailController < ApplicationController
     filters = params[:filters]
     render plain: generate_email(filters, 0, [""]).join(", ")
   end
-
+  
 end

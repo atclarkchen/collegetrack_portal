@@ -31,8 +31,9 @@ Scenario: Should be able to reset message
   | subject | Hello from CollegeTrack             |
   | body    | Test message from CollegeTrack      |
   
-  When I press "Delete"
+  When I follow "Delete"
   Then all fields on the email page should be empty
+  And I should see "Message is deleted"
 
 Scenario: Successfully save email draft
   Given I compose the following email:
