@@ -18,7 +18,7 @@ class EmailController < ApplicationController
       #     body "<p>Text of <em>html</em> message.</p>"
       # end
     # end
-
+    flash[:notice] = "Message sent successfully"
     redirect_to email_index_path
   end
 

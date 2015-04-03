@@ -1,0 +1,4 @@
+1. Modifying the User model
+2. Spec. for Draft message
+3. Should we keep Text Feature?
+4. Clean up the master

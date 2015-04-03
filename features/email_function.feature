@@ -8,23 +8,27 @@ Background:
   | email           | password |
   | user@sample.com | password |
 
+  Given I am on the login page
   When I am logged into as "user@sample.com"
-  Then I am on email page
   And I compose the following email:
-  | to                | cc                | bcc                | subject         | body                  |
-  | mail_to@gmail.com | mail_cc@gmail.com | mail_bcc@gmail.com | Hello from C.T. | Test message from C.T.|
+  | to      | mail_to@gmail.com                   |
+  | cc      | mail_cc@gmail.com                   |
+  | bcc     | mail_bcc@gmail.com                  |
+  | subject | Hello from CollegeTrack             |
+  | body    | Test message from CollegeTrack      |
 
 Scenario: Successfully sending email
   When I press "Send"
-  And I wait for "30" seconds
+  # And I wait for "30" seconds
   Then I should see "Message sent successfully"
+  And all fields on the email page should be empty
 
 Scenario: Should be able to delete message
   When I press "Delete"
   Then all fields on the email page should be empty
 
 Scenario: Successfully save email draft
-  When I press "Save Draft"
+  When I press "Draft"
   Then I should see “Draft saved successfully”
 
 # Scenario: Successfully undo the sent email

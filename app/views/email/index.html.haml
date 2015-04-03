@@ -1,5 +1,8 @@
 %h1 Email
 
+- if flash[:notice]
+  #notice.message= flash[:notice]
+
 = form_tag email_index_path do
   %table
     %tr

@@ -50,19 +50,3 @@ Then /^(?:|I )should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
   expect(current_path).to eq path_to(page_name)
 end
-
-Then /^(?:|I )should see the following fields:(.*)$/ do |fields|
-  trim_fields = fields.gsub(/,/, ' ')
-  trim_fields.split.each do |name|
-    field_id = "email_" + name
-    expect(page).to have_field field_id
-  end
-end
-
-Then /^(?:|I )should see the following buttons:(.*)$/ do |buttons|
-  trim_buttons = buttons.gsub(/[,_]/, ' ')
-  trim_buttons.split.each do |name|
-    expect(page).to have_button name
-  end
-end
-
