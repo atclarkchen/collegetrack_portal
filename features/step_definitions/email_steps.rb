@@ -23,3 +23,11 @@ end
 When /^I press "(.*?)"$/ do |button|
   click_button button
 end
+
+Then /^all fields on the email page should be empty$/ do
+  expect(find_field('email_to').value).to      be_blank
+  expect(find_field('email_cc').value).to      be_blank
+  expect(find_field('email_bcc').value).to     be_blank
+  expect(find_field('email_subject').value).to be_blank
+  expect(find_field('email_body').value).to    be_blank
+end
