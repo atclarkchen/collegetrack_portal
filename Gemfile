@@ -48,6 +48,7 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'haml'
 gem 'pundit'
+gem 'tinymce-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

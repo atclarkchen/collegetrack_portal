@@ -1,3 +1,6 @@
+= tinymce_assets
+= tinymce
+
 - if flash[:notice]
   #notice.message= flash[:notice]
 
@@ -17,12 +20,13 @@
     %tr
       %td= label :email, :label_subject, 'Subject'
       %td= text_field :email, :subject, :size => 80
-  
   %table
     %tr
-      %td= text_area :email, :body, :size => "83.5x20"
+      %td= text_area :email, :body, :class => 'tinymce', :cols => 80, :rows => 20
+  
     %tr
       %td
         = submit_tag 'Send'
         = submit_tag 'Draft'
         = submit_tag 'Delete'
+
