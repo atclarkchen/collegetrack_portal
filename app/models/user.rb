@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
     @user = User.where(:email => data["email"]).first
     @user
   end
+
 end
