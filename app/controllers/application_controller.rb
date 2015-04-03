@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
   include EmailHelper
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
+<<<<<<< HEAD
 
+=======
+>>>>>>> 387240040a160293fbd9815652d1112c480f2e60
   protected
 
   def configure_permitted_parameters
