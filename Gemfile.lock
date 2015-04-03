@@ -108,6 +108,12 @@ GEM
     hashie (3.4.0)
     hike (1.2.3)
     i18n (0.7.0)
+    jasmine (2.2.0)
+      jasmine-core (~> 2.2)
+      phantomjs
+      rack (>= 1.2.1)
+      rake
+    jasmine-core (2.2.0)
     jbuilder (2.2.11)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -149,6 +155,7 @@ GEM
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    phantomjs (1.9.8.0)
     pundit (0.3.0)
       activesupport (>= 3.0.0)
     rack (1.6.0)
@@ -264,6 +271,7 @@ DEPENDENCIES
   devise
   font-awesome-sass
   haml
+  jasmine
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-google-oauth2
