@@ -21,6 +21,7 @@ group :development, :test do
   gem 'warden-rspec-rails'
   gem 'factory_girl_rails'
   gem 'jasmine'
+  gem 'webmock'
 end
 
 group :production do
