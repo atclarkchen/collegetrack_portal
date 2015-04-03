@@ -17,5 +17,4 @@ class User < ActiveRecord::Base
   def admin?
     :role == 'Admin'
   end
-
 end
