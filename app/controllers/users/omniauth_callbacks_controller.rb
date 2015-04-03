@@ -3,7 +3,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
     @auth = request.env["omniauth.auth"]['credentials']
 
-    if not @user.nil?
+    if @user
       sign_in @user, :event => :authentication
       if @user.token.blank?
         set_access_token
