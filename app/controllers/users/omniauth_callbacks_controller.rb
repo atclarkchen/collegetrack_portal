@@ -19,7 +19,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def sales_auth
     begin
-      client = Databasedotcom::Client.new("databasedotcom.yml")
+      client = Databasedotcom::Client.new
       client.authenticate :username => "shinyenhuang@gmail.com", :password => "an1me3den9aQZyynyh0E5dJD7kRyYLUNHc"
       return true
     rescue

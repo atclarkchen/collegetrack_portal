@@ -12,15 +12,15 @@ var EmailFilter = {
         $('#accordian').animate({width: 'toggle'});
     },
     remove: function() {
-    	var filterText = $(this).prev().text();
-    	$(this).parent().remove();
-    	$(".selected").each(function() {
-    		if ($(this).text() == filterText) {
-				$(this).toggleClass('selected');
-				return false;
-    		}
-    	});
-	Filter.pull_emails();
+        var filterText = $(this).prev().text();
+        $(this).parent().remove();
+        $(".selected").each(function() {
+            if ($(this).text() == filterText) {
+                $(this).toggleClass('selected');
+                return false;
+            }
+        });
+        Filter.pull_emails();
     }
 };
 

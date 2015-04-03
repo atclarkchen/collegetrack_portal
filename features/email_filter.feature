@@ -1,3 +1,4 @@
+@javascript
 Feature: Filter students to email by categories
 
   As a College Track staff,
@@ -8,12 +9,12 @@ Scenario: Add a single filter with default filter selected
 
   Given I see the filters: Oakland
   And I add the filters: 2010
-  Then the recipient fields should contain: asianF2010@gmail.com whiteF2010@gmail.com blackF2010@gmail.com asianM2010@gmail.com whiteM2010@gmail.com blackM2010@gmail.com  
+  Then the recipient fields should contain: asianM2010@gmail.com whiteM2010@gmail.com blackM2010@gmail.com asianF2010@gmail.com whiteF2010@gmail.com blackF2010@gmail.com
 
 Scenario: Adding multiple filters with existing filters
 
   Given I see the filters: Oakland,2010
-  And the recipient fields should contain: asianF2010@gmail.com whiteF2010@gmail.com blackF2010@gmail.com asianM2010@gmail.com whiteM2010@gmail.com blackM2010@gmail.com
+  And the recipient fields should contain: asianM2010@gmail.com whiteM2010@gmail.com blackM2010@gmail.com asianF2010@gmail.com whiteF2010@gmail.com blackF2010@gmail.com
   And I add the filters: White
   Then the recipient fields should contain: whiteM2010@gmail.com whiteF2010@gmail.com 
 
@@ -21,8 +22,8 @@ Scenario: Removing a single filter through the x button
 
   Given I see the filters: Oakland,2010,Female
   And the recipient fields should contain: asianF2010@gmail.com whiteF2010@gmail.com blackF2010@gmail.com
-  And I click the “x” button on “2010”
-  Then the recipient fields should contain: asianF2010@gmail.com whiteF2010@gmail.com blackF2010@gmail.com asianF2011@gmail.com whiteF2011@gmail.com blackF2011@gmail.com asianF2012@gmail.com whiteF2012@gmail.com blackF2012@gmail.com
+  And I click the x button on "Female"
+  Then the recipient fields should contain: asianM2010@gmail.com whiteM2010@gmail.com blackM2010@gmail.com asianF2010@gmail.com whiteF2010@gmail.com blackF2010@gmail.com
 
 Scenario: Deselecting filters by changing filters
 

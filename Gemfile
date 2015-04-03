@@ -14,6 +14,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
+  gem 'selenium-webdriver'
   gem 'rake'
   gem 'simplecov'
   gem 'rspec-rails', '~> 3.2.1'

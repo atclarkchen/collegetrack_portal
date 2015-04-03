@@ -15,9 +15,62 @@
         0,
         null,
         null
+      ],
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/email_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        76,
+        164,
+        null,
+        57,
+        57,
+        57,
+        57,
+        129,
+        24,
+        null,
+        null,
+        57,
+        33,
+        293,
+        null,
+        null,
+        57,
+        152,
+        99,
+        null,
+        null,
+        57,
+        null,
+        null,
+        1,
+        19,
+        19,
+        null,
+        null
+      ],
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/helpers/email_helper.rb": [
+        1,
+        null
       ]
     },
-    "timestamp": 1426743105
+    "timestamp": 1428050731
   },
   "RSpec": {
     "coverage": {
