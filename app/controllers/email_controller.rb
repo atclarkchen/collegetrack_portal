@@ -53,5 +53,4 @@ class EmailController < ApplicationController
     filters = params[:filters]
     render plain: generate_email(filters, 0, [""]).join(", ")
   end
-  
 end

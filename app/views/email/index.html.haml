@@ -11,7 +11,10 @@
 
 %h1 Email
 
+=link_to "Admin", '/email/admin'
+
 = form_tag email_index_path, :id => "email_form" do
+
   %table
     %tr
       %td= label :email, :lable_to, 'To'
