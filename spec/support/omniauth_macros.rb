@@ -6,6 +6,11 @@ module OmniauthMacros
       :uid => "12345",
       :info => {
         :email => "fake@gmail.com"
+      },
+      :credentials => {
+        :token => "token",
+        :secret => "secret",
+        :expires_at => Time.now + 1.week
       }
     })
     request.env["devise.mapping"] = Devise.mappings[:user]

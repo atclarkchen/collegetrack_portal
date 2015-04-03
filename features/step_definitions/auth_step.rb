@@ -34,7 +34,7 @@ Then /^(?:|I )should see "([^\"]*)"$/ do |text|
   expect(page).to have_content(text)
 end
 
-When /^(?:|I )try to login as "(.+)"$/ do |user_email|
+When /^(?:|I )login as "(.+)"$/ do |user_email|
 	set_omniauth(user_email)
   @current_user = User.find_by_email(user_email)
 	click_link("Sign in with Google")

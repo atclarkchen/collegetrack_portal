@@ -1,40 +1,37 @@
-Given /^I see the filters: (.*)$/ do |filters|
-  visit '/email/index'
-  step %{I add the filters: #{filters}}
-end
-
-Given /^I (?:|add|remove) the filters: (.*)$/ do |filters|
-  options = { :Location => ["Oakland"], :Race => ["Asian", "Black", "White"], :Gender => ["Male", "Female"], :Year => ["2010", "2011", "2012"]}
-  filters = filters.split(",")
-  filters.each do |filter|
-    if filter === "Oakland"
-      next
-    end
-    options.each do |category, values|
-      if values.include?(filter)
-        click_link('change filters')
-        find('h3', text: category).click
-        click_link(filter)
-        click_button("save_filter")
-      end
-    end
+Then /^(?:|I )should see the following fields:(.*)$/ do |fields|
+  trim_fields = fields.gsub(/,/, ' ')
+  trim_fields.split.each do |name|
+    field_id = "email_" + name
+    expect(page).to have_field field_id
   end
 end
 
-Then /^(?:|I )click the x button on "(.*)"$/ do |filters|
-  filters = filters.split(",")
-  filters.each do |filter|
-    page.all('.ui_fil').each do |elem|
-      within(elem) do |el|
-        if find('.left_fil').text == filter
-          find('.x').click
-        end
-      end
-    end
+Then /^(?:|I )should see the following buttons:(.*)$/ do |buttons|
+  trim_buttons = buttons.gsub(/[,_]/, ' ')
+  trim_buttons.split.each do |name|
+    expect(page).to have_button name
   end
 end
 
-Then /^the recipient fields should contain: (.*)$/ do |emails|
-  emails = emails.split(" ")
-  expect(page).to have_field('email_bcc', :with => emails.join(", "))
+And /^I compose the following email:$/ do |email_table|
+  email_table.rows_hash.each do |field|
+    field_id = "email_" + field.first
+    fill_in field_id, :with => field.second
+  end
+end
+
+When /^I press "(.*?)"$/ do |button|
+  click_button button
+end
+
+When /^I follow "(.*?)"$/ do |link|
+  click_link link
+end
+
+Then /^all fields on the email page should be empty$/ do
+  expect(find_field('email_to').value).to      be_blank
+  expect(find_field('email_cc').value).to      be_blank
+  expect(find_field('email_bcc').value).to     be_blank
+  expect(find_field('email_subject').value).to be_blank
+  expect(find_field('email_body').value).to    be_blank
 end
