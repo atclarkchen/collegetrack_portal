@@ -20,8 +20,6 @@ group :development, :test do
   gem 'warden-rspec-rails'
 
   gem 'factory_girl_rails'
-  gem 'guard-rspec', require: false
-
 end
 
 group :production do
