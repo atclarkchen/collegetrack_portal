@@ -38,8 +38,8 @@
 
     %tr
       %td
-        = submit_tag 'Send',   name: "send"
-        = submit_tag 'Draft',  name: "draft"
+        = submit_tag 'Send',   name: "send_msg"
+        = submit_tag 'Draft',  name: "draft_msg"
         = link_to "Delete", delete_message_url, :method => :delete, data: {confirm: "Are you sure?"}
 
 #accordian

@@ -22,7 +22,7 @@ module EmailHelper
     end
   end
 
-  def save_draft
+  def save_draft(email)
   end
 
 end

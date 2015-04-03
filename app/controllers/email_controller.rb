@@ -6,11 +6,11 @@ class EmailController < ApplicationController
   end
 
   def send_message
-    if params[:send]
+    if params[:send_msg]
       send_email params[:email]
       flash[:notice] = "Message sent successfully"
     else
-      save_draft
+      save_draft params[:email]
       flash[:notice] = "Message saved in your Gmail Draftbox"
     end
 
@@ -20,10 +20,6 @@ class EmailController < ApplicationController
   def delete_message
     flash[:notice] = "Message is deleted"
     redirect_to email_index_path
-  end
-
-  def save_draft
-    flash[:notice] = "Message saved in your Gmail Draftbox"
   end
 
   @@categories = [{"Asian"=>"asian", "White"=>"white","Black"=>"black"},{"Male"=>"M","Female"=>"F"},{"2010"=>"2010","2011"=>"2011","2012"=>"2012"}]
