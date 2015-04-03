@@ -14,12 +14,13 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
+  gem 'selenium-webdriver'
   gem 'rake'
   gem 'simplecov'
   gem 'rspec-rails', '~> 3.2.1'
   gem 'warden-rspec-rails'
-
   gem 'factory_girl_rails'
+  gem 'jasmine'
 end
 
 group :production do
@@ -60,4 +61,4 @@ group :doc do
   gem 'sdoc', '~> 0.4.0'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', :platforms => [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', :platforms => [:mingw, :mswin, :jruby]
