@@ -1,6 +1,8 @@
+- content_for(:head) do
+  = javascript_include_tag 'google_auth'
+  
 - if flash[:notice]
   #notice.message= flash[:notice]
-= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), :class => "popup", :"data-width" => 800, :"data-height" => 600
 
 .container
   .center

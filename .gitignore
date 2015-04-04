@@ -15,3 +15,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore all public assets
+/public/assets/*
+/public/assets
+set_local.sh

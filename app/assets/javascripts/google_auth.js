@@ -1,6 +1,4 @@
-jQuery(document).on('ready page:load', function ($) {
-
-  Console.log( 'jQuery loaded');
+$(document).on('ready page:load', function () {
 
   function popupCenter(linkUrl, width, height, name) {
       var separator = (linkUrl.indexOf('?') !== -1) ? '&' : '?',
@@ -16,4 +14,4 @@ jQuery(document).on('ready page:load', function ($) {
     popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
     e.stopPropagation(); return false;
   });
-});
+}); 

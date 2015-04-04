@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get 'email/index'
+
+  get    'email/index' => 'email#index',          as: :email_index
+  post   'email/index' => 'email#send_message',   as: :send_email
+  delete 'email/index' => 'email#delete_message', as: :delete_message
+  get  'email/email_list'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -8,6 +12,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
