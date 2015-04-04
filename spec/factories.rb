@@ -5,9 +5,9 @@
 FactoryGirl.define do
 
   factory :token do
-    access_token   "MyString"
-    refresh_token  nil
-    expires_at     "2015-03-31 21:20:22"
+    access_token   "test-token"
+    refresh_token  "test-refresh-token"
+    expires_at     Time.now + 3600
   end
 
   factory :user do

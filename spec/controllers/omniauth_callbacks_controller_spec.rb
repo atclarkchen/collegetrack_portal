@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+# Enable real network connection
+WebMock.allow_net_connect!
+
 describe Users::OmniauthCallbacksController do
 
   describe 'google_oauth2' do
