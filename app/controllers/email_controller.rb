@@ -4,7 +4,7 @@ class EmailController < ApplicationController
 
   def index
   end
-
+  
   def send_message
     if params[:send_msg]
       send_email params[:email]
@@ -53,5 +53,4 @@ class EmailController < ApplicationController
     filters = params[:filters]
     render plain: generate_email(filters, 0, [""]).join(", ")
   end
-  
 end

@@ -6,7 +6,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user
       sign_in @user, :event => :authentication
       set_access_token
-
       if sales_auth
         popup(email_index_path)
       else
