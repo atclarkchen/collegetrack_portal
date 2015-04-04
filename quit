@@ -1,0 +1,602 @@
+[33mcommit 0b59b5010845d24e33cddf500c278cb5b37c841d[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Wed Apr 1 21:53:15 2015 -0700
+
+    Sliding animation
+
+[33mcommit 53221db59d8ab5a2ed0398030e63b795d111a1a7[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Wed Apr 1 20:07:45 2015 -0700
+
+    Default oakland location filter
+
+[33mcommit 17024978b191711a7cbacf50dca41ab857a000f2[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Wed Apr 1 20:05:38 2015 -0700
+
+    Made x boxes
+
+[33mcommit e043d0007265f052b9784fb92cedf2dca59086cc[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Wed Apr 1 19:35:30 2015 -0700
+
+    Added few more filter functionalities
+
+[33mcommit 047a418fa0be8738cc4bab507f81b28ab3676291[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Wed Apr 1 18:49:57 2015 -0700
+
+    Simple javascript filter menu
+
+[33mcommit 4be221061bc2777f9924d4d3cf5ad4c6a56b0b03[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Mon Mar 16 18:28:22 2015 -0700
+
+    Removed unecessary files
+
+[33mcommit 8bbd6f0bae15c0a88b04cff1bf639e1881b86ee3[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Mon Mar 16 18:18:53 2015 -0700
+
+    Adding email_filter.feature
+
+[33mcommit 51d79713fa92ec5aca86ed9f4443db1b632679ca[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Sat Mar 14 19:27:53 2015 -0700
+
+    Pushing rspec tests
+
+[33mcommit 031b311b9e0b8857be052f3be00dfd3b045a98b3[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Sat Mar 14 19:17:39 2015 -0700
+
+    Updated rspec-rails to 3.2 and finished up testings
+
+[33mcommit 0af0372446fedbd5fde44d0acccbd278c8fa35ff[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Sat Mar 14 13:38:37 2015 -0700
+
+    Tried some javascript fixes
+
+[33mcommit ac97fe7a172224f0f2db5726e67fae218fcef591[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Sat Mar 14 04:26:58 2015 -0700
+
+    Fixed failure path for javascript
+
+[33mcommit 653368e246a28a16e8a87a38906066101ba73fcf[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Sat Mar 14 03:18:13 2015 -0700
+
+    Fixed javascript by removing turbolinks
+
+[33mcommit 71a96f26b5e8ebfd34c9c326324ef33b8be6ea98[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Sat Mar 14 02:23:15 2015 -0700
+
+    88.5% coverage after adding sales_force function
+
+[33mcommit d6db912f408bd9cda6c1dd8ec0848d1472996842[m
+Merge: 7cf4a46 7acc33d
+Author: forgottn <pduong@berkeley.edu>
+Date:   Sat Mar 14 00:43:02 2015 -0700
+
+    Fixing merge conflicts
+
+[33mcommit 7cf4a46b86777a8ada62e7d438d2718cdac55cd4[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Sat Mar 14 00:41:09 2015 -0700
+
+    Fixed cucumber
+
+[33mcommit 0495dae332c4d59aa3ea43c000d87d83f2f28a0d[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Sat Mar 14 00:23:34 2015 -0700
+
+    fixing rspec
+
+[33mcommit 7acc33d23cdffad06be4199843848e9e3ab3d5f8[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Fri Mar 13 23:57:02 2015 -0700
+
+    submit this peter
+
+[33mcommit de17201a52748496580b1c5b6853fb7cb0d13995[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Fri Mar 13 23:53:51 2015 -0700
+
+    submit this peter
+
+[33mcommit b24f7fbcdaf43f606b1fe07bfa78cea3a23f0408[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Fri Mar 13 23:30:44 2015 -0700
+
+    desperation
+
+[33mcommit e007872cbf0790d755ce160139611283bf73aa60[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Fri Mar 13 23:10:51 2015 -0700
+
+    Passing all cucumbers for gmail auth
+
+[33mcommit d252916a339b03e15e18c381f741facb2cb8f94a[m
+Merge: 0207a8f 839443a
+Author: forgottn <pduong@berkeley.edu>
+Date:   Fri Mar 13 22:42:32 2015 -0700
+
+    Adding cucumber tests
+
+[33mcommit 0207a8fbb3750d99b6d24a50778e17af16e0e650[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Fri Mar 13 22:41:39 2015 -0700
+
+    Adding cucumber tests
+
+[33mcommit 839443ab74ba0377420807aaf5b23735ff9b7248[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Fri Mar 13 21:53:50 2015 -0700
+
+    pushing for rspec and Edward
+
+[33mcommit 8d47737e2292b17eb499616851adf5b873fd022f[m
+Merge: dd4b509 dd17de8
+Author: forgottn <pduong@berkeley.edu>
+Date:   Fri Mar 13 19:55:46 2015 -0700
+
+    Merge branch 'cucumber_kyle' of https://github.com/forgottn/collegetrack_portal into cucumber_kyle
+
+[33mcommit dd4b5097df660917cbc98a161930a380be11c5b0[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Fri Mar 13 19:55:08 2015 -0700
+
+    Stashing javascript in progress files
+
+[33mcommit dd17de83a2ca9f08736c4a67888ec1741132d5d4[m
+Author: Kyle Chang <hchang239@berkeley.edu>
+Date:   Fri Mar 13 18:26:03 2015 -0700
+
+    change feature name
+
+[33mcommit a7c55ee3938dfb8357d93b247842c2124e728593[m
+Author: Kyle Chang <hchang239@berkeley.edu>
+Date:   Fri Mar 13 18:25:20 2015 -0700
+
+    change feature name
+
+[33mcommit d6620ad4830820b6c4c524561ad421fabea1dd15[m
+Author: Kyle <hchang239@berkeley.edu>
+Date:   Fri Mar 13 17:00:45 2015 -0700
+
+    gmail auth cucumber tests
+
+[33mcommit c3b21e07397615a951abc937eeb659f4772d6527[m
+Author: Kyle <hchang239@berkeley.edu>
+Date:   Fri Mar 13 15:27:27 2015 -0700
+
+    Add simplecov
+
+[33mcommit d7175bdf119c33bbbb3e984997e67a9d7c02684b[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 22:49:41 2015 -0700
+
+    added everyone's emails in heroku db
+
+[33mcommit 9c4d312ad6e283af6dbe8f14d4438dd4b36b9b7a[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 22:45:03 2015 -0700
+
+    added everyone's emails in heroku db
+
+[33mcommit e3107ea022635a25561d3b678e4e7709a70e5f67[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 22:39:56 2015 -0700
+
+    fixed seeding
+
+[33mcommit d51cc8ba06a91e5314b3f6b11618cb5ed6a2a700[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 22:35:48 2015 -0700
+
+    added peter's email
+
+[33mcommit 9231badca8b9344f9dafdf16e9cd7b59c92a208e[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 22:27:04 2015 -0700
+
+    seeding
+
+[33mcommit 4826f5da79dcb694e4eefeba25a90de021d136a1[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 22:04:14 2015 -0700
+
+    Reassetting
+
+[33mcommit 5b95acb06ff0419811043aa174dad3df467f5bf9[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 21:48:58 2015 -0700
+
+    removed document ready part
+
+[33mcommit bcf8aa6a85ab2bc3273fcff1674aaf003223c91e[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 21:42:20 2015 -0700
+
+    Readding assets?
+
+[33mcommit 745d916afc04a678f2f624cebba3c68a37b6a020[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 21:32:27 2015 -0700
+
+    Debugging
+
+[33mcommit 5bb48e9302750520fa960b855b97eeac2be9ef15[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 21:21:21 2015 -0700
+
+    Debugging
+
+[33mcommit 2a90dac5ddf593090978ab906f9a60ba26343d54[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 21:17:53 2015 -0700
+
+    Debugging
+
+[33mcommit 7fe3e766b36a71f7fef0e69e6e98656554358479[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 21:10:55 2015 -0700
+
+    adding js asset
+
+[33mcommit 2f297c50c75506ed98ccd2ed94dbbccf03d860f6[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 21:04:03 2015 -0700
+
+    adding assets
+
+[33mcommit d6a0980eb07421826358887e015c3102ded1c2db[m
+Merge: 7018e4a 3c39330
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 20:58:34 2015 -0700
+
+    Merge branch 'master' of https://github.com/forgottn/collegetrack_portal
+
+[33mcommit 7018e4a3a115bb47a02cab9b5b232b4bc2b2a35d[m
+Merge: ce587ea d0ae71b
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 20:57:34 2015 -0700
+
+    Merged Master into gmail_auth
+
+[33mcommit ce587ea373f71c6c46c026d4fff192b5828cb296[m
+Merge: 56fc29b 039e00f
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 20:55:25 2015 -0700
+
+    Merged email landing page into gmail_auth
+
+[33mcommit 56fc29bd571507f223d48ac5262e2606b925e6bb[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 20:52:59 2015 -0700
+
+    yaaaay button
+
+[33mcommit 3c3933054a24534785ed01ba8b17b2ba247e2e5b[m
+Merge: 485b93d d0ae71b
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 20:51:12 2015 -0700
+
+    Merge branch 'master' of https://github.com/forgottn/collegetrack_portal
+
+[33mcommit 485b93de6a7516480ae98a001fb0398fa85f4e99[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 20:50:43 2015 -0700
+
+    added seeds
+
+[33mcommit cd90558ebcb20b3bd7b2b8db21a99521f71db9a2[m
+Merge: 7ca5991 8aa3c67
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 20:24:49 2015 -0700
+
+    Merge branch 'gmail_auth' of https://github.com/forgottn/collegetrack_portal into gmail_auth
+
+[33mcommit 7ca59917f3710ae527f50078cb62eeb3d42db2c4[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 20:24:03 2015 -0700
+
+    Creating google button
+
+[33mcommit d0ae71b2132c531796b7aaed8fe37dd23148ff8c[m
+Merge: 3e9ac5b 1f29ded
+Author: Kyle <hchang239@berkeley.edu>
+Date:   Thu Mar 12 19:12:55 2015 -0700
+
+    Merge branch 'iss_lock'
+
+[33mcommit 1f29deddc4fc2ccabaf7c6a3f263c559a2934c86[m
+Author: Kyle <hchang239@berkeley.edu>
+Date:   Thu Mar 12 19:12:39 2015 -0700
+
+    delete HEAD from index.html.haml
+
+[33mcommit 3e9ac5bf3aaf2252a6c69a6157487ec04a38541f[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 19:05:07 2015 -0700
+
+    edited env production.rb
+
+[33mcommit 9e96489cf1c738cf6f13691b7c98a4d8378b53fa[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 18:59:31 2015 -0700
+
+    added rails_12factor gem
+
+[33mcommit 36624b003442b3717058c7bd5519dee0c3a1b24c[m
+Author: Kyle <hchang239@berkeley.edu>
+Date:   Thu Mar 12 18:54:40 2015 -0700
+
+    delete head from index_haml
+
+[33mcommit 7eda4dc779cfc4761d9c16c511c5437689748f06[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 18:47:49 2015 -0700
+
+    fix for Gemfile.lock
+
+[33mcommit 791405e83a03ba561554ecb3b4a74f48475c4768[m
+Merge: 196077e 6d3f120
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 18:43:34 2015 -0700
+
+    Merge branch 'master' of https://github.com/forgottn/collegetrack_portal
+
+[33mcommit 196077e41f4b9ef7f417879e9fb3a519320e16ec[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 18:41:07 2015 -0700
+
+    Attempt to fix
+
+[33mcommit 6d3f1208ce114abe82fb0d9812a1137a447d5bc5[m
+Author: Kyle <hchang239@berkeley.edu>
+Date:   Thu Mar 12 18:35:59 2015 -0700
+
+    edit gemfile
+
+[33mcommit cf0558bedc98685595ad62eeb8e3faa088fe3244[m
+Merge: 67571ed 9c7bbad
+Author: Kyle <hchang239@berkeley.edu>
+Date:   Thu Mar 12 18:32:32 2015 -0700
+
+    Merge branch 'master' of https://github.com/forgottn/collegetrack_portal
+
+[33mcommit 67571ed44d51f4e712d7d8fe097d89e362672d2d[m
+Merge: 144bd6a 039e00f
+Author: Kyle <hchang239@berkeley.edu>
+Date:   Thu Mar 12 18:29:45 2015 -0700
+
+    draft index
+
+[33mcommit 9c7bbad0c5e599da8ef575a54912b96240e6de06[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 18:28:45 2015 -0700
+
+    updating env variables
+
+[33mcommit 039e00f8548cd39f1bd26ccc47529d30a66979f6[m
+Author: Kyle Chang <hchang239@berkeley.edu>
+Date:   Fri Mar 13 01:23:07 2015 +0000
+
+    draft index
+
+[33mcommit 144bd6a9be25ec2ea10b173c15745639ebbadf6b[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 18:15:28 2015 -0700
+
+    fixed gems in Gemfile
+
+[33mcommit cc45bae8d99eff3c3c5c0104765a29550122166d[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 18:06:59 2015 -0700
+
+    Precompiled assets
+
+[33mcommit 8aa3c677520af3b4dba7a076ba94d700ad3ac35e[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 17:56:41 2015 -0700
+
+    added pundit policy folder
+
+[33mcommit 5d3a75a7fbc8f3b3495cdc8da5b65be96e33b9ef[m
+Merge: 07e78f3 b38d2aa
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 16:00:37 2015 -0700
+
+    Merge branch 'gmail_auth' of https://github.com/forgottn/collegetrack_portal into gmail_auth
+
+[33mcommit 07e78f3d674c29f053a56ec456b9534ea7ddf4ea[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Thu Mar 12 16:00:02 2015 -0700
+
+    Javascript Popup functionality for oauth
+
+[33mcommit b38d2aa5417c6e6d5fab91764fd839556ec9677e[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 15:55:27 2015 -0700
+
+    ruby version updates to Gemfile and travis.yml
+
+[33mcommit e26112600dbd34b78ff62b9d44b89bb1a36c677a[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 15:36:09 2015 -0700
+
+    ruby version to Gemfile
+
+[33mcommit 44a3a40b4eb236f26510f1a8acdecd594e41e178[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 15:26:42 2015 -0700
+
+    fix to Gemfile
+
+[33mcommit f42419f171bd36030243a156338322c0751f5c26[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 15:12:46 2015 -0700
+
+    ruby version updates to Gemfile and .travis.yml
+
+[33mcommit 7c1415977792500aa7555627e8809761a77a3b5f[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 15:03:01 2015 -0700
+
+    one more TravisCI fix to Gemfile
+
+[33mcommit 4536475d3d57c28ed57d6fb6514971659e27a441[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 14:52:14 2015 -0700
+
+    another TravisCI fix to Gemfile
+
+[33mcommit e9f8bc74b212c9696c54089be98af1158e847127[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 14:36:43 2015 -0700
+
+    added TravisCI fix to Gemfile
+
+[33mcommit 3106a89ba8eab44737994b88257df03ba2448763[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 01:35:15 2015 -0700
+
+    one more fix for .travis.yml
+
+[33mcommit d982cdfb4d6c8907302ace4dbcf150f60d84ded6[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 01:28:20 2015 -0700
+
+    another fix for .travis.yml
+
+[33mcommit 0a036a2c9bc8972ff0a414d3b9f3063fba46d5f5[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 01:17:15 2015 -0700
+
+    updated Gemfile with rake
+
+[33mcommit c320d53e77589d635d75958ee4d1467560452752[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 01:14:55 2015 -0700
+
+    fix for .travis.yml
+
+[33mcommit 0b3cc00b9edc694b8f31aed48373a860a522c0f8[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 01:03:58 2015 -0700
+
+    updated .travis.yml with test db:migrate
+
+[33mcommit c9b5b5dc700939d93d2b80a4f3f3f1445cf773ff[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 00:42:26 2015 -0700
+
+    added .travis.yml
+
+[33mcommit ce94c2c320096f1e45782bd456e3b2a978002f47[m
+Merge: 7289f7a 4e35854
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 00:19:14 2015 -0700
+
+    Merge branch 'index_haml' of https://github.com/forgottn/collegetrack_portal into index_haml
+
+[33mcommit 7289f7a6b91c3ddc1997561bd4c84cd57144d9b6[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Thu Mar 12 00:17:36 2015 -0700
+
+    updated oauth MVCs
+
+[33mcommit 4e35854327a3899290d4f56178968253d59c8f6b[m
+Author: Kyle Chang <hchang239@berkeley.edu>
+Date:   Wed Mar 11 00:46:18 2015 +0000
+
+    test haml
+
+[33mcommit 3aa03dc0bdcbba6fd6340259ed483b9ddf1f6169[m
+Author: Kyle Chang <hchang239@berkeley.edu>
+Date:   Tue Mar 10 21:04:48 2015 +0000
+
+    finish basic setup
+
+[33mcommit 81ac065535352128a210ff7fad64b5e803b9e7e2[m
+Author: Kyle Chang <hchang239@berkeley.edu>
+Date:   Tue Mar 10 19:18:38 2015 +0000
+
+    test
+
+[33mcommit 15e6244654830cc795d8cdb613d2a2daecaf4998[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Fri Mar 6 22:25:12 2015 -0800
+
+    added gmail oauth link
+
+[33mcommit b3f9e4b2e06ea77d8dcd18c0df63e94c22aabfda[m
+Merge: a9306c7 9cd4cd2
+Author: forgottn <pduong@berkeley.edu>
+Date:   Mon Mar 2 22:01:26 2015 -0800
+
+    Merge branch 'master' of https://github.com/forgottn/collegetrack_portal
+
+[33mcommit a9306c76df1c71c920126792a9485e5f842ae171[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Mon Mar 2 22:01:06 2015 -0800
+
+    Changed gemfile
+
+[33mcommit 9cd4cd2a372b9e8e09a7549acf3a83f04e3915bf[m
+Author: Jason Chern <jason.chern93@gmail.com>
+Date:   Mon Mar 2 21:28:57 2015 -0800
+
+    added salesforce feature
+
+[33mcommit 69e1fa1cf7754828b2eb2936cf9ba91e450d3e8f[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Mon Mar 2 21:24:34 2015 -0800
+
+    Added gmail login cucumber feature
+
+[33mcommit 6c0d84d0709f869c033ea9f477bdd804ba7dd569[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Mon Mar 2 21:19:05 2015 -0800
+
+    Added cucumber
+
+[33mcommit e8587c66dee58230bc569a9c44c1aad8f1983124[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Tue Feb 24 14:30:07 2015 -0800
+
+    Switched to rails 4.2
+
+[33mcommit 581552c744f1cf61b5a23b1a6272b2f8262aa6d9[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Tue Feb 17 17:46:22 2015 -0800
+
+    Moved to ruby 1.9.3 and rails 3.2.16
+
+[33mcommit 021f4ab8b0ad96d00c242d34c088792644cc671f[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Tue Feb 17 17:44:14 2015 -0800
+
+    Recreating rails app
+
+[33mcommit dea6ac21312ca5b076332b9d97a136860451fbbe[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Mon Feb 16 13:09:47 2015 -0800
+
+    Adding rails skeleton
+
+[33mcommit 846f1a27debe0b704c66aa89a092977cab376b45[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Mon Feb 16 13:04:07 2015 -0800
+
+    Changed readme Title
+
+[33mcommit 32a421a693197d41209a8ef7aa9db39c800cff0e[m
+Author: forgottn <pduong@berkeley.edu>
+Date:   Mon Feb 16 12:45:24 2015 -0800
+
+    Initial commit

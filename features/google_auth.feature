@@ -17,10 +17,10 @@ Background: Users have been added to the database
 
 Scenario: Signing in as an unauthorized user
   Given I am an unauthorized user
-  And I try to login as "hacker@gmail.com"
+  And I login as "hacker@gmail.com"
   Then I should be rejected
 
 Scenario: Signing in as an authorized user
 	Given I am an authorized user
-	And I try to login as "petrduong@gmail.com"
+	And I login as "petrduong@gmail.com"
 	Then I should be on the email page

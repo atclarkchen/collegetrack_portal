@@ -2,17 +2,17 @@
 
 # Examples are shown below
 
-# FactoryGirl.define do
-#   factory :user do
-#     first_name "John"
-#     last_name  "Doe"
-#     admin false
-#   end
+FactoryGirl.define do
 
-#   # This will use the User class (Admin would have been guessed)
-#   factory :admin, class: User do
-#     first_name "Admin"
-#     last_name  "User"
-#     admin      true
-#   end
-# end
+  factory :token do
+    access_token   "test-token"
+    refresh_token  "test-refresh-token"
+    expires_at     Time.now + 3600
+  end
+
+  factory :user do
+    email     "test@sample.com"
+    password  "password"
+  end
+
+end

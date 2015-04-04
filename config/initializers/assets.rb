@@ -10,3 +10,6 @@ Rails.application.config.assets.version = '1.1'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( google_auth.js )
+Rails.application.config.assets.precompile += %w( email.css )
+Rails.application.config.assets.precompile += %w( filter.js )
+Rails.application.config.assets.precompile += %w( email.js )

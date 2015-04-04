@@ -10,8 +10,18 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
+When /^(?:|I )go to (.+)$/ do |page_name|
+  visit path_to(page_name)
+end
+
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
+end
+
+Given /^(?:|I )am logged into as "(.+)"$/ do |user_email|
+  steps %Q{
+    When I login as "#{user_email}"
+  }
 end
 
 Given /the following users exist/ do |user_table|
@@ -20,37 +30,27 @@ Given /the following users exist/ do |user_table|
   end
 end
 
-Given /^(?:|I )am an (un)?authorized user$/ do |authorized|
-	if authorized
+Given /^(?:|I )am an (un)?authorized user$/ do |unauthorized|
 
-	end
 end
 
-Then /^(?:|I )should see "([^"]*)"$/ do |text|
-  if page.respond_to? :should
-    page.should have_content(text)
-  else
-    assert page.has_content?(text)
-  end
+Then /^(?:|I )should see "([^\"]*)"$/ do |text|
+  expect(page).to have_content(text)
 end
 
-When /^(?:|I )try to login as "(.+)"$/ do |user_email|
+When /^(?:|I )login as "(.+)"$/ do |user_email|
 	set_omniauth(user_email)
+  @current_user = User.find_by_email(user_email)
 	click_link("Sign in with Google")
 end
 
 Then /I should be rejected/ do
 	steps %Q{
     Then I should be on the login page
-    And I should see "authorized"
   }
 end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
-  if current_path.respond_to? :should
-    current_path.should == path_to(page_name)
-  else
-    assert_equal path_to(page_name), current_path
-  end
+  expect(current_path).to eq path_to(page_name)
 end

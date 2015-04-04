@@ -1,10 +1,12 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
+    @auth = request.env["omniauth.auth"]['credentials']
 
-    if not @user.nil?
+    if @user
       sign_in @user, :event => :authentication
-      if true #change this, not legit
+      set_access_token
+      if sales_auth
         popup(email_index_path)
       else
         flash[:notice] = "Your salesforce account is invalid or not authorized. Please contact an admin."
@@ -19,8 +21,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def sales_auth
     begin
-      client = Databasedotcom::Client.new("databasedotcom.yml")
-      client.authenticate "shinyenhuang@gmail.com", :password => "an1me3den9aQZyynyh0E5dJD7kRyYLUNHc"
+      client = Databasedotcom::Client.new
+      client.authenticate :username => "shinyenhuang@gmail.com", :password => "an1me3den9aQZyynyh0E5dJD7kRyYLUNHc"
       return true
     rescue
       return false
@@ -39,4 +41,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to @after_sign_in_url
     end
   end
+
+  def set_access_token
+    @user.create_token(
+      access_token:   @auth['token'],
+      refresh_token:  @auth['refresh_token'],
+      expires_at:     Time.at(@auth['expires_at']).to_datetime)
+  end
+
 end
