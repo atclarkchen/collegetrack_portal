@@ -1,7 +1,14 @@
 class UserPolicy < ApplicationPolicy
+
+  def edit_users?
+    user.admin?
+  end
+
   class Scope < Scope
     def resolve
-      scope
+      if user.admin?
+        scope.all
+      end
     end
   end
 end

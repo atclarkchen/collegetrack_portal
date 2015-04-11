@@ -20,15 +20,14 @@
 %table#users
   %thead
     %tr
-      %th Name:  
-      %th Email:  
-      %th Role:  
+      %th Name:
+      %th Email:
+      %th Role:
       %th Remove User
   %tbody
-    - @users.each do |user|
+    - policy_scope(@users).each do |user|
       %tr
         %td= user.name
         %td= user.email
         %td= user.role
         %td= button_to "X", delete_user_path({:user => user}), :method => :delete, :confirm => "Are you sure?"
-
