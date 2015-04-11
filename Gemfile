@@ -45,7 +45,7 @@ end
 
 gem 'gmail'
 gem 'json'
-gem 'databasedotcom'
+gem 'restforce'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'haml'

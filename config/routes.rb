@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get    'email/index' => 'email#index',          as: :email_index
-  post   'email/index' => 'email#send_message',   as: :send_email
-  delete 'email/index' => 'email#delete_message', as: :delete_message
+  get    'email/' => 'email#index',          as: :email_index
+  post   'email/' => 'email#send_message',   as: :send_email
+  delete 'email/' => 'email#delete_message', as: :delete_message
   get  'email/email_list'
 
   match 'admin' => 'admin#index', :via => :get, :as => :admin

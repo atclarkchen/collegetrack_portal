@@ -7,6 +7,49 @@ body {
 	overflow: scroll;
 }
 
+.recipient_label {
+	font-weight: bold;
+}
+
+.recipient_table {
+	width: 66%;
+	border-spacing: 0;
+}
+
+.recipient_right {
+	border-bottom: 1px solid #cfcfcf;
+}
+
+.recipient_row {
+	border-bottom: 1px solid #cfcfcf;
+}
+
+.recipient_text, .recipient_edit, .subject_text {
+	width: 100%;
+	font-size: 13px;
+	border: 0!important;
+	margin: 0!important;
+	outline: none;
+	box-shadow: none;
+	resize: none;
+	text-align: left;
+	overflow: hidden;
+	height: 20px!important;
+	padding: 6px 3px;
+	color: black;
+	background-color: white;
+	padding-bottom: 3px;
+	padding-top: 5px;
+}
+
+.filter_box, .edit_box {
+	display: inline-block;
+	font-size: 13px;
+	padding: 3px;
+	vertical-align: top;
+	padding-top: 2px;
+}
+
 #email_form, #accordian {
 	float: left;
 }

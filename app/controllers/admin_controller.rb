@@ -6,12 +6,18 @@ class AdminController < ApplicationController
   def new
   	@user = User.new(:name => params[:user][:name], :email => params[:user][:email], :role => params[:user][:role], :password => 'password')
   	@user.save!
-  	redirect_to admin_path
+    @users = User.all
+    respond_to do |format|
+      format.js { render 'render_table.js.haml'} 
+    end
   end
 
   def destroy
   	@user = User.find(params[:user])
   	@user.destroy
-  	redirect_to admin_path
+    @users = User.all
+    respond_to do |format|
+      format.js { render 'render_table.js.haml'} 
+    end
   end
 end
