@@ -37,11 +37,11 @@
   %table
     %tr
       %td= text_area :email, :body, :class => 'tinymce', :cols => 80, :rows => 20
-    %tr
-      %td.recipient
-        %span{:class => 'recipient_label'}Files to Attach
-      %td{:class => 'recipient_row'}
-        = file_field :file_attachment
+    %tr{:class => 'recipient_row'}
+      %td
+        .recipient
+          %span{:class => 'recipient_label'}Files to Attach
+          = file_field_tag :file_attachment
     %tr
       %td
         = submit_tag 'Send',  name: "send_msg"
