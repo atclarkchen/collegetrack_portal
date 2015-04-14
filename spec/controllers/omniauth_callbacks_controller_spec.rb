@@ -24,12 +24,13 @@ describe Users::OmniauthCallbacksController do
         get :google_oauth2
         expect(response).to redirect_to email_index_path
       end
+    end
 
-  describe 'sales_oauth' do
-      it 'should redirect to the root page if salesforce is invalid' do
-        allow(controller).to receive(:sales_auth) { false }
+    context 'logging in when javascript is enabled' do
+      it 'should render a popup' do
+        request.env['omniauth.params']['popup'] = true
         get :google_oauth2
-        expect(response).to redirect_to root_path
+        expect(response).to render_template("callback")
       end
     end
 
@@ -39,12 +40,18 @@ describe Users::OmniauthCallbacksController do
         expect(response).to redirect_to root_path
       end
     end
+  end
 
-    context 'logging in when javascript is enabled' do
-      it 'should render a popup' do
-        request.env['omniauth.params']['popup'] = true
+  describe 'sales_oauth' do
+    before :each do
+      google_hash
+    end
+    
+    context 'when logging in with invalid salesforce' do
+      it 'should redirect to the root page' do
+        allow(controller).to receive(:sales_auth) { false }
         get :google_oauth2
-        expect(response).to render_template("callback")
+        expect(response).to redirect_to root_path
       end
     end
   end
