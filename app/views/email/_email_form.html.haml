@@ -41,7 +41,7 @@
       %td.recipient
         %span{:class => 'recipient_label'}Files to Attach
       %td{:class => 'recipient_row'}
-        = file_field
+        = file_field :file_attachment
     %tr
       %td
         = submit_tag 'Send',  name: "send_msg"
