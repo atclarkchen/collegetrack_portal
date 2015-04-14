@@ -18,11 +18,29 @@ module EmailHelper
           content_type 'text/html; charset=UTF-8'
           body email[:body]
         end
+
+        # add_file email[:attachment]
       end
     end
   end
 
   def save_draft(email)
+    Gmail.connect(:xoauth2, current_user.email, current_user.token.fresh_token) do |gmail|
+      draft = gmail.compose do
+        to  email[:to]
+        cc  email[:cc]
+        bcc email[:bcc]
+        subject email[:subject]
+
+        html_part do
+          content_type 'text/html; charset=UTF-8'
+          body email[:body]
+        end
+        # add_file email[:attachment]
+      end
+      debugger
+      true
+    end
   end
 
 end
