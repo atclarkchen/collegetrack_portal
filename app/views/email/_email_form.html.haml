@@ -12,7 +12,7 @@
         .recipient
           %span{:class => 'recipient_label'}CC
       %td{:class => 'recipient_right'}
-        = text_area :email, :cc, :class => 'recipient_text'    
+        = text_area :email, :cc, :class => 'recipient_text'
     %tr{:class => 'recipient_row'}
       %td
         .recipient
@@ -25,7 +25,7 @@
         .recipient
           %span{:class => 'recipient_label'}Subject
       %td{:class => 'recipient_right'}
-        = text_area :email, :subject, :class => 'subject_text'    
+        = text_area :email, :subject, :class => 'subject_text'
   #filter_label 
     Filters:
     #filters
@@ -33,12 +33,17 @@
         .left_fil Oakland
         .x
   = link_to "change filters", "#", :id => "change_filter"
+
   %table
     %tr
       %td= text_area :email, :body, :class => 'tinymce', :cols => 80, :rows => 20
-
+    %tr
+      %td.recipient
+        %span{:class => 'recipient_label'}Files to Attach
+      %td{:class => 'recipient_row'}
+        = file_field
     %tr
       %td
-        = submit_tag 'Send',   name: "send_msg"
-        = submit_tag 'Draft',  name: "draft_msg"
+        = submit_tag 'Send',  name: "send_msg"
+        = submit_tag 'Draft', name: "draft_msg"
         = link_to "Delete", delete_message_url, :method => :delete, data: {confirm: "Are you sure?"}
