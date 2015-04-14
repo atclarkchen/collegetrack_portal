@@ -140,3 +140,5 @@ $(RecipientField.setup);
 
 
 // Expanding textarea still weird.
+// Parse pasted text delimiters = space and comma
+// shrink away when clicking away from div
