@@ -12,6 +12,7 @@ describe Users::OmniauthCallbacksController do
     
     context 'when logging in with a valid email' do
       before :each do
+        User.create!(:email => 'fake@gmail.com', :password => 'password', :role => 'User')
         allow(User).to receive(:find_for_google_oauth2) { User.new }
       end
 
@@ -46,7 +47,7 @@ describe Users::OmniauthCallbacksController do
     before :each do
       google_hash
     end
-    
+
     context 'when logging in with invalid salesforce' do
       it 'should redirect to the root page' do
         allow(controller).to receive(:sales_auth) { false }
