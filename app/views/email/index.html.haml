@@ -9,6 +9,8 @@
 - if flash[:notice]
   #notice.message= flash[:notice]
 
+= render "header"
+
 %h1 Email
 
 -if policy(current_user).edit_users?

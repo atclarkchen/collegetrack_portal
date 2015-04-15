@@ -40,10 +40,10 @@ var Filter = {
             url: "/email/email_list",
             data: {"filters": filters},
             success: function(data) {
-                console.log(data);
                 $('.filter_box').remove();
-                for (var email of data) {
-                    $('#recipient_bcc').prepend("<div class='filter_box'><span class='ui_fil'><div class ='left_fil'>" + email + "</div><div class='x'></div></span><input name='email[bcc]' type='hidden' value='" + email + "'></div>");
+                for (var i in data) {
+		    var email = data[i];
+                    //$('#recipient_bcc').prepend("<div class='filter_box'><span class='ui_fil'><div class ='left_fil'>" + email + "</div><div class='x'></div></span><input name='email[bcc]' type='hidden' value='" + email + "'></div>");
                 }
                 $(RecipientField.resizeField);
             }
