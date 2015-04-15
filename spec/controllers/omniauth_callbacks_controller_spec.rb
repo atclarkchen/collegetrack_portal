@@ -13,7 +13,7 @@ describe Users::OmniauthCallbacksController do
     context 'when logging in with a valid email' do
       before :each do
         User.create!(:email => 'fake@gmail.com', :password => 'password', :role => 'User')
-        allow(User).to receive(:find_for_google_oauth2) { User.new }
+        allow(User).to receive(:find_for_google_oauth2) { User.first }
       end
 
       it 'should verify if email belongs to a registered user' do
