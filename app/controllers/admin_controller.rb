@@ -12,6 +12,7 @@ class AdminController < ApplicationController
   	@user.save!
     @users = User.all
     respond_to do |format|
+      format.html { redirect_to admin_path }
       format.js { render 'render_table.js.haml'} 
     end
   end
@@ -22,6 +23,7 @@ class AdminController < ApplicationController
   	@user.destroy
     @users = User.all
     respond_to do |format|
+      format.html { redirect_to admin_path }
       format.js { render 'render_table.js.haml'} 
     end
   end

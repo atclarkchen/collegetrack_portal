@@ -7,7 +7,7 @@
           %li
             - @filter_values[category].each do |value|
               - if value == "Oakland" || value == "Student"
-                = link_to "#{value}", "#", :class => "selected"
+                = link_to "#{value}", "", :class => "selected"
               - else
-                = link_to "#{value}", "#"
+                = link_to "#{value}", ""
   %button{:id => 'save_filter'} Save
