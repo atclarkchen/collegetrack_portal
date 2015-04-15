@@ -8,6 +8,7 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 require 'webmock/rspec'
+require "pundit/rspec"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -53,6 +54,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.include OmniauthMacros
+  config.include AdminMacros
   config.include Devise::TestHelpers, type: :controller
 
 end
