@@ -34,9 +34,13 @@ var Filter = {
             url: "/email/email_list",
             data: {"filters": filters},
             success: function(data) {
-                $("#email_bcc").val(data);
+                $('.filter_box').remove();
+                for (var email of data) {
+                    $('#recipient_bcc').prepend("<div class='filter_box'><span class='ui_fil'><div class ='left_fil'>" + email + "</div><div class='x'></div></span><input name='email[bcc]' type='hidden' value='" + email + "'></div>");
+                }
+                $(RecipientField.resizeField);
             }
         });
-    }
+    },
 };
 $(Filter.setup);

@@ -1,0 +1,14 @@
+= form_tag new_user_path, :remote => true do
+
+  = label :user, :name
+  = text_field :user, 'name'
+
+  = label :user, :email
+  = text_field :user, 'email'
+
+  = radio_button :user, 'role', 'Admin'
+  = label :user_role, "admin"
+  = radio_button :user, 'role', 'User', :checked => true
+  = label :user_role, "user"
+
+  = submit_tag "+", class: "btn btn-large btn-primary"

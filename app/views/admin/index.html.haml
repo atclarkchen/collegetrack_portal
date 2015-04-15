@@ -1,33 +1,5 @@
 %h1 Admin
 
-= link_to "Reset Salesforce Password", email_index_path #sf_password_reset_path
+= render 'add_user_form'
 
-= form_tag admin_new_path do
-
-  = label :user, :name
-  = text_field :user, 'name'
-
-  = label :user, :email
-  = text_field :user, 'email'
-
-  = radio_button :user, 'role', 'Admin'
-  = label :user_role, "admin"
-  = radio_button :user, 'role', 'User', :checked => true
-  = label :user_role, "user"
-
-  = submit_tag "+", class: "btn btn-large btn-primary"
-
-%table#users
-  %thead
-    %tr
-      %th Name:
-      %th Email:
-      %th Role:
-      %th Remove User
-  %tbody
-    - policy_scope(@users).each do |user|
-      %tr
-        %td= user.name
-        %td= user.email
-        %td= user.role
-        %td= button_to "X", delete_user_path({:user => user}), :method => :delete, :confirm => "Are you sure?"
+= render 'user_table', :users => @users

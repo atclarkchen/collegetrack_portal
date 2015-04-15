@@ -9,8 +9,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       if sales_auth
         popup(email_index_path)
       else
-        flash[:notice] = "Your salesforce account is invalid or not authorized. Please contact an admin."
-        redirect_to root_path
+        flash[:notice] = "Your Salesforce password is outdated or incorrect. Please fix this and try again."
+        redirect_to reset_salesforce_path
       end
     else
       session["devise.google_data"] = request.env["omniauth.auth"]
@@ -21,8 +21,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def sales_auth
     begin
-      client = Databasedotcom::Client.new
-      client.authenticate :username => "shinyenhuang@gmail.com", :password => "an1me3den9aQZyynyh0E5dJD7kRyYLUNHc"
+      client = Restforce.new :host => "test.salesforce.com"
+      client.authenticate!
       return true
     rescue
       return false

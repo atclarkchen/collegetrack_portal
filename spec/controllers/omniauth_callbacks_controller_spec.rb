@@ -25,6 +25,7 @@ describe Users::OmniauthCallbacksController do
         expect(response).to redirect_to email_index_path
       end
 
+  describe 'sales_oauth' do
       it 'should redirect to the root page if salesforce is invalid' do
         allow(controller).to receive(:sales_auth) { false }
         get :google_oauth2
