@@ -15,6 +15,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'cucumber-rails', :require => false
   gem 'selenium-webdriver'
+  gem 'poltergeist'
   gem 'rake'
   gem 'simplecov', :require => false, :group => :test
   gem 'rspec-rails', '~> 3.2.1'
@@ -22,6 +23,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'jasmine'
   gem 'webmock', :require => false
+  gem 'autotest'
 end
 
 group :production do
