@@ -23,54 +23,87 @@ class EmailController < ApplicationController
     redirect_to email_index_path
   end
 
-  @@categories = [{"Asian"=>"asian", "White"=>"white","Black"=>"black"},{"Male"=>"M","Female"=>"F"},{"2010"=>"2010","2011"=>"2011","2012"=>"2012"}]
-
-  def generate_email(filters, lvl, emails)
-    if lvl == @@categories.length
-      return emails.map {|email| email + "@gmail.com"}
-    end
-    new_emails = []
-    category = @@categories[lvl]
-    all = true
-    filters.each do |filter|
-      if category.include? filter
-        all = false
-      end
-    end
-    if all
-      category.each do |key, value|
-        new_emails += emails.map {|email| email + value}
-      end
-    end
-    category.each do |key,value|
-      if filters.include? key
-        new_emails += emails.map {|email| email + value}
-      end
-    end
-    return generate_email(filters, lvl + 1, new_emails)
-  end
-
   def email_list
     filters = params[:filters]
-    render json: generate_email(filters, 0, [""]).to_json
+    render json: generate_email(filters).to_json
   end
 
   protected
-
+  
   @@client = Restforce.new :host => "test.salesforce.com"
 
+  def generate_email(filters)
+    sf_keys = []
+    email = ""
+    filters.each_key do |category|
+      if category === "Parent/Student"
+        email = grab_email(filters[category])
+      else
+        sf_key = get_column(category);
+        or_query = ""
+        filters[category].each do |filter|
+          if or_query === ""
+            or_query = "#{sf_key} = '#{filter}'"
+          else
+            or_query << " or #{sf_key} = '#{filter}'"
+          end
+        end
+        sf_keys << "(#{or_query})"
+      end
+    end
+    query = sf_keys.join(" and ")
+    values = @@client.query("select #{email} from Contact where #{query}")
+    emails = []
+    email.split(', ').each do |column|
+      emails.concat(values.map{ |value| value["#{column}"] }.uniq)
+    end
+    emails
+  end
+
   def get_filter_values
-    locations = ["Oakland"]
+    locations = get_values("Site__c")
     races = get_values("Race__c")
     genders = get_values("Gender__c")
-    years = get_values("Class_Level__c").sort
-    high_schools = get_values("High_School__c")
-    parent_student = ["Parent", "Student"]
+    years = get_values("Class_Level__c").sort_by { |x| x[/\d+/].to_i }
+    high_schools = get_values("High_School__r").sort
+    parent_student = ["Student", "Parent"]
     {"Locations" => locations, "Race" => races, "Gender" => genders, "Year" => years, "High School" => high_schools, "Parent/Student" => parent_student}
   end
 
   def get_values(column)
-    values = @@client.query("select #{column} from Contact")
-    values.map{ |value| value["#{column}"] }.uniq
+    if column.ends_with?("__r")
+      values = @@client.query("select #{column}.Name from Contact")
+      values.map{ |value| value["#{column}"]["Name"] }.uniq
+    else
+      values = @@client.query("select #{column} from Contact")
+      values.map{ |value| value["#{column}"] }.uniq
+    end
   end
+
+  def get_column(category)
+    case category
+    when "Locations"
+      "Site__c"
+    when "Race"
+      "Race__c"
+    when "Gender"
+      "Gender__c"
+    when "Year"
+      "Class_Level__c"
+    when "High School"
+      "High_School__r.Name"
+    else
+    end
+  end
+
+  def grab_email(values)
+    if values.length == 2
+      "Email, Parent_Guardian_Email_1__c, Parent_Guardian_Email_2__c"
+    elsif values.include? "Student"
+      "Email"
+    else
+      "Parent_Guardian_Email_1__c, Parent_Guardian_Email_2__c"
+    end      
+  end
+
 end
