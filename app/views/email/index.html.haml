@@ -11,7 +11,8 @@
 
 %h1 Email
 
-=link_to "Admin", admin_path, :id => "admin_link"
+-if policy(current_user).edit_users?
+  =link_to "Admin", admin_path, :id => "admin_link"
 
 = render "email_form"
 

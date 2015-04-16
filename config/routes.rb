@@ -5,9 +5,12 @@ Rails.application.routes.draw do
   delete 'email/' => 'email#delete_message', as: :delete_message
   get  'email/email_list'
 
-  match 'admin' => 'admin#index', :via => :get, :as => :admin
-  post 'admin/new'
-  match 'admin/destroy' => 'admin#destroy', :via => :delete, :as => :delete_user 
+  get    'admin/' => 'admin#index', :as => :admin
+  post   'admin/' => 'admin#new', :as => :new_user
+  delete 'admin/' => 'admin#destroy', :as => :delete_user
+
+  get    'reset_salesforce/' => 'admin#reset_salesforce', :as => :reset_salesforce
+  post   'reset_salesforce/' => 'admin#save_password', :as => :save_password
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
