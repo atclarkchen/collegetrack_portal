@@ -1,31 +1,30 @@
 = form_tag email_index_path, :id => "email_form" do
-
   #email_header
-    #recipient_header
-      %table{:class => 'recipient_table'}
-        %tr
-          %td
-            .recipient
-              %span{:class => 'recipient_label'}To
-          %td{:class => 'recipient_right'}
-            = text_area :email, :to, :class => 'recipient_text'
-        %tr
-          %td
-            .recipient
-              %span{:class => 'recipient_label'}CC
-          %td{:class => 'recipient_right'}
-            = text_area :email, :cc, :class => 'recipient_text'    
-        %tr{:class => 'recipient_row'}
-          %td
-            .recipient
-              %span{:class => 'recipient_label'}BCC
-          %td{:class => 'recipient_right'}
-            #recipient_bcc
-              = text_area :email, :bcc, :class => 'recipient_text', :rows => 1
-    #subject_field
-      = text_field :email, :subject, :class => 'subject_text', :placeholder => "Subject"
-  #filter_label 
-    Filters:
+    .email_fields_table
+      .email_fields_row
+        .email_label 
+          To:
+        .recipient_right
+          = text_area :email, :to, :class => 'recipient_text'
+      .email_fields_row
+        .email_label
+          CC:
+        .recipient_right
+          = text_area :email, :cc, :class => 'recipient_text'    
+      .email_fields_row
+        .email_label
+          BCC:
+        .recipient_right
+          #recipient_bcc
+            = text_area :email, :bcc, :class => 'recipient_text', :rows => 1
+      .email_fields_row
+        .email_label
+          Subject:
+        #subject_field.recipient_right
+          = text_field :email, :subject, :class => 'subject_text'
+  #filter_label
+    .email_label
+      Filters:
     #filters
       %span{:class => "ui_fil" }
         .left_fil Oakland
@@ -33,13 +32,12 @@
       %span{:class => "ui_fil" }
         .left_fil Student
         .x
-  = link_to "change filters", "", :id => "change_filter"
-  %table
+    = link_to "change filters", "", :id => "change_filter"
+  %table#compose_box
     %tr
       %td= text_area :email, :body, :class => 'tinymce', :cols => 80, :rows => 20
-
     %tr
-      %td
-        = submit_tag 'Send',   name: "send_msg"
-        = submit_tag 'Draft',  name: "draft_msg"
-        = link_to "Delete", delete_message_url, :method => :delete, data: {confirm: "Are you sure?"}
+      %td.submit_btns
+        = submit_tag 'Send',   name: "send_msg", :class => "btn send_btn"
+        = submit_tag 'Draft',  name: "draft_msg", :class => "btn draft_btn"
+        = link_to "Delete", delete_message_url, :method => :delete, :class => "btn delete_btn", data: {confirm: "Are you sure?"}
