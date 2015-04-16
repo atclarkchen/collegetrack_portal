@@ -6,7 +6,7 @@ Given /^I (?:|add|remove) the filters: (.*)$/ do |filters|
   options = { :Location => ["Oakland"], :Race => ["Asian", "Black", "White"], :Gender => ["Male", "Female"], :Year => ["2010", "2011", "2012"]}
   filters = filters.split(",")
   filters.each do |filter|
-    if filter === "Oakland"
+    if filter === "Oakland" || filter === "Student"
       next
     end
     options.each do |category, values|
