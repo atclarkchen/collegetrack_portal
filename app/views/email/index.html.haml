@@ -9,10 +9,16 @@
 - if flash[:notice]
   #notice.message= flash[:notice]
 
-= render "header"
+= render "partials/header"
+.container#email_body
+  = render "email_form"
+  = render "filters", :filter_values => @filter_values
 
+<<<<<<< HEAD
 %h1 Email
 
 = render "email_form"
 
 = render "filters", :filter_values => @filter_values
+=======
+>>>>>>> preliminary email_ui
