@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   has_one :token, dependent: :destroy
+  has_one :draft, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -15,6 +16,6 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    :role == 'Admin'
+    self.role == 'Admin'
   end
 end

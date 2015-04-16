@@ -7,6 +7,7 @@ var EmailFilter = {
     },
     slideOpen: function() {
         $('#accordian').animate({width: 'toggle'});
+        return false;
     },
     remove: function() {
         var filterText = $(this).prev().text();
@@ -142,3 +143,6 @@ $(RecipientField.setup);
 // Expanding textarea still weird.
 // Parse pasted text delimiters = space and comma
 // shrink away when clicking away from div
+// clicking on whitespace inside brings you to textarea
+// clicking once outlines
+// vertical align top

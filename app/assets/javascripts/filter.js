@@ -14,6 +14,7 @@ var Filter = {
     },
     highlight: function() {
         $(this).toggleClass('selected');
+        return false;
     },
     save: function() {
         $('#filters').empty();

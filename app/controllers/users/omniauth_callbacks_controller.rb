@@ -1,28 +1,34 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+
+  include SalesforceClient
+
   def google_oauth2
     @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
     @auth = request.env["omniauth.auth"]['credentials']
+    warn_with_redirect and return unless @user
+    sign_in @user, :event => :authentication
+    set_access_token
+    check_auth_or_redirect
+  end
 
-    if @user
-      sign_in @user, :event => :authentication
-      set_access_token
-      if sales_auth
-        popup(email_index_path)
-      else
-        flash[:notice] = "Your salesforce account is invalid or not authorized. Please contact an admin."
-        redirect_to root_path
-      end
+  def check_auth_or_redirect
+    if sales_auth
+      popup(email_index_path)
     else
-      session["devise.google_data"] = request.env["omniauth.auth"]
-      flash[:notice] = "This email is not authorized. Please log out and log in with an authorized account. Contact an admin if not yet authorized"
-      popup(root_path)
+      flash[:notice] = "Your Salesforce account is invalid or not authorized. Please contact an admin."
+      redirect_to reset_salesforce_path
     end
+  end
+
+  def warn_with_redirect
+    session["devise.google_data"] = request.env["omniauth.auth"]
+    flash[:notice] = "This email is not authorized. Please log out and log in with an authorized account. Contact an admin if not yet authorized"
+    popup(root_path)
   end
 
   def sales_auth
     begin
-      client = Restforce.new :host => "test.salesforce.com"
-      client.authenticate!
+      connect_salesforce
       return true
     rescue
       return false
@@ -48,5 +54,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       refresh_token:  @auth['refresh_token'],
       expires_at:     Time.at(@auth['expires_at']).to_datetime)
   end
-
 end

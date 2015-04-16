@@ -2,9 +2,17 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+* {margin: 0; padding: 0;}
 
 body {
 	overflow: scroll;
+}
+
+#recipient_header {
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 677px;
+	border-bottom: 1px solid #cfcfcf;
 }
 
 .recipient_label {
@@ -12,19 +20,15 @@ body {
 }
 
 .recipient_table {
-	width: 66%;
+	width: 100%;
 	border-spacing: 0;
 }
 
-.recipient_right {
-	border-bottom: 1px solid #cfcfcf;
+.recipient_table td {
+	vertical-align: top;
 }
 
-.recipient_row {
-	border-bottom: 1px solid #cfcfcf;
-}
-
-.recipient_text, .recipient_edit, .subject_text {
+.recipient_text, .recipient_edit {
 	width: 100%;
 	font-size: 13px;
 	border: 0!important;
@@ -50,17 +54,38 @@ body {
 	padding-top: 2px;
 }
 
-#email_form, #accordian {
+#subject_field {
+	border-bottom: 1px solid #cfcfcf;
+	margin: 0 0 2px;
+	min-height: 30px;
+	padding: 8px 7px 3px 7px;
+}
+
+.subject_text {
+	border: 0!important;
+	color: #222;
+  	background-color: white;
+  	font-size: 13px;
+  	margin: 0;
+  	outline: none;
+  	padding: 4px 1px 4px 2px;
+  	resize: none;
+  	-webkit-box-sizing: border-box;
+  	width: 100%;
+}
+
+#email_form {
+	width: 66%;
 	float: left;
 }
 
-* {margin: 0; padding: 0;}
 
 #accordian {
+	float: left;
 	display: none;
 	margin-left: 5px;
 	background: #004050;
-	width: 250px;
+	width: 295px;
 	color: white;
 	/*Some cool shadow and glow effect*/
 	box-shadow: 
@@ -69,8 +94,8 @@ body {
 }
 /*heading styles*/
 #accordian h3 {
-	font-size: 12px;
-	line-height: 34px;
+	font: 15px "Avenir Next Pro Bold", "Helvetica", Arial, sans-serif;
+	line-height: 37px;
 	padding: 0 10px;
 	cursor: pointer;
 	/*fallback for browsers not supporting gradients*/
@@ -84,7 +109,7 @@ body {
 }
 /*iconfont styles*/
 #accordian h3 span {
-	font-size: 16px;
+	font-size: 19px;
 	margin-right: 10px;
 }
 /*list items*/
@@ -95,8 +120,8 @@ body {
 #accordian ul ul li a {
 	color: white;
 	text-decoration: none;
-	font-size: 11px;
-	line-height: 27px;
+	font-size: 14px;
+	line-height: 30px;
 	display: block;
 	padding: 0 15px;
 	/*transition for smooth hover animation*/
@@ -105,7 +130,7 @@ body {
 /*hover effect on links*/
 .selected {
 	background: #003545;
-	border-left: 5px solid lightgreen;
+	border-left: 5px solid #00b4f0;
 }
 /*Lets hide the non active LIs by default*/
 #accordian ul ul {
@@ -135,7 +160,7 @@ body {
   color: #222;
   margin: 2px 5px;
   max-width: 325px;
-  max-height: 17px;
+  max-height: 19px;
   overflow: hidden;
   text-overflow: ellipsis;
   direction: ltr;
