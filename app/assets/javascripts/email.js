@@ -58,7 +58,7 @@ var RecipientField = {
         if (email === '') {
             $(this).remove();
         } else {
-            $(this).replaceWith("<div class='edit_box'><span class='ui_fil'><div class ='left_fil'>" + email + "</div><div class='x'></div></span><input name='email[bcc]' type='hidden' value='" + email + "'></div>");
+            $(this).replaceWith("<div class='edit_box'><span class='ui_fil'><div class ='left_fil'>" + email + "</div><div class='x'></div></span><input name='message[bcc][]' type='hidden' value='" + email + "'></div>");
         }
         $(parent).append('<textarea class="recipient_text" rows="1"></textarea>');
         $(RecipientField.resizeField);
@@ -133,16 +133,25 @@ var RecipientField = {
             return false;
         }
     }
+};
+
+var EmailSend = {
+    setup: function() {
+        $('input[name="send_msg"').on('click', EmailSend.parse);
+    },
+    parse: function() {
+        var data = <%= params[:message].to_a %>;
+        console.log(data);
+    }
 }
 
 
 $(EmailFilter.setup);
 $(RecipientField.setup);
-
+$(EmailSend.setup);
 
 // Expanding textarea still weird.
 // Parse pasted text delimiters = space and comma
 // shrink away when clicking away from div
 // clicking on whitespace inside brings you to textarea
 // clicking once outlines
-// vertical align top

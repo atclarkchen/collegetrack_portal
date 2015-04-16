@@ -9,10 +9,10 @@ class EmailController < ApplicationController
   
   def send_message
     if params[:send_msg]
-      send_email params[:email]
+      # send_email params[:message]
       flash[:notice] = "Message sent successfully"
     else
-      save_draft params[:email]
+      save_draft params[:message]
       flash[:notice] = "Message saved in your Gmail Draftbox"
     end
 
