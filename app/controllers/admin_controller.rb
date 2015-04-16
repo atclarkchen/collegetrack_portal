@@ -29,6 +29,7 @@ class AdminController < ApplicationController
   end
 
   def reset_salesforce
+    authorize current_user, :edit?
   end
 
   def save_password
