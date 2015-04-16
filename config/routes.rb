@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get    'email/' => 'email#index',          as: :email_index
-  post   'email/' => 'email#send_message',   as: :send_email
+  post   'email/' => 'email#create_message', as: :create_email
   delete 'email/' => 'email#delete_message', as: :delete_message
   get  'email/email_list'
 

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_one :token, dependent: :destroy
   has_one :draft, dependent: :destroy
+  has_many :attachments, through: :draft
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -18,4 +19,5 @@ class User < ActiveRecord::Base
   def admin?
     self.role == 'Admin'
   end
+
 end

@@ -22,6 +22,8 @@ module CollegetrackPortal
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-
+    config.after_initialize do
+      Rack::Utils.multipart_part_limit = 0
+    end
   end
 end
