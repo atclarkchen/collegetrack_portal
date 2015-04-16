@@ -24,24 +24,22 @@
               = text_area :email, :bcc, :class => 'recipient_text', :rows => 1
     #subject_field
       = text_field :email, :subject, :class => 'subject_text', :placeholder => "Subject"
-
-  = link_to "change filters", "#", :id => "change_filter"
-
+  #filter_label 
+    Filters:
+    #filters
+      %span{:class => "ui_fil" }
+        .left_fil Oakland
+        .x
       %span{:class => "ui_fil" }
         .left_fil Student
         .x
   = link_to "change filters", "", :id => "change_filter"
-
   %table
     %tr
       %td= text_area :email, :body, :class => 'tinymce', :cols => 80, :rows => 20
-    %tr{:class => 'recipient_row'}
-      %td
-        .recipient
-          %span{:class => 'recipient_label'}Files to Attach
-          = file_field :email, :attachment
+
     %tr
       %td
-        = submit_tag 'Send',  name: "send_msg"
-        = submit_tag 'Draft', name: "draft_msg"
+        = submit_tag 'Send',   name: "send_msg"
+        = submit_tag 'Draft',  name: "draft_msg"
         = link_to "Delete", delete_message_url, :method => :delete, data: {confirm: "Are you sure?"}
