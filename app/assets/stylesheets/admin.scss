@@ -1,0 +1,31 @@
+#admin_body {
+	    font-family: Montserrat;
+	    margin-top: 50px;
+}
+
+#admin_body .form-control {
+	    width: 200px;
+	    display:inline;
+}
+
+#admin_body form {
+	    text-align: center;
+}
+
+#admin_body table {
+	    margin: auto;
+	    margin-top: 50px;
+}
+
+table#users td, table#users th{
+	    padding: 10px;
+}
+
+#admin_body input, #admin_body label {
+       	    margin: 5px;       	     
+}
+
+#admin_body .btn {
+	    background-color: #00b4f0;
+	    color: white;
+}

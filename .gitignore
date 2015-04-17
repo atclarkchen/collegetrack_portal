@@ -21,3 +21,8 @@
 /public/assets/*
 /public/assets
 set_local.sh
+
+# Ignore coverage files
+/coverage/.last_run.json
+/coverage/.resultset.json
+/coverage/index.html

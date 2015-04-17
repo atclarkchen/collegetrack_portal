@@ -1,5 +1,9 @@
-%h1 Admin
+- content_for(:head) do
+  = stylesheet_link_tag 'admin'
 
-= render 'add_user_form'
+= render 'partials/header'
 
-= render 'user_table', :users => @users
+.container#admin_body
+  = render 'add_user_form'
+
+  = render 'user_table', :users => @users

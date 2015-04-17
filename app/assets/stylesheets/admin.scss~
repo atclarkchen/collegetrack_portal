@@ -1,0 +1,7 @@
+#admin_body {
+	    
+	    
+}
+#admin_body input {
+	    width: 200px;
+}

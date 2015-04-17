@@ -1,10 +1,10 @@
-= form_tag new_user_path, :remote => true do
+= form_tag new_user_path, :id => 'add_user_form', :remote => true do
 
   = label :user, :name
-  = text_field :user, 'name'
+  = text_field :user, 'name', :class => 'form-control'
 
   = label :user, :email
-  = text_field :user, 'email'
+  = text_field :user, 'email', :class => 'form-control'
 
   = radio_button :user, 'role', 'Admin'
   = label :user_role, "admin"
