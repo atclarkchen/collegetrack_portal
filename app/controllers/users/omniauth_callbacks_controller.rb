@@ -15,7 +15,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if sales_auth
       popup(email_index_path)
     else
-      flash[:notice] = "Your Salesforce account is invalid or not authorized. Please contact an admin."
+      flash[:notice] = "Your Salesforce account is invalid or outdated. Please update your password or contact an admin."
       redirect_to reset_salesforce_path
     end
   end

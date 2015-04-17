@@ -1,8 +1,7 @@
 module SalesforceClient
   extend ActiveSupport::Concern
   
-  @@client = Restforce.new :host => "test.salesforce.com"
-
+  @@client = Restforce.new :host => "test.salesforce.com", :password => ENV['SALESFORCE_PASSWORD'], :security_token => ENV['SALESFORCE_SECURITY_TOKEN']
   def connect_salesforce
     @@client.authenticate!
   end
