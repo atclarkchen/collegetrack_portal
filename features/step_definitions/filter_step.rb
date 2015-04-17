@@ -6,14 +6,14 @@ Given /^I (?:|add|remove) the filters: (.*)$/ do |filters|
   options = { :Location => ["Oakland"], :Race => ["Asian", "Black", "White"], :Gender => ["Male", "Female"], :Year => ["2010", "2011", "2012"]}
   filters = filters.split(",")
   filters.each do |filter|
-    if filter === "Oakland"
+    if filter === "Oakland" || filter === "Student"
       next
     end
-    options.each do |category, values|
-      if values.include?(filter)
+    page.all('#accordian ul li ul li a').each do |link|
+      if link.text == filter
         click_link('change filters')
-        find('h3', text: category).click
-        click_link(filter)
+        find(:xpath, '..').find('h3').click
+        link.click
         click_button("save_filter")
       end
     end
@@ -34,6 +34,10 @@ Then /^(?:|I )click the x button on "(.*)"$/ do |filters|
 end
 
 Then /^the recipient fields should contain: (.*)$/ do |emails|
-  emails = emails.split(" ")
-  expect(page).to have_field('email_bcc', :with => emails.join(", "))
+  emails = emails.split(", ")
+  page.all('.recipient_right').each do |elem|
+    if (find(:xpath, '..').find('.email_label').text.strip == 'BCC:')
+      expect(page).to have_content(email)
+    end
+  end
 end

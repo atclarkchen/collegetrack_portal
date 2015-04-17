@@ -11,4 +11,4 @@
         %td= user.name
         %td= user.email
         %td= user.role
-        %td= button_to "X", delete_user_path({:user => user}), :action => :destroy, :method => :delete, remote: true
+        %td= button_to "X", delete_user_path({:user => user}), :action => :destroy, :method => :delete, remote: true, :class => 'btn'

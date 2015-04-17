@@ -20,14 +20,14 @@ RSpec.describe EmailController, type: :controller do
     context "when user click send" do
       it 'calls send_email method' do
         expect(controller).to receive(:send_email).with(@email)
-        post :send_message, { :email => @email, :send_msg => true }
+        post :send_message, { :message => @email, :send_msg => true }
       end
     end
 
     context "when user click draft" do
       it 'calls save_draft method' do
         expect(controller).to receive(:save_draft).with(@email)
-        post :send_message, { :email => @email, :draft_msg => true }
+        post :send_message, { :message => @email, :draft_msg => true }
       end
     end
 

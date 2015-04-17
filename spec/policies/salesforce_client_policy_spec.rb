@@ -6,6 +6,10 @@ describe UserPolicy do
    
   let(:user) { FactoryGirl.create(:user) }
 
+  before :each do
+    SalesforceClient.create!(:password => "default", :security_token => "default")
+  end
+
   permissions :edit? do
     it 'should not allow a user to see things from other accounts' do
       expect(subject).to_not permit(user, user)

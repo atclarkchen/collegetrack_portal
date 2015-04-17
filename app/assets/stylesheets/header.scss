@@ -1,0 +1,26 @@
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #fff;
+	box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 2px 0px;
+	z-index: 9999;
+	font-family: "Montserrat";
+	font-size: 24px;
+	padding: 20px;
+	background-color: #fff;
+}
+.navbar a {
+	float: right;
+	margin: 50px 20px 0px 20px;
+	color: #767778;
+	padding: 0px 5px 0px 5px;
+}
+.navbar a:hover, .navbar a:focus {
+	color:#00b4f0;
+	text-decoration: none;
+}
+.navbar a.active {
+	border-bottom: solid #00b4f0;  
+}

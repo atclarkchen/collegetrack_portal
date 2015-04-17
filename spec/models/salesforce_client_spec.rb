@@ -1,5 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe SalesforceClient, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe SalesforceClient do
+  
+  before :each do
+  	@client = SalesforceClient.create!(:password => "default", :security_token => "default")
+  end
+
+  describe "self.password" do
+  	it "should return the SalesforceClient password" do
+  		expect(@client.password).to eq(SalesforceClient.password)
+  	end
+  end
 end

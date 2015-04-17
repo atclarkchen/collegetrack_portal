@@ -1,23 +1,28 @@
 class SalesforceClient < ActiveRecord::Base
 
+  @@client
+
   def self.password
-    SalesforceClient.first.password
+    @password = SalesforceClient.first.password
+    @password
   end
 
   def self.security_token
-    SalesforceClient.first.security_token
+    @token = SalesforceClient.first.security_token
+    @token
   end
 
-  @@client = Restforce.new :host => "test.salesforce.com", :password => self.password, :security_token => self.security_token
+  def update_client
+    @@client = Restforce.new :host => "test.salesforce.com", :password => self.password, :security_token => self.security_token
+  end
 
   def change_password(new_password, new_token)
-    
     SalesforceClient.first.update_attributes!(:password => new_password, :security_token => new_token)
     @@client = Restforce.new :host => "test.salesforce.com", :password => new_password, :security_token => new_token
   end
 
   def connect_salesforce
-    @@client.authenticate!
+    update_client.authenticate!
   end
 
   def generate_email(filters)
