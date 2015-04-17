@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Attachment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'Attachment' do
+    it { should have_attached_file(:file) }
+    it { should validate_attachment_size(:file).
+                  less_than(5.megabytes) }
+  end
 end

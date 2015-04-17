@@ -2,13 +2,12 @@
 
 # Examples are shown below
 
-FactoryGirl.define do  factory :attachment do
-    
-  end
-  factory :draft do
-    
+FactoryGirl.define do
+  factory :attachment do
   end
 
+  factory :draft do
+  end
 
   factory :token do
     access_token   "test-token"

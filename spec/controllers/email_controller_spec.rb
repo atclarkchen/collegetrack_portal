@@ -8,28 +8,36 @@ RSpec.describe EmailController, type: :controller do
     controller.stub(:ensure_sign_in).and_return(true)
   end
 
-  describe "#send_message" do
+  describe "#create_message" do
     before :each do
       @email = {to:  "to@gmail.com",
                 cc:  "cc@gmail.com",
                 bcc: "bcc@gmail.com",
                 subject: "Test Message",
-                body: "This is body"}
+                body: "This is body",
+                file: ["test.jpg", "sample.pdf"]}
     end
 
-    context "when user click send" do
-      it 'calls send_email method' do
-        expect(controller).to receive(:send_email).with(@email)
-        post :send_message, { :email => @email, :send_msg => true }
+    context 'when user click draft or send button' do
+      it 'calls create_message' do
+        expect(controller).to receive(:create_message).with(@email)
+        post :send_message, { :email => @email }
       end
     end
 
-    context "when user click draft" do
-      it 'calls save_draft method' do
-        expect(controller).to receive(:save_draft).with(@email)
-        post :send_message, { :email => @email, :draft_msg => true }
-      end
-    end
+    # context "when user click draft" do
+    #   it 'calls create_message' do
+    #     expect(controller).to receive(:create_message).with(@email)
+    #     post :send_message, { :email => @email, :draft_msg => true }
+    #   end
+    # end
+
+    # context "when user click send" do
+    #   it 'calls create_message' do
+    #     expect(controller).to receive(:create_message).with(@email)
+    #     post :create_message, { :email => @email, :send_msg => true }
+    #   end
+    # end
 
     after :each do
       expect(response).to redirect_to email_index_path

@@ -23,7 +23,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'jasmine'
   gem 'webmock', :require => false
-  gem 'autotest'
+  gem 'rspec-autotest'
+  gem 'ZenTest'
 end
 
 group :production do
