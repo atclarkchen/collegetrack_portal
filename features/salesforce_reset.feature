@@ -1,12 +1,10 @@
-Salesforce Password Reset
-
 Feature: Salesforce Password Change
 
   As a College Track Portal staff,
   So that I can’t send an email if the Salesforce password is outdated
   I want to have an admin-only page where I can update the security token and password
 
-Background:
+Background: There exists one authorized user and one authorized admin
   Given the following users exist:
   | name                 | email           | role  | password |
   | Admin                | admin@gmail.com | Admin | password |

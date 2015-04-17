@@ -34,11 +34,11 @@ class AdminController < ApplicationController
 
   def save_password
     authorize current_user, :edit?
-    @old_password = params[:old_password][:old_password]
+    #@old_password = params[:old_password][:old_password]
     @password = params[:password][:password]
     @confirm_password = params[:confirm_password][:confirm_password]
     @security_token = params[:token][:token]
-    @confirm_security_token = params[:confirm_token][:confirm_token]
+    #@confirm_security_token = params[:confirm_token][:confirm_token]
     if @password == @confirm_passwords
       ENV[SALESFORCE_PASSWORD] = @password
       ENV[SALESFORCE_SECURITY_TOKEN] = @security_token

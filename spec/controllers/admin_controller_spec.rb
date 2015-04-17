@@ -29,6 +29,21 @@ describe AdminController do
         }.to change(User, :count).by(-1)
         expect(response).to redirect_to admin_path
     end
-  end   
+  end    
+
+  describe 'save_password' do
+    it 'should reset' do
+        post :save_password, :confirm_password => {:confirm_password => "asdfasdf"}, :password => {:password => "asdfasdf"}, :token => {:token => "VK1tbyhhTHNYipfSucswcCL4"}
+        expect(response).to redirect_to root_path
+    end
+  end
+
+  describe 'reset salesforce' do
+    it 'should render' do
+        get :reset_salesforce
+        expect(response).to render_template("reset_salesforce")
+    end
+  end
+
 
 end
