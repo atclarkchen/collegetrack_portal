@@ -168,20 +168,8 @@ var RecipientField = {
     }
 };
 
-var EmailSend = {
-    setup: function() {
-        $('input[name="send_msg"').on('click', EmailSend.parse);
-    },
-    parse: function() {
-        var data = '<%=j params[:message] %>';
-        console.log(data);
-    }
-}
-
-
 $(EmailFilter.setup);
 $(RecipientField.setup);
-$(EmailSend.setup);
 
 // Expanding textarea still weird.
 // shrink away when clicking away from div
