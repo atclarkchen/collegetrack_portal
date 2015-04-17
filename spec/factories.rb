@@ -2,7 +2,12 @@
 
 # Examples are shown below
 
-FactoryGirl.define do
+FactoryGirl.define do  factory :salesforce_client do
+    username "MyString"
+password "MyString"
+security_token "MyString"
+  end
+
 
   factory :token do
     access_token   "test-token"

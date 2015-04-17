@@ -20,6 +20,10 @@ And /I click "X" to remove user "(.+)"$/ do |user_name|
   end
 end
 
+And /the Salesforce password is outdated/ do
+  
+end
+
 Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_no_content(text)
