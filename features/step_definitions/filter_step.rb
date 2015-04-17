@@ -35,8 +35,8 @@ end
 
 Then /^the recipient fields should contain: (.*)$/ do |emails|
   emails = emails.split(", ")
-  within ('div#recipient_header') do
-    emails.each do |email|
+  page.all('.recipient_right').each do |elem|
+    if (find(:xpath, '..').find('.email_label').text.strip == 'BCC:')
       expect(page).to have_content(email)
     end
   end
