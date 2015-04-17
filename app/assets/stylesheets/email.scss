@@ -9,27 +9,44 @@ body {
 }
 
 #recipient_header {
+	border-bottom: solid 2px #E0E0E0;
 	overflow-x: hidden;
 	overflow-y: auto;
-	max-height: 677px;
-	border-bottom: 1px solid #cfcfcf;
+	max-height: 360px;
 }
 
-.recipient_label {
+#email_body {
+	margin: auto;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.email_label {
+	color:#767778;
 	font-weight: bold;
+	float:left;
+	font-size: 22px;
+	padding-right:10px;
+	margin-top:3px;
 }
 
-.recipient_table {
+.email_fields_table {
 	width: 100%;
 	border-spacing: 0;
+	display:table;
 }
 
-.recipient_table td {
-	vertical-align: top;
+.email_fields_row {
+	display:table-caption;
+	border-bottom: solid 2px #E0E0E0;
 }
-
+.recipient_right {
+	float:left;
+	width:calc(100% - 96px);
+}
 .recipient_text, .recipient_edit {
 	width: 100%;
+	height: 25px;
 	font-size: 13px;
 	border: 0!important;
 	margin: 0!important;
@@ -38,9 +55,8 @@ body {
 	resize: none;
 	text-align: left;
 	overflow: hidden;
-	height: 20px!important;
 	padding: 6px 3px;
-	color: black;
+	color: #767778;
 	background-color: white;
 	padding-bottom: 3px;
 	padding-top: 5px;
@@ -54,18 +70,12 @@ body {
 	padding-top: 2px;
 }
 
-#subject_field {
-	border-bottom: 1px solid #cfcfcf;
-	margin: 0 0 2px;
-	min-height: 30px;
-	padding: 8px 7px 3px 7px;
-}
 
 .subject_text {
 	border: 0!important;
-	color: #222;
+	color: #767778;
   	background-color: white;
-  	font-size: 13px;
+  	font-size: 18px;
   	margin: 0;
   	outline: none;
   	padding: 4px 1px 4px 2px;
@@ -75,10 +85,9 @@ body {
 }
 
 #email_form {
-	width: 66%;
+	width: 100%;
 	float: left;
 }
-
 
 #accordian {
 	float: left;
@@ -150,14 +159,32 @@ body {
 	width: 100%;
 	padding: 2px;
 }
-
+#filters {
+	padding-top:5px;
+}
 #filter_label div {
 	display: inline-block;
 }
 
-.left_fil {	
+#filter_label {
+	margin-top:10px;
+	float:left;
+	margin-bottom:20px;
+}
+
+#change_filter {
+	color: #00b4f0;
+	text-weight: bold;
+	font-size: 18px;
+}
+
+#change_filter:hover, #change_filter:focus {
+	text-decoration:none;
+}
+
+.left_fil {
   display: inline-block;
-  color: #222;
+  color: white;
   margin: 2px 5px;
   max-width: 325px;
   max-height: 19px;
@@ -167,7 +194,7 @@ body {
 }
 
 .ui_fil {
-  background-color: #f5f5f5;
+  background-color: #00b4f0;
   border: 1px solid #d9d9d9;
   cursor: default;
   display: inline-block;
@@ -186,4 +213,33 @@ body {
   opacity: .6;
   vertical-align: top;
   cursor: pointer;
+}
+
+#compose_box {
+	width: 100%;
+	margin-top:20px;
+}
+.submit_btns {
+	padding-top:20px;
+	padding-bottom:20px;
+}
+.submit_btns .btn {
+	color:white;
+	text-weight:bold;
+	font-size:24px;
+	margin-left:20px;
+}
+.submit_btns .btn:hover, .submit_btns .btn:focus {
+	color:white
+}
+.send_btn {
+	background-color:#56F000;	
+}
+
+.draft_btn {
+	background-color:#767778;	
+}
+
+.delete_btn {
+	background-color:red;	
 }

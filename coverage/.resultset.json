@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/Spring2015/cs169/collegetrack_portal/app/models/user.rb": [
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/models/user.rb": [
         1,
         null,
         null,
@@ -23,11 +23,11 @@
         null,
         null
       ],
-      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/Spring2015/cs169/collegetrack_portal/app/helpers/application_helper.rb": [
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/Spring2015/cs169/collegetrack_portal/app/helpers/email_helper.rb": [
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/helpers/email_helper.rb": [
         1,
         null,
         1,
@@ -57,7 +57,7 @@
         null,
         null
       ],
-      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/Spring2015/cs169/collegetrack_portal/app/controllers/admin_controller.rb": [
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/admin_controller.rb": [
         1,
         1,
         null,
@@ -100,12 +100,14 @@
         0,
         0,
         0,
+        0,
+        0,
         null,
         0,
         null,
         null
       ],
-      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/Spring2015/cs169/collegetrack_portal/app/controllers/application_controller.rb": [
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -127,7 +129,7 @@
         null,
         null
       ],
-      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/Spring2015/cs169/collegetrack_portal/app/controllers/email_controller.rb": [
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/email_controller.rb": [
         1,
         null,
         1,
@@ -160,7 +162,7 @@
         null,
         null
       ],
-      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/Spring2015/cs169/collegetrack_portal/app/controllers/concerns/salesforce_client.rb": [
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/concerns/salesforce_client.rb": [
         1,
         1,
         null,
@@ -245,7 +247,7 @@
         null,
         null
       ],
-      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/Spring2015/cs169/collegetrack_portal/app/controllers/users/omniauth_callbacks_controller.rb": [
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/controllers/users/omniauth_callbacks_controller.rb": [
         1,
         null,
         1,
@@ -304,7 +306,7 @@
         null,
         null
       ],
-      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/Spring2015/cs169/collegetrack_portal/app/models/token.rb": [
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/models/token.rb": [
         null,
         null,
         1,
@@ -343,7 +345,7 @@
         null,
         null
       ],
-      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/Spring2015/cs169/collegetrack_portal/app/policies/user_policy.rb": [
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/policies/user_policy.rb": [
         1,
         null,
         1,
@@ -359,7 +361,7 @@
         null,
         null
       ],
-      "/cygdrive/C/Users/Jason/Documents/UCBerkeley/Spring2015/cs169/collegetrack_portal/app/policies/application_policy.rb": [
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/policies/application_policy.rb": [
         1,
         1,
         null,
@@ -416,11 +418,11 @@
         null
       ]
     },
-    "timestamp": 1429078168
+    "timestamp": 1429149274
   },
   "Cucumber Features": {
     "coverage": {
-      "/Users/shin-yenhuang/collegetrack_portal/app/models/user.rb": [
+      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/models/user.rb": [
         1,
         null,
         null,
@@ -428,247 +430,21 @@
         1,
         null,
         1,
-        null,
-        null,
-        null,
-        1,
-        14,
-        14,
-        14,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null
-      ],
-      "/Users/shin-yenhuang/collegetrack_portal/app/controllers/home_controller.rb": [
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/shin-yenhuang/collegetrack_portal/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        14,
-        null,
-        null
-      ],
-      "/Users/shin-yenhuang/collegetrack_portal/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/shin-yenhuang/collegetrack_portal/app/helpers/email_helper.rb": [
-        1,
-        null,
-        1,
-        40,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/shin-yenhuang/collegetrack_portal/app/controllers/users/omniauth_callbacks_controller.rb": [
-        1,
-        1,
-        14,
-        14,
-        null,
-        14,
-        13,
-        13,
-        13,
-        13,
-        null,
-        0,
-        0,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        13,
-        13,
-        13,
-        13,
-        null,
-        0,
         null,
         null,
         null,
         1,
         0,
-        null,
-        null,
-        1,
-        14,
-        14,
-        5,
-        null,
-        9,
-        null,
-        null,
-        null,
-        1,
-        13,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/shin-yenhuang/collegetrack_portal/app/models/token.rb": [
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        0,
-        null,
-        null,
-        1,
         0,
         0,
         null,
         null,
         1,
         0,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/shin-yenhuang/collegetrack_portal/app/controllers/email_controller.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        null,
-        1,
-        2,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        2,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        1,
-        76,
-        164,
-        null,
-        57,
-        57,
-        57,
-        57,
-        129,
-        24,
-        null,
-        null,
-        57,
-        33,
-        293,
-        null,
-        null,
-        57,
-        152,
-        99,
-        null,
-        null,
-        57,
-        null,
-        null,
-        1,
-        19,
-        19,
-        null,
-        null
-      ],
-      "/Users/shin-yenhuang/collegetrack_portal/app/controllers/admin_controller.rb": [
-        1,
-        1,
-        5,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
         null,
         null
       ]
     },
-    "timestamp": 1428112600
+    "timestamp": 1429153301
   }
 }

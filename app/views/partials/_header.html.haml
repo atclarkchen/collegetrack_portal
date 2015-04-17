@@ -1,0 +1,15 @@
+- content_for(:head) do
+  = stylesheet_link_tag 'header'
+  = stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Montserrat:700'
+  = javascript_include_tag 'header'
+
+%nav.navbar.navbar-default.navbar-static-top
+  %img{:href => "/", :src => image_path("ct-logo.svg"), :width => "196", :height => "89"}
+  %a
+    Logout
+  -if policy(current_user).edit?
+    %a{:href => "/admin"}
+      Admin
+  %a{:href => "/email"}
+    Email
+    

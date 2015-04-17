@@ -9,11 +9,7 @@
 - if flash[:notice]
   #notice.message= flash[:notice]
 
-%h1 Email
-
--if policy(current_user).edit?
-  =link_to "Admin", admin_path, :id => "admin_link"
-
-= render "email_form"
-
-= render "filters", :filter_values => @filter_values
+= render "partials/header"
+.container#email_body
+  = render "email_form"
+  = render "filters", :filter_values => @filter_values
