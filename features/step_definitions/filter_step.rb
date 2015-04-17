@@ -9,11 +9,11 @@ Given /^I (?:|add|remove) the filters: (.*)$/ do |filters|
     if filter === "Oakland" || filter === "Student"
       next
     end
-    options.each do |category, values|
-      if values.include?(filter)
+    page.all('#accordian ul li ul li a').each do |link|
+      if link.text == filter
         click_link('change filters')
-        find('h3', text: category).click
-        click_link(filter)
+        find(:xpath, '..').find('h3').click
+        link.click
         click_button("save_filter")
       end
     end
@@ -34,6 +34,8 @@ Then /^(?:|I )click the x button on "(.*)"$/ do |filters|
 end
 
 Then /^the recipient fields should contain: (.*)$/ do |emails|
-  emails = emails.split(" ")
-  expect(page).to have_field('email_bcc', :with => emails.join(", "))
+  within ('#email_fields_table') do
+    emails.each do |email|
+      expect(page).to have_content(email)
+  end
 end
