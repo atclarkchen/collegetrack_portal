@@ -80,13 +80,13 @@ var RecipientField = {
             $(parent).append('<textarea class="recipient_text" rows="1"></textarea>');  
         }      
         $(RecipientField.resizeField);
-        var endOfText = $(parent).find('.recipient_text').val();
-        $(parent).find('.recipient_text').focus().val("").val(endOfText);
     },
     paste: function() {
         var input = $(this);
         setTimeout(function () {
             input.blur();
+            var endOfText = $('input').val();
+            $(parent).find('.recipient_text').focus().val("").val(endOfText);
         }, 100);
     },
     remove: function() {
@@ -170,7 +170,3 @@ var RecipientField = {
 
 $(EmailFilter.setup);
 $(RecipientField.setup);
-
-// Expanding textarea still weird.
-// shrink away when clicking away from div
-// clicking once outlines
