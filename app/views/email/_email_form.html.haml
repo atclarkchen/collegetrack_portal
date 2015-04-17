@@ -40,7 +40,7 @@
       %td
         .recipient
           %span{class: 'recipient_label'}Files to Attach
-          = file_field :email, :file, multiple: true
+          = file_field :email, :files, multiple: true
     %tr
       %td.submit_btns
         = submit_tag 'Send',   name: "send_msg", :class => "btn send_btn"

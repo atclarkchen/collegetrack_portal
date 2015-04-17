@@ -8,14 +8,18 @@ class EmailController < ApplicationController
   end
   
   def create_message
-    # Create and compose draft message for current user
-    draft = current_user.create_draft
-    draft.save_draft(email_params)
-    flash[:notice] = "Draft message saved successfully"
+    # build and compose draft message for current user
+    debugger
+    draft = current_user.build_draft(email_params)
 
     if params[:send_msg]
-      draft.deliver_message
-      flash[:notice] = "Message sent successfully"
+      # draft.deliver_message
+      # flash[:notice] = "Message sent successfully"
+    elsif params[:draft_msg]
+      # save draft for the current user
+      draft.save
+      debugger
+      flash[:notice] = "Draft message saved successfully"
     end
 
     redirect_to email_index_path
@@ -35,7 +39,7 @@ class EmailController < ApplicationController
 
     def email_params
       params.require(:email).
-        permit(:subject, :body, :to, :cc, bcc: [], file: [])
+        permit(:subject, :body, :to, cc: [], bcc: [], files: [])
     end
 
 end

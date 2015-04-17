@@ -29,10 +29,11 @@ ActiveRecord::Schema.define(version: 20150416015639) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "to"
-    t.string   "cc"
-    t.string   "bcc"
     t.string   "subject"
     t.string   "body"
+    t.text     "files"
+    t.text     "bcc"
+    t.text     "cc"
     t.integer  "user_id"
   end
 
