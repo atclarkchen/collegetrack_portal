@@ -422,7 +422,7 @@
   },
   "Cucumber Features": {
     "coverage": {
-      "/cygdrive/c/Users/forgottn/Desktop/CS/169/collegetrack_portal/app/models/user.rb": [
+      "/home/saasbook/collegetrack_portal/app/models/user.rb": [
         1,
         null,
         null,
@@ -445,6 +445,6 @@
         null
       ]
     },
-    "timestamp": 1429153301
+    "timestamp": 1429236888
   }
 }
