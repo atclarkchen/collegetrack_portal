@@ -37,5 +37,6 @@ Then /^the recipient fields should contain: (.*)$/ do |emails|
   within ('#email_fields_table') do
     emails.each do |email|
       expect(page).to have_content(email)
+    end
   end
 end
