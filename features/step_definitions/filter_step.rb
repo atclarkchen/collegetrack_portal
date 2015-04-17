@@ -34,6 +34,7 @@ Then /^(?:|I )click the x button on "(.*)"$/ do |filters|
 end
 
 Then /^the recipient fields should contain: (.*)$/ do |emails|
+  emails = emails.split(", ")
   within ('#recipient_header') do
     emails.each do |email|
       expect(page).to have_content(email)
