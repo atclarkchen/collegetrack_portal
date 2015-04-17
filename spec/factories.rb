@@ -13,7 +13,7 @@ FactoryGirl.define do
   factory :draft do
     to  "to@gmail.com"
     cc  "cc@gmail.com"
-    bcc "bcc@gmail.com"
+    bcc ["bcc1@gmail.com", "bcc2@gmail.com"]
     subject "Test Subject"
     body "This is body"
 
