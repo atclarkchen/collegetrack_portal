@@ -1,4 +1,5 @@
 class AdminController < ApplicationController
+  before_action :ensure_sign_in
   after_action :verify_authorized
 
   def index
