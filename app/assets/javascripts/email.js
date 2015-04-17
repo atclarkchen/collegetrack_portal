@@ -13,7 +13,7 @@ var EmailFilter = {
         var filterText = $(this).prev().text();
         $(this).parent().remove();
         $(".selected").each(function() {
-            if ($(this).text() == filterText) {
+            if ($(this).text() === filterText) {
                 $(this).toggleClass('selected');
                 return false;
             }
@@ -22,7 +22,6 @@ var EmailFilter = {
     }
 };
 
-var editBox;
 var allowedRepeat = false;
 var RecipientField = {
     setup: function() {
@@ -68,7 +67,7 @@ var RecipientField = {
                     $(prev).after("<div class='edit_box'><span class='ui_fil'><div class ='left_fil'>" + emails[i] + "</div><div class='x'></div></span><input name='message[bcc][]' type='hidden' value='" + emails[i] + "'></div>");
                 } else {
                     var restEmails = emails.slice(i);
-                    var restEmails = restEmails.join(" ");
+                    restEmails = restEmails.join(" ");
                     $(prev).after('<textarea class="recipient_text" rows="1">' + restEmails + '</textarea>');
                     break;
                 }
@@ -98,7 +97,7 @@ var RecipientField = {
             var rowWidth = 0;
             var divWidth = $(this).width();
             $(this).children('div').each(function() {
-                cellWidth = $(this).outerWidth();
+                var cellWidth = $(this).outerWidth();
                 if (rowWidth + cellWidth > divWidth) {
                     rowWidth = 0; 
                 }
@@ -113,7 +112,7 @@ var RecipientField = {
     },
     autoGrow: function() {
         allowedRepeat = false;
-        var elem = $(this)
+        var elem = $(this);
         setTimeout(function () {
             var width = RecipientField.getTextWidth(elem);
             var divWidth = $('.recipient_right').width();
@@ -162,7 +161,7 @@ var RecipientField = {
         }
     },
     selectTextArea: function() {
-        if(event.target == this) {
+        if(event.target === this) {
             $(this).find('.recipient_text').focus();
         }
     }
