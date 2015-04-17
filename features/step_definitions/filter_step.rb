@@ -11,7 +11,7 @@ Given /^I (?:|add|remove) the filters: (.*)$/ do |filters|
     end
     options.each do |category, values|
       if values.include?(filter)
-        click_link('change_filter')
+        click_link('change filters')
         find('h3', text: category).click
         click_link(filter)
         click_button("save_filter")
