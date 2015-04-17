@@ -2,6 +2,12 @@ class Draft < ActiveRecord::Base
   belongs_to :user
   has_many :attachments, dependent: :destroy
 
+  def save_draft(email_params)
+    files = email_params.delete(:file)
+    self.update_attributes email_params
+    self.add_attachments(files) if files.presence
+  end
+
   def add_attachments(files)
     files.each do |file|
       self.attachments.create(file: file)
@@ -12,6 +18,8 @@ class Draft < ActiveRecord::Base
     gmail = Gmail.connect(:xoauth2, self.user.email,
                                     self.user.token.fresh_token)
     message = compose_message(gmail)
+    debugger
+    true
     message.deliver!
     gmail.logout
   end

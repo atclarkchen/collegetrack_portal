@@ -8,12 +8,13 @@ class EmailController < ApplicationController
   end
   
   def create_message
-    # Create a draft message for the current user
-    current_user.generate_draft email_params
+    # Create and compose draft message for current user
+    draft = current_user.create_draft
+    draft.save_draft(email_params)
     flash[:notice] = "Draft message saved successfully"
 
     if params[:send_msg]
-      current_user.draft.deliver_message
+      draft.deliver_message
       flash[:notice] = "Message sent successfully"
     end
 
