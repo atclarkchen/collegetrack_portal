@@ -1,7 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
-  include SalesforceClient
-
   def google_oauth2
     @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
     @auth = request.env["omniauth.auth"]['credentials']
@@ -28,7 +26,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def sales_auth
     begin
-      connect_salesforce
+      SalesforceClient.first.connect_salesforce
       return true
     rescue
       return false

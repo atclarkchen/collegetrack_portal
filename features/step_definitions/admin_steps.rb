@@ -21,8 +21,7 @@ And /I click "X" to remove user "(.+)"$/ do |user_name|
 end
 
 And /the Salesforce password is outdated/ do
-  ENV['SALESFORCE_PASSWORD'] = "outdated"
-  ENV['SALESFORCE_SECURITY_TOKEN'] = "outdated"
+  
 end
 
 Then /^(?:|I )should not see "([^"]*)"$/ do |text|
