@@ -35,7 +35,7 @@ class EmailController < ApplicationController
 
     def email_params
       params.require(:email).
-        permit(:subject, :body, :to, :cc, :bcc, file: [])
+        permit(:subject, :body, :to, :cc, bcc: [], file: [])
     end
 
 end

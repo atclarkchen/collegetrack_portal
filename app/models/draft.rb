@@ -2,10 +2,15 @@ class Draft < ActiveRecord::Base
   belongs_to :user
   has_many :attachments, dependent: :destroy
 
-  def save_draft(email_params)
-    files = email_params.delete(:file)
-    self.update_attributes email_params
+  def save_draft(email)
+    email[:bcc] = merge_bcc_to_string(email[:bcc])
+    files = email.delete(:file)
+    self.update_attributes email
     self.add_attachments(files) if files.presence
+  end
+
+  def merge_bcc_to_string(array_bcc)
+    array_bcc.compact.reject(&:empty?).join(", ")
   end
 
   def add_attachments(files)
@@ -18,8 +23,6 @@ class Draft < ActiveRecord::Base
     gmail = Gmail.connect(:xoauth2, self.user.email,
                                     self.user.token.fresh_token)
     message = compose_message(gmail)
-    debugger
-    true
     message.deliver!
     gmail.logout
   end
