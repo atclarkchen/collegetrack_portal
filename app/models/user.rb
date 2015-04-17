@@ -20,4 +20,10 @@ class User < ActiveRecord::Base
     self.role == 'Admin'
   end
 
+  def generate_draft(email_params)
+    # Return list of files
+    files = email_params.delete(:file)
+    self.create_draft email_params
+    self.draft.add_attachments files
+  end
 end

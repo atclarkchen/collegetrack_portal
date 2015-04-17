@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   get    'email/' => 'email#index',          as: :email_index
-  post   'email/' => 'email#create_message', as: :create_email
+  post   'email/' => 'email#create_message', as: :create_message
   delete 'email/' => 'email#delete_message', as: :delete_message
-  get  'email/email_list'
+  get    'email/email_list'
 
   get    'admin/' => 'admin#index', :as => :admin
   post   'admin/' => 'admin#new', :as => :new_user
