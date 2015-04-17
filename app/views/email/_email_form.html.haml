@@ -1,27 +1,27 @@
 = form_tag(email_index_path, {:id => "email_form", multipart: true}) do
   #email_header
-    .email_fields_table
-      .email_fields_row
-        .email_label 
-          To:
-        .recipient_right
-          = text_area :email, :to, :class => 'recipient_text'
-      .email_fields_row
-        .email_label
-          CC:
-        .recipient_right
-          = text_area :email, :cc, :class => 'recipient_text'    
-      .email_fields_row
-        .email_label
-          BCC:
-        .recipient_right
-          #recipient_bcc
-            = text_area :email, :bcc, :class => 'recipient_text', :rows => 1
-      .email_fields_row
-        .email_label
-          Subject:
-        #subject_field.recipient_right
-          = text_field :email, :subject, :class => 'subject_text'
+    #recipient_header
+      .email_fields_table
+        .email_fields_row
+          .email_label 
+            To:
+          .recipient_right
+            = text_area :email, :to, :class => 'recipient_text', :multiple => true
+        .email_fields_row
+          .email_label
+            CC:
+          .recipient_right
+            = text_area :email, :cc, :class => 'recipient_text', :multiple => true
+        .email_fields_row
+          .email_label
+            BCC:
+          .recipient_right
+            = text_area :email, :bcc, :class => 'recipient_text', :rows => 1, :multiple => true
+    #subject_field
+      .email_fields_table
+        .email_fields_row
+          .recipient_right
+            = text_field :email, :subject, :class => 'subject_text', :placeholder => "Subject"
   #filter_label
     .email_label
       Filters:

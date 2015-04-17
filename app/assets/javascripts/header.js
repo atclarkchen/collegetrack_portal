@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('nav > a').each(function () {
-	if (window.location.href.match(new RegExp(this.text,"i"))) {
-	    $(this).addClass("active");
-	}
+        if (window.location.href.indexOf($(this).text().toLowerCase().trim()) >= 0) {
+            $(this).addClass("active");
+        }
     });
 });

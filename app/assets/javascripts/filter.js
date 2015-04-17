@@ -41,10 +41,13 @@ var Filter = {
             data: {"filters": filters},
             success: function(data) {
                 $('.filter_box').remove();
-                for (var i in data) {
-		    var email = data[i];
-                    //$('#recipient_bcc').prepend("<div class='filter_box'><span class='ui_fil'><div class ='left_fil'>" + email + "</div><div class='x'></div></span><input name='email[bcc]' type='hidden' value='" + email + "'></div>");
-                }
+                $('.email_fields_row').each(function() {
+                    if ($(this).find('.email_label').text().indexOf('BCC') >= 0) {
+                        for (var i in data) {
+                            $(this).find('.recipient_right').prepend("<div class='filter_box'><span class='ui_fil'><div class ='left_fil'>" + data[i] + "</div><div class='x'></div></span><input name='email[bcc][]' type='hidden' value='" + data[i] + "'></div>");
+                        }
+                    }
+                });
                 $(RecipientField.resizeField);
             }
         });

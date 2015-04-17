@@ -29,16 +29,28 @@ RSpec.describe EmailController, type: :controller do
     end
 
     context "when user click send" do
+<<<<<<< HEAD
       it 'calls deliver_message methods on draft model of the current_user' do
         expect(current_user).to receive(:draft)
         post :create_message, { :email => @email, :send_msg => true }
+=======
+      it 'calls send_email method' do
+        expect(controller).to receive(:send_email).with(@email)
+        post :send_message, { :message => @email, :send_msg => true }
+>>>>>>> email_ui
       end
     end
 
     context "when user click draft" do
+<<<<<<< HEAD
       it 'calls create_message' do
         expect(current_user.draft).not_to receive(:deliver_message)
         post :create_message, { :email => @email, :draft_msg => true }
+=======
+      it 'calls save_draft method' do
+        expect(controller).to receive(:save_draft).with(@email)
+        post :send_message, { :message => @email, :draft_msg => true }
+>>>>>>> email_ui
       end
     end
 
