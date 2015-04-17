@@ -43,8 +43,8 @@ var Filter = {
                 $('.filter_box').remove();
                 $('.email_fields_row').each(function() {
                     if ($(this).find('.email_label').text().indexOf('BCC') >= 0) {
-                        for (var email of data) {
-                            $(this).find('.recipient_right').prepend("<div class='filter_box'><span class='ui_fil'><div class ='left_fil'>" + email + "</div><div class='x'></div></span><input name='message[bcc][]' type='hidden' value='" + email + "'></div>");
+                        for (var i in data) {
+                            $(this).find('.recipient_right').prepend("<div class='filter_box'><span class='ui_fil'><div class ='left_fil'>" + data[i] + "</div><div class='x'></div></span><input name='message[bcc][]' type='hidden' value='" + data[i] + "'></div>");
                         }
                     }
                 });

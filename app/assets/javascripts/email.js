@@ -63,11 +63,11 @@ var RecipientField = {
             var emails = input.split(/[ ,]+/);
             var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
             var prev = ($(this).prev().length === 0) ? $(this) : $(this).prev();
-            for (email of emails) {
-                if (filter.test(email)) {
-                    $(prev).after("<div class='edit_box'><span class='ui_fil'><div class ='left_fil'>" + email + "</div><div class='x'></div></span><input name='message[bcc][]' type='hidden' value='" + email + "'></div>");
+            for (var i in emails) {
+                if (filter.test(emails[i])) {
+                    $(prev).after("<div class='edit_box'><span class='ui_fil'><div class ='left_fil'>" + emails[i] + "</div><div class='x'></div></span><input name='message[bcc][]' type='hidden' value='" + emails[i] + "'></div>");
                 } else {
-                    var restEmails = emails.slice(emails.indexOf(email));
+                    var restEmails = emails.slice(i);
                     var restEmails = restEmails.join(" ");
                     $(prev).after('<textarea class="recipient_text" rows="1">' + restEmails + '</textarea>');
                     break;
@@ -76,9 +76,9 @@ var RecipientField = {
             }
             $(this).remove();
         }
-        if ($(this).find('.recipient_text').length < 0) {
-            $(parent).append('<textarea class="recipient_text" rows="1"></textarea>');
-        }
+        if (!$(parent).find('.recipient_text').length) {
+            $(parent).append('<textarea class="recipient_text" rows="1"></textarea>');  
+        }      
         $(RecipientField.resizeField);
         var endOfText = $(parent).find('.recipient_text').val();
         $(parent).find('.recipient_text').focus().val("").val(endOfText);
@@ -184,6 +184,5 @@ $(RecipientField.setup);
 $(EmailSend.setup);
 
 // Expanding textarea still weird.
-// Parse pasted text delimiters = space and comma
 // shrink away when clicking away from div
 // clicking once outlines
