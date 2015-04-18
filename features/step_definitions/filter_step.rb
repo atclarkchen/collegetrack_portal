@@ -3,7 +3,6 @@ Given /^I see the filters: (.*)$/ do |filters|
 end
 
 Given /^I (?:|add|remove) the filters: (.*)$/ do |filters|
-  options = { :Location => ["Oakland"], :Race => ["Asian", "Black", "White"], :Gender => ["Male", "Female"], :Year => ["2010", "2011", "2012"]}
   filters = filters.split(",")
   filters.each do |filter|
     if filter === "Oakland" || filter === "Student"
@@ -35,9 +34,14 @@ end
 
 Then /^the recipient fields should contain: (.*)$/ do |emails|
   emails = emails.split(", ")
-  page.all('.recipient_right').each do |elem|
-    if (find(:xpath, '..').find('.email_label').text.strip == 'BCC:')
-      expect(page).to have_content(email)
+  page.all('.filter_box').each do |elem|
+    within(elem) do |filter|
+      emails.each do |email|
+        if email.find('.left_fil').text == email
+          emails.delete(email)
+        end
+      end
     end
   end
+  expect(emails.length).to be(0)
 end
