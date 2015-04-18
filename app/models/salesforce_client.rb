@@ -1,6 +1,6 @@
 class SalesforceClient < ActiveRecord::Base
 
-  @@client
+  cattr_accessor :client
 
   def self.password
     @password = SalesforceClient.first.password
@@ -13,16 +13,16 @@ class SalesforceClient < ActiveRecord::Base
   end
 
   def update_client
-    @@client = Restforce.new :host => "test.salesforce.com", :password => self.password, :security_token => self.security_token
+    client = Restforce.new :host => "test.salesforce.com", :password => self.password, :security_token => self.security_token
   end
 
   def change_password(new_password, new_token)
     SalesforceClient.first.update_attributes!(:password => new_password, :security_token => new_token)
-    @@client = Restforce.new :host => "test.salesforce.com", :password => new_password, :security_token => new_token
+    client = Restforce.new :host => "test.salesforce.com", :password => new_password, :security_token => new_token
   end
 
   def connect_salesforce
-    update_client.authenticate!
+    update_client.client.authenticate!
   end
 
   def generate_email(filters)
@@ -45,7 +45,7 @@ class SalesforceClient < ActiveRecord::Base
       end
     end
     query = sf_keys.join(" and ")
-    values = @@client.query("select #{email} from Contact where #{query}")
+    values = client.query("select #{email} from Contact where #{query}")
     emails = []
     email.split(', ').each do |column|
       emails.concat(values.map{ |value| value["#{column}"] }.uniq)
@@ -65,10 +65,10 @@ class SalesforceClient < ActiveRecord::Base
 
   def get_values(column)
     if column.ends_with?("__r")
-      values = @@client.query("select #{column}.Name from Contact")
+      values = client.query("select #{column}.Name from Contact")
       values.map{ |value| value["#{column}"]["Name"] }.uniq
     else
-      values = @@client.query("select #{column} from Contact")
+      values = client.query("select #{column} from Contact")
       values.map{ |value| value["#{column}"] }.uniq
     end
   end
