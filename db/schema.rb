@@ -28,12 +28,11 @@ ActiveRecord::Schema.define(version: 20150416015639) do
   create_table "drafts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "to"
     t.string   "subject"
-    t.string   "body"
-    t.text     "files"
-    t.text     "bcc"
+    t.text     "body"
+    t.text     "to"
     t.text     "cc"
+    t.text     "bcc"
     t.integer  "user_id"
   end
 

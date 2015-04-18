@@ -7,10 +7,12 @@ class EmailController < ApplicationController
     @filter_values = get_filter_values
   end
   
+  #TODO: Add method 'new', and ask user for new or edit draft
+
   def create_message
     # build and compose draft message for current user
-    debugger
-    draft = current_user.build_draft(email_params)
+    draft = current_user.build_draft
+    draft.compose_draft(email_params)
 
     if params[:send_msg]
       # draft.deliver_message
@@ -39,7 +41,7 @@ class EmailController < ApplicationController
 
     def email_params
       params.require(:email).
-        permit(:subject, :body, :to, cc: [], bcc: [], files: [])
+        permit(:subject, :body, to: [], cc: [], bcc: [], files: [])
     end
 
 end

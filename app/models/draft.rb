@@ -2,21 +2,25 @@ class Draft < ActiveRecord::Base
   belongs_to :user
   has_many :attachments, dependent: :destroy
 
-  serialize :files, Array
-  serialize :bcc
-  serialize :cc
-
-  # Callback triggered when build_draft is called
-  after_initialize do |draft|
+  def compose_draft(email)
+    files = email.delete(:files)
     debugger
-    bcc = merge_bcc_to_string
-    add_attachments if files.presence
+    attributes = string_attributes(email)
+    add_attachments(files) if files.presence
   end
 
-  def merge_bcc_to_string
-    if bcc.class == Array
-      bcc.compact.reject(&:empty?).join(", ")
+  def string_attributes(email)
+    email.inject({}) do |h, (k,val)|
+      if v.class == Array
+        val = val.compact.reject.(&:empty?).join(", ")
+      end
+      h[k] = val
     end
+    # email.each do |key, val|
+    #   if val.class == Array
+    #     email[:key] = val.compact.reject(&:empty?).join(", ")
+    #   end
+    # end
   end
 
   def add_attachments
