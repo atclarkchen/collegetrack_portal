@@ -15,7 +15,6 @@ Background: Users have been added to the database
 
   And I am on the login page
   And I login as "petrduong@gmail.com"
-  Then I am on the email page
 
 Scenario: Add a single filter with default filter selected
 
