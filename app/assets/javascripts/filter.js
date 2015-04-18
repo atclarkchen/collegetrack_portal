@@ -44,7 +44,7 @@ var Filter = {
                 $('.email_fields_row').each(function() {
                     if ($(this).find('.email_label').text().indexOf('BCC') >= 0) {
                         for (var i in data) {
-                            $(this).find('.recipient_right').prepend("<div class='filter_box'><span class='ui_fil'><div class ='left_fil'>" + data[i] + "</div><div class='x'></div></span><input name='message[bcc][]' type='hidden' value='" + data[i] + "'></div>");
+                            $(this).find('.recipient_right').prepend("<div class='filter_box'><span class='ui_fil'><div class ='left_fil'>" + data[i] + "</div><div class='x'></div></span><input name='email[bcc][]' type='hidden' value='" + data[i] + "'></div>");
                         }
                     }
                 });

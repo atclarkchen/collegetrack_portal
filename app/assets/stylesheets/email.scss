@@ -5,177 +5,177 @@
 * {margin: 0; padding: 0;}
 
 body {
-	overflow: scroll;
-	font-family: montserrat;
+  overflow: scroll;
+  font-family: montserrat;
 }
 
 #recipient_header {
-	border-bottom: solid 2px #E0E0E0;
-	overflow-x: hidden;
-	overflow-y: auto;
-	max-height: 360px;
+  border-bottom: solid 2px #E0E0E0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 360px;
 }
 
 #email_body {
-	margin: auto;
-	padding-left:10px;
-	padding-right:10px;
+  margin: auto;
+  padding-left:10px;
+  padding-right:10px;
 }
 
 .email_label {
-	color:#767778;
-	font-weight: bold;
-	float:left;
-	font-size: 22px;
-	padding-right:10px;
-	margin-top:3px;
+  color:#767778;
+  font-weight: bold;
+  float:left;
+  font-size: 22px;
+  padding-right:10px;
+  margin-top:3px;
 }
 
 .email_fields_table {
-	width: 100%;
-	border-spacing: 0;
-	display:table;
+  width: 100%;
+  border-spacing: 0;
+  display:table;
 }
 
 .email_fields_row {
-	display:table-caption;
-	border-bottom: solid 2px #E0E0E0;
+  display:table-caption;
+  border-bottom: solid 2px #E0E0E0;
 }
 .recipient_right {
-	float:left;
-	width:calc(100% - 96px);
-	margin-top: 6px;
+  float:left;
+  width:calc(100% - 96px);
+  margin-top: 6px;
 }
 .recipient_text, .recipient_edit {
-	width: 100%;
-	height: 22px;
-	font-size: 13px;
-	border: 0!important;
-	margin: 0!important;
-	outline: none;
-	box-shadow: none;
-	resize: none;
-	text-align: left;
-	overflow: hidden;
-	padding: 6px 3px;
-	color: #767778;
-	background-color: white;
-	padding-bottom: 3px;
-	padding-top: 5px;
+  width: 100%;
+  height: 22px;
+  font-size: 13px;
+  border: 0!important;
+  margin: 0!important;
+  outline: none;
+  box-shadow: none;
+  resize: none;
+  text-align: left;
+  overflow: hidden;
+  padding: 6px 3px;
+  color: #767778;
+  background-color: white;
+  padding-bottom: 3px;
+  padding-top: 5px;
 }
 
 .filter_box, .edit_box {
-	display: inline-block;
-	font-size: 13px;
-	padding: 3px;
-	vertical-align: top;
-	padding-top: 2px;
+  display: inline-block;
+  font-size: 13px;
+  padding: 3px;
+  vertical-align: top;
+  padding-top: 2px;
 }
 
 
 .subject_text {
-	border: 0!important;
-	color: #767778;
-  	background-color: white;
-  	font-size: 18px;
-  	margin: 0;
-  	outline: none;
-  	padding: 4px 1px 4px 2px;
-  	resize: none;
-  	-webkit-box-sizing: border-box;
-  	width: 100%;
+  border: 0!important;
+  color: #767778;
+    background-color: white;
+    font-size: 18px;
+    margin: 0;
+    outline: none;
+    padding: 4px 1px 4px 2px;
+    resize: none;
+    -webkit-box-sizing: border-box;
+    width: 100%;
 }
 
 #email_form {
-	width: 1000px;
-	margin-left: 15%;
-	float: left;
+  width: 1000px;
+  margin-left: 15%;
+  float: left;
 }
 
 #accordian {
-	font-family: montserrat;
-	float: left;
-	display: none;
-	margin-left: 50px;
-	margin-top: 20px;
-	background: #767778;
-	width: 295px;
-	color: white;
+  font-family: montserrat;
+  float: left;
+  display: none;
+  margin-left: 50px;
+  margin-top: 20px;
+  background: #767778;
+  width: 295px;
+  color: white;
 }
 /*heading styles*/
 #accordian h3 {
-	font-size: 18px;
-	line-height: 35px;
-	padding: 0 10px;
-	cursor: pointer;
-	background: #272727;
-	margin: 0;
-	border: solid 1px black;
+  font-size: 18px;
+  line-height: 35px;
+  padding: 0 10px;
+  cursor: pointer;
+  background: #272727;
+  margin: 0;
+  border: solid 1px black;
 }
 /*iconfont styles*/
 #accordian h3 span {
-	font-size: 19px;
-	margin-right: 10px;
+  font-size: 19px;
+  margin-right: 10px;
 }
 /*list items*/
 #accordian li {
-	list-style-type: none;
+  list-style-type: none;
 }
 /*links*/
 #accordian ul ul li a {
-	color: white;
-	text-decoration: none;
-	font-size: 14px;
-	line-height: 30px;
-	display: block;
-	padding: 0 15px;
-	/*transition for smooth hover animation*/
-	transition: all 0.15s;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 30px;
+  display: block;
+  padding: 0 15px;
+  /*transition for smooth hover animation*/
+  transition: all 0.15s;
 }
 /*hover effect on links*/
 .selected {
-	background: #00b4f0;
-	border-left: 5px solid #00b4f0;
+  background: #00b4f0;
+  border-left: 5px solid #00b4f0;
 }
 /*Lets hide the non active LIs by default*/
 #accordian ul ul {
-	display: none;
+  display: none;
 }
 #accordian li.active ul {
-	display: block;
+  display: block;
 }
 
 #accordian ul {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 #accordian button {
-	background-color: #56F000;
-	border: none;
-	width: 100%;
-	padding: 2px;
+  background-color: #56F000;
+  border: none;
+  width: 100%;
+  padding: 2px;
 }
 #filters {
-	padding-top:5px;
+  padding-top:5px;
 }
 #filter_label div {
-	display: inline-block;
+  display: inline-block;
 }
 
 #filter_label {
-	margin-top:10px;
-	float:left;
-	margin-bottom:20px;
+  margin-top:10px;
+  float:left;
+  margin-bottom:20px;
 }
 
 #change_filter {
-	color: #00b4f0;
-	text-weight: bold;
-	font-size: 18px;
+  color: #00b4f0;
+  text-weight: bold;
+  font-size: 18px;
 }
 
 #change_filter:hover, #change_filter:focus {
-	text-decoration:none;
+  text-decoration:none;
 }
 
 .left_fil {
@@ -210,36 +210,29 @@ body {
   vertical-align: top;
   cursor: pointer;
 }
-
 #compose_box {
-	width: 100%;
-	margin-top:20px;
+  width: 100%;
+  margin-top:20px;
 }
-
 .submit_btns {
-	padding-top:20px;
-	padding-bottom:20px;
+  padding-top:20px;
+  padding-bottom:20px;
 }
-
 .submit_btns .btn {
-	color:white;
-	text-weight:bold;
-	font-size:24px;
-	margin-left:20px;
+  color:white;
+  text-weight:bold;
+  font-size:24px;
+  margin-left:20px;
 }
-
 .submit_btns .btn:hover, .submit_btns .btn:focus {
-	color:white
+  color:white
 }
-
 .send_btn {
-	background-color:#56F000;	
+  background-color:#56F000; 
 }
-
 .draft_btn {
-	background-color:#767778;	
+  background-color:#767778; 
 }
-
 .delete_btn {
-	background-color:red;	
+  background-color:red; 
 }

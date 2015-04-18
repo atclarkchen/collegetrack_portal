@@ -10,6 +10,13 @@ require 'rspec/rails'
 
 require 'webmock/rspec'
 require "pundit/rspec"
+require 'mail'
+require 'paperclip/matchers'
+
+# Stub sending email
+Mail.defaults do
+  delivery_method :test
+end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -54,6 +61,7 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
+  config.include Paperclip::Shoulda::Matchers
   config.include OmniauthMacros
   config.include AdminMacros
   config.include Devise::TestHelpers, type: :controller
