@@ -32,14 +32,15 @@ body {
 }
 
 .email_fields_table {
-  width: 100%;
-  border-spacing: 0;
-  display:table;
+
+	width: 100%;
+	border-spacing: 0;
+	display: table;
 }
 
 .email_fields_row {
-  display:table-caption;
-  border-bottom: solid 2px #E0E0E0;
+	display: table-row;
+	border-bottom: solid 2px #E0E0E0;
 }
 .recipient_right {
   float:left;
