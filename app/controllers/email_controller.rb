@@ -15,12 +15,10 @@ class EmailController < ApplicationController
     draft.compose_draft(email_params)
 
     if params[:send_msg]
-      # draft.deliver_message
-      # flash[:notice] = "Message sent successfully"
+      deliver_message(draft)
+      flash[:notice] = "Message sent successfully"
     elsif params[:draft_msg]
-      # save draft for the current user
       draft.save
-      debugger
       flash[:notice] = "Draft message saved successfully"
     end
 
@@ -35,6 +33,37 @@ class EmailController < ApplicationController
   def email_list
     filters = params[:filters]
     render json: generate_email(filters).to_json
+  end
+
+  def deliver_message(draft)
+    gmail = Gmail.connect(:xoauth2, current_user.email, current_user.token.fresh_token)
+    message = gmail.compose do
+      to   draft.to
+      cc   draft.cc
+      bcc  draft.bcc
+
+      subject draft.subject
+      html_part do
+        content_type "text/html; charset=UTF-8"
+        body  draft.body
+      end
+    end
+
+    # add attachments to message from S3
+    draft.attachments.each do |attachment|
+      message.add_file load_from_s3(attachment)
+    end
+
+    # deliver and close the current session
+    message.deliver!
+    gmail.logout
+  end
+
+  def load_from_s3(attachment)
+    {
+      filename: attachment.file_file_name,
+      content: open(attachment.file.url).read
+    }
   end
 
   private
