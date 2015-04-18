@@ -7,9 +7,9 @@ Feature: Salesforce Password Change
 Background: There exists one authorized user and one authorized admin
 
   Given the following users exist:
-  | name                 | email           | role  | password |
-  | Admin                | admin@gmail.com | Admin | password |
-  | User                 | user@gmail.com  | User  | password |
+  | name        | email           | role  | password |
+  | Admin       | admin@gmail.com | Admin | password |
+  | User        | user@gmail.com  | User  | password |
 
 
 Scenario: User cannot reset Salesforce password

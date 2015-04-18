@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417015634) do
+ActiveRecord::Schema.define(version: 20150417114032) do
 
   create_table "salesforce_clients", force: :cascade do |t|
-    t.string   "username"
     t.string   "password"
     t.string   "security_token"
     t.datetime "created_at",     null: false

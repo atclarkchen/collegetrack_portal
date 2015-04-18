@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   post   'admin/' => 'admin#new', :as => :new_user
   delete 'admin/' => 'admin#destroy', :as => :delete_user
 
-  get    'reset_salesforce/' => 'admin#reset_salesforce', :as => :reset_salesforce
-  post   'reset_salesforce/' => 'admin#save_password', :as => :save_password
+  get    'reset_salesforce/' => 'salesforce#reset_salesforce', :as => :reset_salesforce
+  post   'reset_salesforce/' => 'salesforce#save_password', :as => :save_password
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

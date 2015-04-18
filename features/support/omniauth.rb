@@ -11,7 +11,6 @@ module OmniAuthHelper
       }
     }) 
   end
-
 end
 
 World(OmniAuthHelper)

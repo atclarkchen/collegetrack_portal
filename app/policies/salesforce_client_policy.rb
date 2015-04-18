@@ -6,7 +6,7 @@ class SalesforceClientPolicy < ApplicationPolicy
   	end
   end
 
-  def edit?
+  def reset?
   	user.admin?
   end
 

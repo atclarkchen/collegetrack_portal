@@ -28,22 +28,4 @@ class AdminController < ApplicationController
       format.js { render 'render_table.js.haml'} 
     end
   end
-
-  def reset_salesforce
-    @client = SalesforceClient.first
-    authorize @client, :edit?
-  end
-
-  def save_password
-    @client = SalesforceClient.first
-    authorize @client, :edit?
-    @password = params[:password][:password]
-    @confirm_password = params[:confirm_password][:confirm_password]
-    @security_token = params[:token][:token]
-    if @password == @confirm_password
-      SalesforceClient.first.change_password(@password, @security_token)
-      flash[:notice] = "Salesforce password successfully updated."
-    end
-    redirect_to root_path
-  end
 end
