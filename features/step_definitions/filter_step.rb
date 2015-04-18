@@ -34,9 +34,14 @@ end
 
 Then /^the recipient fields should contain: (.*)$/ do |emails|
   emails = emails.split(", ")
-  within('div#bcc_row') do |elem|
-    emails.each do |email|
-      expect(elem).to have_content(email)
+  page.all('.filter_box').each do |elem|
+    within(elem) do |filter|
+      emails.each do |email|
+        if email.find('.left_fil').text == email
+          emails.delete(email)
+        end
+      end
     end
   end
+  expect(emails.length).to be(0)
 end
