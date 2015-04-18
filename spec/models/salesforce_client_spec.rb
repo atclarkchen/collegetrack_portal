@@ -27,7 +27,7 @@ describe SalesforceClient do
   end
 
   describe "change password" do
-    it "should update the SalesforceClient password and security security token"
+    it "should update the SalesforceClient password and security security token" do
       new_restforce = @client.change_password("updated password", "updated token")
       expect(new_restforce.password).to eq(SalesforceClient.password)
       expect(new_restforce.security_token).to eq(SalesforceClient.security_token)
