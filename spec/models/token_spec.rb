@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Token, type: :model do
 
   before :each do
-    @token = FactoryGirl.build(:token)
+    @token = build(:token)
     ENV['CLIENT_ID'] = 'client_id'
     ENV['CLIENT_SECRET'] = 'client_secret'
     @params = {'refresh_token' => @token.refresh_token,
@@ -20,7 +20,7 @@ RSpec.describe Token, type: :model do
 
   describe '#expired?' do
     it 'checks if the current token expires' do
-      token = FactoryGirl.build(:token, expires_at: Time.now - 10)
+      token = build(:token, expires_at: Time.now - 10)
       expect(token.expired?).to eq true
     end
   end

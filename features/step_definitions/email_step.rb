@@ -22,7 +22,7 @@ end
 
 And /^I compose the following email:$/ do |email_table|
   email_table.rows_hash.each do |field|
-    field_id = "email_" + field.first
+    field_id = "message_" + field.first
     fill_in field_id, :with => field.second
   end
 end

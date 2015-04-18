@@ -13,6 +13,31 @@
 
 ActiveRecord::Schema.define(version: 20150417114032) do
 
+  create_table "attachments", force: :cascade do |t|
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "draft_id"
+  end
+
+  add_index "attachments", ["draft_id"], name: "index_attachments_on_draft_id"
+
+  create_table "drafts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "subject"
+    t.text     "body"
+    t.text     "to"
+    t.text     "cc"
+    t.text     "bcc"
+    t.integer  "user_id"
+  end
+
+  add_index "drafts", ["user_id"], name: "index_drafts_on_user_id"
+
   create_table "salesforce_clients", force: :cascade do |t|
     t.string   "password"
     t.string   "security_token"

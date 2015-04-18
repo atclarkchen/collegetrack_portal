@@ -4,6 +4,8 @@ describe SalesforceClient do
   
   before :each do
     @client = SalesforceClient.create!(:password => "default", :security_token => "default")
+    @password = @client.password
+    @token = @client.security_token
   end
 
   describe "self.password" do
@@ -19,25 +21,17 @@ describe SalesforceClient do
   end
 
   describe "update_client" do
-    it "should the Restforce client" do
+    it "should the update Restforce client" do
       restforce = @client.update_client
-      expect(restforce.password).to eq(SalesforceClient.password)
-      expect(restforce.security_token).to eq(SalesforceClient.security_token)
+      expect(restforce).to eq(SalesforceClient.client)
     end
   end
 
   describe "change password" do
     it "should update the SalesforceClient password and security security token" do
-      new_restforce = @client.change_password("updated password", "updated token")
-      expect(new_restforce.password).to eq(SalesforceClient.password)
-      expect(new_restforce.security_token).to eq(SalesforceClient.security_token)
-    end
-  end
-
-  describe "connect_salesforce" do
-    it "should successfully authenticate to Salesforce" do
-      response = @client.connect_salesforce
-      expect(response).to be_a Restforce::Mash
+      @client.change_password("new", "new")
+      expect(SalesforceClient.password).to eq("new")
+      expect(SalesforceClient.security_token).to eq("new")
     end
   end
 end

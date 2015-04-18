@@ -15,7 +15,6 @@ Background: Users have been added to the database
 
   And I am on the login page
   And I login as "petrduong@gmail.com"
-  Then I am on the email page
 
 Scenario: Add a single filter with default filter selected
 
@@ -35,11 +34,11 @@ Scenario: Removing a single filter through the x button
   Given I see the filters: Oakland,Student,Oakland Technical High School,Caucasian
   And the recipient fields should contain: ambermccutchen1996@gmail.com
   And I click the x button on "Oakland Technical High School"
-  Then the recipient fields should contain: ambermccutchen1996@gmail.com, austen.junca@gmail.com, ambermccutchen1996@gmail.com
+  Then the recipient fields should contain: austen.junca@gmail.com, ambermccutchen1996@gmail.com
 
 Scenario: Deselecting filters by changing filters
 
   Given I see the filters: Oakland,Student,Oakland Technical High School,Caucasian
   And the recipient fields should contain: ambermccutchen1996@gmail.com
   And I remove the filters: Oakland Technical High School
-  Then the recipient fields should contain: ambermccutchen1996@gmail.com, austen.junca@gmail.com, ambermccutchen1996@gmail.com
+  Then the recipient fields should contain: austen.junca@gmail.com, ambermccutchen1996@gmail.com

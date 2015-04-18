@@ -17,11 +17,14 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rake'
   gem 'simplecov', :require => false, :group => :test
+  gem 'rspec', '~> 3.2.0'
   gem 'rspec-rails', '~> 3.2.1'
   gem 'warden-rspec-rails'
   gem 'factory_girl_rails'
   gem 'jasmine'
   gem 'webmock', :require => false
+  gem 'rspec-autotest'
+  gem 'ZenTest'
 end
 
 group :production do
@@ -51,6 +54,8 @@ gem 'omniauth-google-oauth2'
 gem 'haml'
 gem 'pundit'
 gem 'tinymce-rails'
+gem 'paperclip'
+gem 'aws-sdk', '~> 1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

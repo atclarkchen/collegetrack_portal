@@ -3,45 +3,37 @@ Given /^I see the filters: (.*)$/ do |filters|
 end
 
 Given /^I (?:|add|remove) the filters: (.*)$/ do |filters|
-  filters = filters.split(",")
-  filters.each do |filter|
-    if filter === "Oakland" || filter === "Student"
-      next
-    end
-    sleep 10
-    click_link('change filters')
-    page.all('#accordian ul li ul li h3').each do |category|
-      puts category.text
-      if category.text == filter
-        category.click
-        find(:xpath, '..').find('a').click
-        click_button("save_filter")
+  filters = filters.split(",").reject { |f| f == "Oakland" || f == "Student" }
+  click_link('change filters')
+  page.all('#accordian ul li h3').each do |category|
+    category.click
+    page.all('#accordian ul li ul li a').each do |link|
+      if filters.include?(link.text)
+        link.click
       end
     end
   end
+  click_button("save_filter")
+  sleep 3
 end
 
 Then /^(?:|I )click the x button on "(.*)"$/ do |filters|
   filters = filters.split(",")
-  filters.each do |filter|
-    page.all('.ui_fil').each do |elem|
-      within(elem) do |el|
-        if find('.left_fil').text == filter
-          find('.x').click
-        end
-      end
+  page.all('#filters .ui_fil').each do |filter|
+    if filters.include?(filter.find('.left_fil').text)
+      filter.find('.x').click
     end
   end
+  sleep 3
 end
 
 Then /^the recipient fields should contain: (.*)$/ do |emails|
   emails = emails.split(", ")
+  count = 0
   page.all('.filter_box').each do |elem|
-    emails.each do |email|
-      if elem.find('.left_fil').text == email
-        emails.delete(email)
-      end
+    if emails.include?(elem.find('.left_fil').text)
+      count = count + 1
     end
   end
-  expect(emails.count).to eq(0)
+  expect(count).to eq(emails.count)
 end
