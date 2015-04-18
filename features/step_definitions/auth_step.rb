@@ -40,6 +40,13 @@ end
 
 When /^(?:|I )login as "(.+)"$/ do |user_email|
 	set_omniauth(user_email)
+  Users::OmniauthCallbacksController.any_instance.stub(:sales_auth).and_return(true)
+  if Rails.env.test?
+    sales_client = SalesforceClient.create!
+    sales_client.client = Restforce.new :host => "test.salesforce.com"
+  else
+    SalesforceClient.create!(:password => "", :security_token => "asdf")
+  end
   @current_user = User.find_by_email(user_email)
 	click_link("Sign in with Google")
 end

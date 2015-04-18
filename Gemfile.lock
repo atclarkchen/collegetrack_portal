@@ -216,9 +216,13 @@ GEM
       faraday_middleware (>= 0.8.8)
       hashie (>= 1.2.0, < 4.0)
       json (>= 1.7.5, < 1.9.0)
-    rspec-core (3.2.2)
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+    rspec-core (3.2.3)
       rspec-support (~> 3.2.0)
-    rspec-expectations (3.2.0)
+    rspec-expectations (3.2.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
     rspec-mocks (3.2.1)
@@ -317,6 +321,7 @@ DEPENDENCIES
   rails_12factor
   rake
   restforce
+  rspec (~> 3.2.0)
   rspec-rails (~> 3.2.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

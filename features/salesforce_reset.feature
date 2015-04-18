@@ -11,18 +11,19 @@ Background: There exists one authorized user and one authorized admin
   | Admin                | admin@gmail.com | Admin | password |
   | User                 | user@gmail.com  | User  | password |
 
+
 Scenario: User cannot reset Salesforce password
   
   Given I am on the login page
   And the Salesforce password is outdated
-  When I login as "user@gmail.com"
+  When I try to login as "user@gmail.com"
   Then I should be on the login page
-  And I should see "Your Salesforce account is invalid or outdated. Please update your password or contact and admin."
+  And I should see "Sign in with Google"
 
 Scenario: Admin can reset Salesforce password
   
   Given I am on the login page
   And the Salesforce password is outdated
-  When I login as "admin@gmail.com"
+  When I try to login as "admin@gmail.com"
   Then I should be on the Salesforce password reset page
   And I should see "Reset Salesforce Password"

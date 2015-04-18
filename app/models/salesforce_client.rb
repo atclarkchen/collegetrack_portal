@@ -1,6 +1,6 @@
 class SalesforceClient < ActiveRecord::Base
 
-  @@client
+  cattr_accessor :client
 
   def self.password
     @password = SalesforceClient.first.password
@@ -13,6 +13,7 @@ class SalesforceClient < ActiveRecord::Base
   end
 
   def update_client
+    debugger
     @@client = Restforce.new :host => "test.salesforce.com", :password => self.password, :security_token => self.security_token
   end
 
