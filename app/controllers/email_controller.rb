@@ -11,15 +11,13 @@ class EmailController < ApplicationController
 
   def create_message
     # build and compose draft message for current user
-    draft = current_user.build_draft
+    draft = current_user.create_draft
     draft.compose_draft(email_params)
+    flash[:notice] = "Draft message saved successfully"
 
     if params[:send_msg]
       deliver_message(draft)
       flash[:notice] = "Message sent successfully"
-    elsif params[:draft_msg]
-      draft.save
-      flash[:notice] = "Draft message saved successfully"
     end
 
     redirect_to email_index_path

@@ -4,7 +4,7 @@ class Draft < ActiveRecord::Base
 
   def compose_draft(email)
     files = email.delete(:files)
-    self.attributes = string_attributes(email)
+    self.attributes string_attributes(email)
     add_attachments(files) if files.presence
   end
 
@@ -18,7 +18,7 @@ class Draft < ActiveRecord::Base
 
   def add_attachments(files)
     files.each do |file|
-      self.attachments.build(file: file)
+      self.attachments.create(file: file)
     end
   end
 end
