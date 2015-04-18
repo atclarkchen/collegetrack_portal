@@ -318,7 +318,7 @@ PLATFORMS
 
 DEPENDENCIES
   ZenTest
-  aws-sdk (~> 1.5.7)
+  aws-sdk (~> 1)
   bootstrap-sass (~> 3.3.3)
   coffee-rails (~> 4.1.0)
   cucumber-rails
