@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150417114032) do
 
-  create_table "salesforce_clients", force: :cascade do |t|
-    t.string   "password"
-    t.string   "security_token"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-ActiveRecord::Schema.define(version: 20150416015639) do
-
   create_table "attachments", force: :cascade do |t|
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
@@ -46,6 +37,13 @@ ActiveRecord::Schema.define(version: 20150416015639) do
   end
 
   add_index "drafts", ["user_id"], name: "index_drafts_on_user_id"
+
+  create_table "salesforce_clients", force: :cascade do |t|
+    t.string   "password"
+    t.string   "security_token"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "tokens", force: :cascade do |t|
     t.string   "access_token"

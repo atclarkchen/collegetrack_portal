@@ -8,11 +8,13 @@ Given /^I (?:|add|remove) the filters: (.*)$/ do |filters|
     if filter === "Oakland" || filter === "Student"
       next
     end
-    page.all('#accordian ul li ul li a').each do |link|
-      if link.text == filter
-        click_link('change filters')
-        find(:xpath, '..').find('h3').click
-        link.click
+    sleep 10
+    click_link('change filters')
+    page.all('#accordian ul li ul li h3').each do |category|
+      puts category.text
+      if category.text == filter
+        category.click
+        find(:xpath, '..').find('a').click
         click_button("save_filter")
       end
     end
@@ -35,12 +37,9 @@ end
 Then /^the recipient fields should contain: (.*)$/ do |emails|
   emails = emails.split(", ")
   page.all('.filter_box').each do |elem|
-    within(elem) do |filter|
-      emails.each do |email|
-        if filter.find('.left_fil').text == email
-          puts email
-          emails.delete(email)
-        end
+    emails.each do |email|
+      if elem.find('.left_fil').text == email
+        emails.delete(email)
       end
     end
   end
