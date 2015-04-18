@@ -34,7 +34,7 @@ end
 
 Then /^the recipient fields should contain: (.*)$/ do |emails|
   emails = emails.split(", ")
-  within('#bcc_row') do |elem|
+  within('div#bcc_row') do |elem|
     emails.each do |email|
       expect(elem).to have_content(email)
     end
