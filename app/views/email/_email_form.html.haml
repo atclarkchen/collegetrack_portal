@@ -2,17 +2,17 @@
   #email_header
     #recipient_header
       .email_fields_table
-        .email_fields_row
+        .email_fields_row#to_row
           .email_label 
             To:
           .recipient_right
             = text_area :message, :to, :class => 'recipient_text', :multiple => true
-        .email_fields_row
+        .email_fields_row#cc_row
           .email_label
             CC:
           .recipient_right
             = text_area :message, :cc, :class => 'recipient_text', :multiple => true
-        .email_fields_row
+        .email_fields_row#bcc_row
           .email_label
             BCC:
           .recipient_right
