@@ -3,7 +3,7 @@
 # Examples are shown below
 
 FactoryGirl.define do  
-  
+
   factory :salesforce_client do
     password "MyString"
     security_token "MyString"
