@@ -1,4 +1,5 @@
 class AdminController < ApplicationController
+  before_action :ensure_sign_in
   after_action :verify_authorized
 
   def index
@@ -26,24 +27,5 @@ class AdminController < ApplicationController
       format.html { redirect_to admin_path }
       format.js { render 'render_table.js.haml'} 
     end
-  end
-
-  def reset_salesforce
-    authorize current_user, :edit?
-  end
-
-  def save_password
-    authorize current_user, :edit?
-    @old_password = params[:old_password][:old_password]
-    @password = params[:password][:password]
-    @confirm_password = params[:confirm_password][:confirm_password]
-    @security_token = params[:token][:token]
-    @confirm_security_token = params[:confirm_token][:confirm_token]
-    if @password == @confirm_passwords
-      ENV[SALESFORCE_PASSWORD] = @password
-      ENV[SALESFORCE_SECURITY_TOKEN] = @security_token
-      flash[:notice] = "Salesforce password successfully updated."
-    end
-    redirect_to root_path
   end
 end

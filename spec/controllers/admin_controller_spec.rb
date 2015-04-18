@@ -29,6 +29,6 @@ describe AdminController do
         }.to change(User, :count).by(-1)
         expect(response).to redirect_to admin_path
     end
-  end   
+  end
 
 end

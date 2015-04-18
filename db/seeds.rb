@@ -12,3 +12,4 @@ User.create!(:name => 'Edward Huang', :email => 'shinyenhuang@gmail.com', :passw
 User.create!(:name => 'Chang Liang', :email => 'changwliang@gmail.com', :password => 'password', :role => 'Admin')
 User.create!(:name => 'Kyle Chang', :email => 'hchang409@gmail.com', :password => 'password', :role => 'Admin')
 User.create!(:name => 'Jerry Uejio', :email => 'jerryuejio@gmail.com', :password => 'password', :role => 'Admin')
+SalesforceClient.create!(:password => 'Walrus1988', :security_token => 'VK1tbyhhTHNYipfSucswcCL4')
