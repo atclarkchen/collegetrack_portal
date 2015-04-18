@@ -38,4 +38,6 @@ describe SalesforceClient do
     it "should successfully authenticate to Salesforce" do
       response = @client.connect_salesforce
       expect(response).to be_a Restforce::Mash
+    end
+  end
 end
