@@ -1,23 +1,15 @@
-class SalesforceClient < ActiveRecord::Base
+module SalesforceClient
+  extend ActiveSupport::Concern
 
   cattr_accessor :client
 
-  def self.password
-    @password = SalesforceClient.first.password
-    @password
-  end
-
-  def self.security_token
-    @token = SalesforceClient.first.security_token
-    @token
-  end
-
   def update_client
-    self.client = Restforce.new :host => "test.salesforce.com", :password => ENV['SALESFORCE_PASSWORD'], :security_token => self.security_token
+    self.client = Restforce.new :host => "test.salesforce.com", :password => ENV['SALESFORCE_PASSWORD'], :security_token => ENV['SALESFORCE_SECURITY_TOKEN']
   end
 
   def change_password(new_password, new_token)
-    SalesforceClient.first.update_attributes!(:password => new_password, :security_token => new_token)
+    ENV['SALESFORCE_PASSWORD'] = new_password
+    ENV['SALESFORCE_SECURITY_TOKEN'] = new_token
     self.client = Restforce.new :host => "test.salesforce.com", :password => new_password, :security_token => new_token
   end
 
@@ -65,10 +57,10 @@ class SalesforceClient < ActiveRecord::Base
 
   def get_values(column)
     if column.ends_with?("__r")
-      values = update_client.query("select #{column}.Name from Contact")
+      values = self.client.query("select #{column}.Name from Contact")
       values.map{ |value| value["#{column}"]["Name"] }.uniq
     else
-      values = update_client.query("select #{column} from Contact")
+      values = self.client.query("select #{column} from Contact")
       values.map{ |value| value["#{column}"] }.uniq
     end
   end
