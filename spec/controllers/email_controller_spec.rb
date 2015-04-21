@@ -27,13 +27,13 @@ RSpec.describe EmailController, type: :controller do
       it 'calls generate_draft model method on the current_user' do
         expect(current_user).to receive(:create_draft).and_return(draft)
         allow(draft).to receive(:compose_draft).with(email)
-        post :create_message, { :email => email }
+        post :create_message, { :message => email }
       end
 
       it 'calls save_draft method on draft model' do
         allow(current_user).to receive(:create_draft).and_return(draft)
         expect(draft).to receive(:compose_draft).with(email)
-        post :create_message, { :email => email }
+        post :create_message, { :message => email }
       end
     end
 
@@ -42,7 +42,7 @@ RSpec.describe EmailController, type: :controller do
         allow(current_user).to receive(:create_draft).and_return(draft)
         allow(draft).to receive(:compose_draft).with(email)
         expect(controller).to receive(:deliver_message).with(draft)
-        post :create_message, { :email => email, :send_msg => true}
+        post :create_message, { :message => email, :send_msg => true}
       end
     end
 
