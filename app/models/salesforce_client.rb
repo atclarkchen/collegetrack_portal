@@ -13,7 +13,7 @@ class SalesforceClient < ActiveRecord::Base
   end
 
   def update_client
-    self.client = Restforce.new :host => "test.salesforce.com", :password => self.password, :security_token => self.security_token
+    self.client = Restforce.new :host => "test.salesforce.com", :password => ENV['SALESFORCE_PASSWORD'], :security_token => self.security_token
   end
 
   def change_password(new_password, new_token)
@@ -65,10 +65,10 @@ class SalesforceClient < ActiveRecord::Base
 
   def get_values(column)
     if column.ends_with?("__r")
-      values = self.client.query("select #{column}.Name from Contact")
+      values = update_client.query("select #{column}.Name from Contact")
       values.map{ |value| value["#{column}"]["Name"] }.uniq
     else
-      values = self.client.query("select #{column} from Contact")
+      values = update_client.query("select #{column} from Contact")
       values.map{ |value| value["#{column}"] }.uniq
     end
   end

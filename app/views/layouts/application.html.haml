@@ -9,9 +9,15 @@
 
   %body
     #main
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
+      - if flash
+        - flash.each do |type, message|
+          :javascript
+            toastr.options = { positionClass: 'toast-top-center' }
+            if ('#{type}' == 'notice')
+              toastr.success('#{message}');
+            else if ('#{type}' == 'alert')
+              toastr.warning('#{message}');
+            else if ('#{type}' == 'error')
+              toastr.error('#{message}');
 
       = yield

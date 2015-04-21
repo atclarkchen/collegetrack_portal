@@ -13,14 +13,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if sales_auth
       popup(email_index_path)
     else
-      flash[:notice] = "Your Salesforce account is invalid or outdated. Please update your password or contact an admin."
+      flash[:error] = "Your Salesforce account is invalid or outdated. Please update your password or contact an admin."
       redirect_to reset_salesforce_path
     end
   end
 
   def warn_with_redirect
     session["devise.google_data"] = request.env["omniauth.auth"]
-    flash[:notice] = "This email is not authorized. Please log out and log in with an authorized account. Contact an admin if not yet authorized"
+    flash[:error] = "This email is not authorized. Please log out and log in with an authorized account. Contact an admin if not yet authorized"
     popup(root_path)
   end
 
