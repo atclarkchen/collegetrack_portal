@@ -1,5 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
+  include SalesforceClient
+
   def google_oauth2
     @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
     @auth = request.env["omniauth.auth"]['credentials']
@@ -11,6 +13,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def check_auth_or_redirect
     if sales_auth
+      flash[:notice] = "Authenticated successfully."
       popup(email_index_path)
     else
       flash[:notice] = "Your Salesforce account is invalid or outdated. Please update your password or contact an admin."
@@ -26,7 +29,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def sales_auth
     begin
-      SalesforceClient.first.connect_salesforce
+      connect_salesforce
       return true
     rescue
       return false

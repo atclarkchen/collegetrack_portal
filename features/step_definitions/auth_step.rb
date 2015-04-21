@@ -40,9 +40,6 @@ end
 
 When /^(?:|I )login as "(.+)"$/ do |user_email|
   set_omniauth(user_email)
-  Users::OmniauthCallbacksController.any_instance.stub(:sales_auth).and_return(true)
-  sales = SalesforceClient.create!
-  sales.client = Restforce.new :host => 'test.salesforce.com'
   @current_user = User.find_by_email(user_email)
   click_link("Sign in with Google")
 end
