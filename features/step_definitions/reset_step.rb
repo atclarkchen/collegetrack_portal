@@ -1,5 +1,5 @@
 And /the Salesforce password is outdated/ do
-  SalesforceClient.create!(:password => "outdated", :security_token => "outdated")
+  ENV.stub(:[]).with("SALESFORCE_PASSWORD").and_return("outdated")
 end
 
 When /^(?:|I )try to login as "(.+)"$/ do |user_email|
