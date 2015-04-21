@@ -13,7 +13,7 @@
 }
 .navbar a {
 	float: right;
-	margin: 50px 20px 0px 20px;
+	margin: 30px 20px 0px 20px;
 	color: #767778;
 	padding: 0px 5px 0px 5px;
 }
@@ -23,4 +23,16 @@
 }
 .navbar a.active {
 	border-bottom: solid #00b4f0;  
+}
+
+.navbar div {
+	float: right;
+}
+
+.navbar div:nth-child(2) {
+	font-size: 13px;
+}
+
+.navbar div:nth-child(3) {
+	clear:right;
 }

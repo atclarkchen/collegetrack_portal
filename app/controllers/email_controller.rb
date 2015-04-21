@@ -5,6 +5,8 @@ class EmailController < ApplicationController
 
   def index
     @filter_values = get_filter_values
+    @full_name = current_user['name']
+    @user_email = current_user['email']
   end
   
   #TODO: Add method 'new', and ask user for new or edit draft
