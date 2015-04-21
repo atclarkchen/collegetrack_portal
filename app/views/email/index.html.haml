@@ -6,8 +6,16 @@
   = javascript_include_tag 'email'
   = stylesheet_link_tag 'email'
 
-- if flash[:notice]
-  #notice.message= flash[:notice]
+- if flash
+  - flash.each do |type, message|
+    :javascript
+      toastr.options.positionClass = "toast-top-right";
+      if ('#{type}' == 'notice')
+        toastr.success('#{message}');
+      else if ('#{type}' == 'alert')
+        toastr.warning('#{message}');
+      else if ('#{type}' == 'error')
+        toastr.error('#{message}');
 
 = render "partials/header"
 .container#email_body
