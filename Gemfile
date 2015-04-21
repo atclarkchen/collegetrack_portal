@@ -46,6 +46,7 @@ group :assets do
   # gem 'therubyracer', platforms: :ruby
 end
 
+gem 'toastr-rails'
 gem 'gmail'
 gem 'json'
 gem 'restforce'
