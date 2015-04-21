@@ -1,9 +1,10 @@
 class EmailController < ApplicationController
 
   before_filter :ensure_sign_in
+  include SalesforceClient
 
   def index
-    @filter_values = SalesforceClient.first.get_filter_values
+    @filter_values = get_filter_values
   end
   
   #TODO: Add method 'new', and ask user for new or edit draft
@@ -29,7 +30,7 @@ class EmailController < ApplicationController
 
   def email_list
     filters = params[:filters]
-    render json: SalesforceClient.first.generate_email(filters).to_json
+    render json: generate_email(filters).to_json
   end
 
   def deliver_message(draft)
