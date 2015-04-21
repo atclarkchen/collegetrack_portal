@@ -3,10 +3,6 @@ module SalesforceClient
 
   cattr_accessor :client
 
-  def update_client
-    self.client = Restforce.new :host => "test.salesforce.com", :password => ENV['SALESFORCE_PASSWORD'], :security_token => ENV['SALESFORCE_SECURITY_TOKEN']
-  end
-
   def change_password(new_password, new_token)
     ENV['SALESFORCE_PASSWORD'] = new_password
     ENV['SALESFORCE_SECURITY_TOKEN'] = new_token
@@ -14,7 +10,8 @@ module SalesforceClient
   end
 
   def connect_salesforce
-    update_client.authenticate!
+    self.client = Restforce.new :host => "test.salesforce.com", :password => ENV['SALESFORCE_PASSWORD'], :security_token => ENV['SALESFORCE_SECURITY_TOKEN']
+    self.client.authenticate!
   end
 
   def generate_email(filters)
