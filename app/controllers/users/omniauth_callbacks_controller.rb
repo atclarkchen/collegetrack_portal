@@ -7,6 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @auth = request.env["omniauth.auth"]['credentials']
     warn_with_redirect and return unless @user
     sign_in @user, :event => :authentication
+    @user.set_user_name(request.env['omniauth.auth']['info']['name'])
     set_access_token
     check_auth_or_redirect
   end

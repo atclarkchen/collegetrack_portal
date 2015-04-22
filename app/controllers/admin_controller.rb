@@ -11,23 +11,17 @@ class AdminController < ApplicationController
 
   def new
     authorize current_user, :edit?
-  	@user = User.new(:name => params[:user][:name], :email => params[:user][:email], :role => params[:user][:role], :password => 'password')
+  	@user = User.new(:name => '', :email => params[:user][:email], :role => params[:user][:role], :password => 'password')
   	@user.save!
     @users = User.all
-    respond_to do |format|
-      format.html { redirect_to admin_path }
-      format.js { render 'render_table.js.haml'} 
-    end
+    render "_user_table.html.haml", layout: false
   end
 
   def destroy
     authorize current_user, :edit?
-  	@user = User.find(params[:user])
+  	@user = User.find_by_email(params[:user])
   	@user.destroy
     @users = User.all
-    respond_to do |format|
-      format.html { redirect_to admin_path }
-      format.js { render 'render_table.js.haml'} 
-    end
+    render "_user_table.html.haml", layout: false
   end
 end

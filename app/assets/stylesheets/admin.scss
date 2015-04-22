@@ -21,6 +21,10 @@ table#users td, table#users th{
 	    padding: 10px;
 }
 
+table#users th {
+	text-align: center;
+}
+
 #admin_body input, #admin_body label {
        	    margin: 5px;       	     
 }
@@ -28,4 +32,9 @@ table#users td, table#users th{
 #admin_body .btn {
 	    background-color: #00b4f0;
 	    color: white;
+}
+
+
+#admin_body td:last-child {
+	text-align: center;
 }
