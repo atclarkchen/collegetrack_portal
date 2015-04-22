@@ -5,7 +5,7 @@
 - if flash
   - flash.each do |type, message|
     :javascript
-      toastr.options.positionClass = "toast-top-right";
+      toastr.options.positionClass = "toast-bottom-right";
       if ('#{type}' == 'notice')
         toastr.success('#{message}');
       else if ('#{type}' == 'alert')
