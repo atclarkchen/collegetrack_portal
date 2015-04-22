@@ -1,3 +1,0 @@
-for (link in $("navbar").children("a")) {
-    console.log(link);
-}

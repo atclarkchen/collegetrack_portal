@@ -5,6 +5,8 @@ class AdminController < ApplicationController
   def index
     authorize current_user, :edit?
     @users = policy_scope(User)
+    @full_name = current_user['name']
+    @user_email = current_user['email']
   end
 
   def new
