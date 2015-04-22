@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
   def admin?
     self.role == 'Admin'
   end
+
+  def set_user_name(name)
+    self.update_attributes(:name => name.titleize) unless @user == name
+  end
 end

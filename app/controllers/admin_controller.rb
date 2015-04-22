@@ -11,7 +11,7 @@ class AdminController < ApplicationController
 
   def new
     authorize current_user, :edit?
-  	@user = User.new(:name => params[:user][:name], :email => params[:user][:email], :role => params[:user][:role], :password => 'password')
+  	@user = User.new(:name => '', :email => params[:user][:email], :role => params[:user][:role], :password => 'password')
   	@user.save!
     @users = User.all
     respond_to do |format|
