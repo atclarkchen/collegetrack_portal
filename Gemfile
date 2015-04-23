@@ -25,6 +25,7 @@ group :development, :test do
   gem 'webmock', :require => false
   gem 'rspec-autotest'
   gem 'ZenTest'
+  gem 'webrick'
 end
 
 group :production do

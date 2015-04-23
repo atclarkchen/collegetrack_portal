@@ -15,6 +15,7 @@ module SalesforceClient
   end
 
   def generate_email(filters)
+    return "" unless filters
     sf_keys = []
     email = ""
     filters.each_key do |category|
@@ -33,13 +34,19 @@ module SalesforceClient
         sf_keys << "(#{or_query})"
       end
     end
-    query = sf_keys.join(" and ")
-    values = self.client.query("select #{email} from Contact where #{query}")
-    emails = []
-    email.split(', ').each do |column|
-      emails.concat(values.map{ |value| value["#{column}"] }.uniq)
+    query = ""
+    if sf_keys
+      query = "where "
+      query << sf_keys.join(" and ")
     end
-    emails.compact.sort { |x,y| y <=> x }
+    unless email === ""
+      values = self.client.query("select #{email} from Contact #{query}")
+      emails = []
+      email.split(', ').each do |column|
+        emails.concat(values.map{ |value| value["#{column}"] }.uniq)
+      end
+      emails.compact.sort { |x,y| y <=> x }
+    end
   end
 
   def get_filter_values

@@ -12,6 +12,21 @@ var EmailFilter = {
     remove: function() {
         var filterText = $(this).prev().text();
         $(this).parent().remove();
+        if (filterText == "Parent" || filterText == "Student") {
+            count = 0;
+            $('#filters .ui_fil .left_fil').each(function() {
+                if ($(this).text() == "Parent" || $(this).text() == "Student") {
+                    count += 1;
+                }
+            });
+            if (count == 0) {
+                swal({
+                    title: "Warning",
+                    text: "You have just removed Parent/Student. The field will be blank!",
+                    type: "warning"
+                });
+            }
+        }
         $(".selected").each(function() {
             if ($(this).text() === filterText) {
                 $(this).toggleClass('selected');
