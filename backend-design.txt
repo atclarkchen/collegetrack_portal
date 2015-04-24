@@ -1,0 +1,46 @@
+<Draft>
+1. We should be able to call Class methods ::create, ::new, and ::update_attribute
+  - remove compose_draft
+  - move #string_attributes(email) into email_controller
+  - call #add_attachments(files) in ::before_save callback
+
+2. Add Validatins
+  - Subject field should not be empty ?
+  - At least one of To, CC, and BCC should have one or more emails before send
+
+<Attachment>
+1. Add #load_from_s3
+
+<EmailController>
+1. Change the name of following methods
+  - #create_message  => #create
+  - #delete_message  => #destory
+  - #deliver_message => #send_email
+
+2. Add the following methods
+  - #new
+  - #edit
+  - #array_to_string
+
+3. Move #load_from_s3 into Attachment model
+
+4. Call ApplicationHelper#user_not_authorized in #ensure_sign_in
+
+5. Methods Specifications
+  a) index
+  	- If the user has a draft, ask user if he/she wants to continue on the draft
+  	  * Yes => edit_path
+  	  * No  => delete draft & new_path
+  b) new
+    - make a new instance variable of Draft, called @draft
+    - render view file with all fields are empty
+  c) edit
+    - read draft of current user, called @draft
+    - render view file with @draft
+      * use AJAX if possible
+  d) destroy
+    - delete current user's draft
+  e) send_email
+    - open Gmail connection and send email using draft
+  f) array_to_string
+    - convert To, CC, BCC to string repectively
