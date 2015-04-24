@@ -35,7 +35,7 @@ module SalesforceClient
       end
     end
     query = ""
-    if sf_keys
+    unless sf_keys === []
       query = "where "
       query << sf_keys.join(" and ")
     end
@@ -50,13 +50,12 @@ module SalesforceClient
   end
 
   def get_filter_values
-    locations = get_values("Site__c")
     races = get_values("Race__c")
     genders = get_values("Gender__c")
     years = get_values("Class_Level__c").sort_by { |x| x[/\d+/].to_i }
     high_schools = get_values("High_School__r").sort
     parent_student = ["Student", "Parent"]
-    {"Locations" => locations, "Race" => races, "Gender" => genders, "Year" => years, "High School" => high_schools, "Parent/Student" => parent_student}
+    {"Parent/Student" => parent_student, "Race" => races, "Gender" => genders, "Year" => years, "High School" => high_schools}
   end
 
   def get_values(column)
@@ -71,8 +70,6 @@ module SalesforceClient
 
   def get_column(category)
     case category
-    when "Locations"
-      "Site__c"
     when "Race"
       "Race__c"
     when "Gender"
