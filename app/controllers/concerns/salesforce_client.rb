@@ -45,7 +45,7 @@ module SalesforceClient
       email.split(', ').each do |column|
         emails.concat(values.map{ |value| value["#{column}"] }.uniq)
       end
-      emails.compact.sort { |x,y| y <=> x }
+      emails.compact.sort.reverse
     end
   end
 

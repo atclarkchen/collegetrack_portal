@@ -4,7 +4,15 @@ class AdminController < ApplicationController
 
   def index
     authorize current_user, :edit?
-    @users = policy_scope(User).sort_by { |user| user[:name] }
+    @users = policy_scope(User).sort { |a, b| 
+      if a[:name] == ""
+        1
+      elsif b[:name] == ""
+        -1
+      else
+        a[:name] <=> b[:name]
+      end
+    }
     @full_name = current_user['name']
     @user_email = current_user['email']
   end
