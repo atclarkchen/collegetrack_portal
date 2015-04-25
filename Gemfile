@@ -58,6 +58,7 @@ gem 'haml'
 gem 'pundit'
 gem 'tinymce-rails'
 gem 'paperclip'
+gem 'dropzonejs-rails'
 gem 'aws-sdk', '~> 1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

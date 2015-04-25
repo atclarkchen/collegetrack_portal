@@ -15,3 +15,5 @@
 //= require bootstrap-sprockets
 //= require toastr
 //= require sweet-alert.min
+//= require dropzone
+//= require Emailform

@@ -2,6 +2,8 @@ class Draft < ActiveRecord::Base
   belongs_to :user
   has_many :attachments, dependent: :destroy
 
+  accepts_nested_attributes_for :attachments
+
   def compose_draft(email)
     files = email.delete(:files)
     self.attributes string_attributes(email)

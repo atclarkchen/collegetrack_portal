@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get    'email/index', to: 'email#index'
-  post   'email/',      to: 'email#create',  as: 'create_email'
+  post   'email/',      to: 'email#create',  as: 'drafts'
   get    'email/new',   to: 'email#new',     as: 'new_email'
-  put    'email/',      to: 'email#edit',    as: 'edit_email'
+  get    'email/',      to: 'email#edit',    as: 'edit_email'
   delete 'email/',      to: 'email#destroy', as: 'delete_draft'
   get    'email/email_list'
 

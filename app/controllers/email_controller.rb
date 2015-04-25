@@ -19,6 +19,8 @@ class EmailController < ApplicationController
     @filter_values = get_filter_values
     @full_name = current_user['name']
     @user_email = current_user['email']
+
+    @email = Draft.new
   end
 
   def edit
@@ -38,6 +40,7 @@ class EmailController < ApplicationController
 
   def create
     # build and compose draft message for current user
+    debugger
     draft = current_user.create_draft
     draft.compose_draft(string_params)
     flash[:notice] = "Draft message saved successfully"
@@ -93,15 +96,23 @@ class EmailController < ApplicationController
 
   private
 
+    def file_params
+      files = params.require(:email).fetch(:files, nil).try(:permit!)
+
+    end
+
     def email_params
-      params.require(:email).
-        permit(:subject, :body, to: [], cc: [], bcc: [], files: [])
+      params.require(:email).permit(:subject, :body, to: [], cc: [], bcc: []).
+                            merge(file_params)
+      # params.require(:email).
+      #        permit(:subject, :body, to: [], cc: [], bcc: []).
+      #        merge(params.require(:email).permit!(:files))
     end
 
     def string_params
       email = email_params
       email.each do |key, val|
-        if key != :files && val.class == Array
+        if val.class == Array
           email[key] = val.compact.reject(&:empty?).join(", ")
         end
       end
