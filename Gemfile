@@ -26,6 +26,7 @@ group :development, :test do
   gem 'rspec-autotest'
   gem 'ZenTest'
   gem 'webrick'
+  gem 'guard-rspec', require: false
 end
 
 group :production do

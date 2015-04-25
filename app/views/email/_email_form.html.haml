@@ -1,4 +1,4 @@
-= form_tag(email_index_path, {:id => "email_form", multipart: true}) do
+= form_tag(create_email_path, {:id => "email_form", multipart: true}) do
   #email_header
     #recipient_header
       .email_fields_table
@@ -7,12 +7,12 @@
             To:
           .recipient_right
 
-            = text_area :message, :to, :class => 'recipient_text', :multiple => true
+            = text_area :email, :to, :class => 'recipient_text', :multiple => true
         .email_fields_row#cc_row
           .email_label
             CC:
           .recipient_right
-            = text_area :message, :cc, :class => 'recipient_text', :multiple => true
+            = text_area :email, :cc, :class => 'recipient_text', :multiple => true
         .email_fields_row#bcc_row
           .email_label
             BCC:
@@ -44,6 +44,6 @@
           = file_field :email, :files, multiple: true
     %tr
       %td.submit_btns
-        = submit_tag 'Send',   name: "send_msg", :class => "btn send_btn"
-        = submit_tag 'Draft',  name: "draft_msg", :class => "btn draft_btn"
-        = link_to "Delete", delete_message_url, :method => :delete, :class => "btn delete_btn", data: {confirm: "Are you sure?"}
+        = submit_tag 'Send',  name: "send_msg",  :class => "btn send_btn"
+        = submit_tag 'Draft', name: "draft_msg", :class => "btn draft_btn"
+        = link_to "Delete", delete_draft_path, :method => :delete, :class => "btn delete_btn", data: {confirm: "Are you sure?"}

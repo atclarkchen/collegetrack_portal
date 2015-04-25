@@ -4,17 +4,43 @@ class EmailController < ApplicationController
   include SalesforceClient
 
   def index
+    # TODO: Ask user if he/she wants to continue on existing draft
+    # TODO: Use AJAX with JSON to update _email_form rather than render whole page
+    if current_user.draft.presence # && user wants to continue on existing draft
+      # redirect_to edit_email_path
+    end
+
+    # otherwise always redirect to /email/new
+    redirect_to new_email_path
+  end
+
+  def new
+    # TODO: need to DRY out
     @filter_values = get_filter_values
     @full_name = current_user['name']
     @user_email = current_user['email']
   end
-  
-  #TODO: Add method 'new', and ask user for new or edit draft
 
-  def create_message
+  def edit
+    # TODO: need to DRY out
+    @filter_values = get_filter_values
+    @full_name = current_user['name']
+    @user_email = current_user['email']
+
+    @draft = current_user.draft
+  end
+
+  def update
+    # update draft message of the current user
+    # This will be called only if user press 'Draft'
+    # after modifying the PREVIOUS draft
+  end
+
+  def create
     # build and compose draft message for current user
     draft = current_user.create_draft
-    draft.compose_draft(email_params)
+    debugger
+    draft.compose_draft(string_params)
     flash[:notice] = "Draft message saved successfully"
 
     if params[:send_msg]
@@ -25,9 +51,9 @@ class EmailController < ApplicationController
     redirect_to email_index_path
   end
 
-  def delete_message
+  def destroy
     flash[:notice] = "Message is deleted"
-    redirect_to email_index_path
+    redirect_to new_email_path
   end
 
   def email_list
@@ -69,8 +95,16 @@ class EmailController < ApplicationController
   private
 
     def email_params
-      params.require(:message).
+      params.require(:email).
         permit(:subject, :body, to: [], cc: [], bcc: [], files: [])
     end
 
+    def string_params
+      email = email_params
+      email.each do |key, val|
+        if key != :files && val.class == Array
+          email[key] = val.compact.reject(&:empty?).join(", ")
+        end
+      end
+    end
 end
