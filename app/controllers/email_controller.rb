@@ -39,7 +39,6 @@ class EmailController < ApplicationController
   def create
     # build and compose draft message for current user
     draft = current_user.create_draft
-    debugger
     draft.compose_draft(string_params)
     flash[:notice] = "Draft message saved successfully"
 
