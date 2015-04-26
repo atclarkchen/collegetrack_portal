@@ -1,9 +1,10 @@
 Given /^I see the filters: (.*)$/ do |filters|
+  sleep 3
   step %{I add the filters: #{filters}}
 end
 
 Given /^I (?:|add|remove) the filters: (.*)$/ do |filters|
-  filters = filters.split(",").reject { |f| f == "Oakland" || f == "Student" }
+  filters = filters.split(",").reject { |f| f == "Student" }
   click_link('change filters')
   page.all('#accordian ul li h3').each do |category|
     category.click
