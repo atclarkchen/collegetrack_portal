@@ -87,34 +87,33 @@ class EmailController < ApplicationController
     gmail.logout
   end
 
-  def load_from_s3(attachment)
-    {
-      filename: attachment.file_file_name,
-      content: open(attachment.file.url).read
-    }
-  end
+  # def load_from_s3(attachment)
+  #   {
+  #     filename: attachment.file_file_name,
+  #     content: open(attachment.file.url).read
+  #   }
+  # end
 
   private
 
+    # TODO: If we can pass {files: [{source: fils1}, {source: file2}, ...]}
+    #       using javaScript (or JSON) we can simplify theses
     def file_params
-      files = params.require(:email).fetch(:files, nil).try(:permit!)
-
+      array_files = params.require(:email).
+                           fetch(:files, nil).try(:permit!).
+                           values.map { |pos| {:source => pos} }
+      {:attachments_attributes => array_files}
     end
 
     def email_params
-      params.require(:email).permit(:subject, :body, to: [], cc: [], bcc: []).
-                            merge(file_params)
-      # params.require(:email).
-      #        permit(:subject, :body, to: [], cc: [], bcc: []).
-      #        merge(params.require(:email).permit!(:files))
+      params.require(:email).permit(:subject, :body, to: [], cc: [], bcc: [])
     end
 
     def string_params
-      email = email_params
-      email.each do |key, val|
-        if val.class == Array
-          email[key] = val.compact.reject(&:empty?).join(", ")
-        end
+      str_params = email_params.to_a.collect do |key, val|
+        val = val.compact.reject(&:empty?).join(", ") if val.class == Array
+        [key, val]
       end
+      Hash[str_params].merge(file_params)
     end
 end

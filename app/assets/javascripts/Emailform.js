@@ -4,18 +4,25 @@ Dropzone.options.emailForm = {
   maxFilesize: 4,
   addRemoveLinks: true,
   autoProcessQueue: false,
-  parallelUploads: 100,
-  maxFiles: 5,
+  parallelUploads: 50,
+  maxFiles: 10,
+  clickable: false,
+  previewsContainer: "#dropzone-preview",
 
   init: function() {
     var myDropzone = this;
 
-    // First change the button to actually tell Dropzone to process the queue.
-    this.element.querySelector("#btn-upload").addEventListener("click", function(e) {
-      // Make sure that the form isn't actually being sent.
+    $('input[type="submit"]').on("click", function(e) {
       e.preventDefault();
       e.stopPropagation();
       myDropzone.processQueue();
+
+      // if(myDropzone.getQueuedFiles().length > 0) {
+      //   myDropzone.processQueue();
+      // }
+      // } else {
+      //   myDropzone.uploadFiles([ ]);
+      // }
     });
   }
 };
