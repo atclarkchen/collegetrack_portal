@@ -38,10 +38,10 @@
     %tr
       %td
         %span Files to Attach
-        %span Drop files here to upload
         .fallback
           = f.file_field :files
         %div{id: "dropzone-preview", class: "dz-default dz-message"}
+          %span Drop files to attach
     %tr
       %td.submit_btns
         = f.submit  'Send',  :class => "btn send_btn"

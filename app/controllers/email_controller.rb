@@ -42,7 +42,7 @@ class EmailController < ApplicationController
     # build and compose draft message for current user
     debugger
     draft = current_user.create_draft
-    draft.compose_draft(string_params)
+    draft.compose_draft(strong_params)
     flash[:notice] = "Draft message saved successfully"
 
     if params[:send_msg]
@@ -99,20 +99,22 @@ class EmailController < ApplicationController
     # TODO: If we can pass {files: [{source: fils1}, {source: file2}, ...]}
     #       using javaScript (or JSON) we can simplify theses
     def file_params
+      return {} if params[:files].blank?
       array_files = params.require(:email).
                            fetch(:files, nil).try(:permit!).
                            values.map { |pos| {:source => pos} }
       {:attachments_attributes => array_files}
     end
 
-    def email_params
-      params.require(:email).permit(:subject, :body, to: [], cc: [], bcc: [])
+    def array_email
+      params.require(:email).
+             permit(:subject, :body, to: [], cc: [], bcc: []).to_a
     end
 
-    def string_params
-      str_params = email_params.to_a.collect do |key, val|
-        val = val.compact.reject(&:empty?).join(", ") if val.class == Array
-        [key, val]
+    def strong_params
+      str_params = array_email.collect do |key, val|
+          val = val.compact.reject(&:empty?).join(", ") if val.class == Array
+          [key, val]
       end
       Hash[str_params].merge(file_params)
     end
