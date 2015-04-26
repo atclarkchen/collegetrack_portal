@@ -11,21 +11,22 @@ RSpec.describe EmailController, type: :controller do
                 bcc: ["bcc@gmail.com", "bcc2@gmail.com"],
                 subject: "Test Message",
                 body: "This is body",
-                files: [""]} }
+                files: {}} }
   let(:current_user) { user }
 
   before :each do
     allow(controller).to receive(:ensure_sign_in) { true }
   end
 
-  describe '#string_params' do
+  describe '#strong_params' do
     it 'call require on params' do
-      allow(controller).to receive(:email_params) { email }
-      string_email = controller.send(:string_params)
-      expect(string_email[:to].class).to    eq String
-      expect(string_email[:cc].class).to    eq String
-      expect(string_email[:bcc].class).to   eq String
-      expect(string_email[:files].class).to eq Array
+      allow(controller).to receive(:file_params) {}
+      allow(controller).to receive(:array_email) { email }
+      strong_params = controller.send(:strong_params)
+      expect(strong_params[:to].class).to    eq String
+      expect(strong_params[:cc].class).to    eq String
+      expect(strong_params[:bcc].class).to   eq String
+      expect(strong_params[:attachments_attributes].class).to eq Hash
     end
   end
 

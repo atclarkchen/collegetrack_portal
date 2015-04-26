@@ -2,7 +2,7 @@ class Draft < ActiveRecord::Base
   belongs_to :user
   has_many :attachments, dependent: :destroy
 
-  accepts_nested_attributes_for :attachments
+  accepts_nested_attributes_for :attachments, reject_if: proc { |file| file['source'].blank? }
 
   def compose_draft(email)
     files = email.delete(:files)
@@ -23,4 +23,5 @@ class Draft < ActiveRecord::Base
       self.attachments.create(file: file)
     end
   end
+
 end

@@ -1,7 +1,7 @@
 $(document).ready(function() {
   // Disable autoDiscover
   Dropzone.autoDiscover = false;
- 
+
   // grap our upload form by its id
   $("#email_form").dropzone({
     uploadMultiple: true,
@@ -16,15 +16,16 @@ $(document).ready(function() {
     init: function() {
       var myDropzone = this;
 
-      $('input[type="submit"]').on("click", function(e) {
+      $('input[type="submit"]').addEventListener("click", function(e) {
         e.preventDefault();
         e.stopPropagation();
 
         if(myDropzone.getQueuedFiles().length > 0) {
           myDropzone.processQueue();
-        } else {
-          $('#email_form').submit();
         }
+        // } else {
+        //   $('#email_form').submit();
+        // }
       });
     }
   });

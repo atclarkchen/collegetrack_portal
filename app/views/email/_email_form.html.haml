@@ -1,4 +1,4 @@
-= form_for @email, html: {multiple: true, class: "dropzone", id: "email_form"} do |f|
+= form_tag(drafts_path, {multipart: true, id: "email_form"}) do
   #email_header
     #recipient_header
       .email_fields_table
@@ -6,22 +6,22 @@
           .email_label 
             To:
           .recipient_right
-            = f.text_area :to, :class => 'recipient_text', :multiple => true
+            = text_area :email, :to, :class => 'recipient_text', :multiple => true
         .email_fields_row#cc_row
           .email_label
             CC:
           .recipient_right
-            = f.text_area :cc, :class => 'recipient_text', :multiple => true
+            = text_area :email, :cc, :class => 'recipient_text', :multiple => true
         .email_fields_row#bcc_row
           .email_label
             BCC:
           .recipient_right
-            = f.text_area :bcc, :class => 'recipient_text', :rows => 1, :multiple => true
+            = text_area :email, :bcc, :class => 'recipient_text', :rows => 1, :multiple => true
     #subject_field
       .email_fields_table
         .email_fields_row
           .recipient_right
-            = f.text_field :subject, :class => 'subject_text', :placeholder => "Subject"
+            = text_field :email, :subject, :class => 'subject_text', :placeholder => "Subject"
 
   #filter_label
     .email_label
@@ -34,16 +34,17 @@
 
   %table#compose_box
     %tr
-      %td= f.text_area :body, :class => 'tinymce', :cols => 80, :rows => 20
+      %td= text_area :email, :body, :class => 'tinymce', :cols => 80, :rows => 20
     %tr
       %td
         %span Files to Attach
-        .fallback
-          = f.file_field :files
-        %div{id: "dropzone-preview", class: "dz-default dz-message"}
-          %span Drop files to attach
+        .dropzone
+          .fallback
+            = file_field :email, :files
+          %div{id: "dropzone-preview", class: "dz-default dz-message"}
+            %span Drop files to attach
     %tr
       %td.submit_btns
-        = f.submit  'Send',  :class => "btn send_btn"
-        = f.submit  'Draft', :class => "btn draft_btn"
+        = submit_tag  'Send',  name: "send_msg", :class => "btn send_btn"
+        = submit_tag  'Draft', name: "save_msg", :class => "btn draft_btn"
         = link_to "Delete", delete_draft_path, :method => :delete, :class => "btn delete_btn", data: {confirm: "Are you sure?"}

@@ -19,8 +19,6 @@ class EmailController < ApplicationController
     @filter_values = get_filter_values
     @full_name = current_user['name']
     @user_email = current_user['email']
-
-    @email = Draft.new
   end
 
   def edit
@@ -28,8 +26,6 @@ class EmailController < ApplicationController
     @filter_values = get_filter_values
     @full_name = current_user['name']
     @user_email = current_user['email']
-
-    @draft = current_user.draft
   end
 
   def update
@@ -41,14 +37,14 @@ class EmailController < ApplicationController
   def create
     # build and compose draft message for current user
     debugger
-    draft = current_user.create_draft
-    draft.compose_draft(strong_params)
-    flash[:notice] = "Draft message saved successfully"
+    draft = current_user.create_draft(strong_params)
 
-    if params[:send_msg]
-      deliver_message(draft)
-      flash[:notice] = "Message sent successfully"
-    end
+    # flash[:notice] = "Draft message saved successfully"
+
+    # if params[:send_msg]
+    #   deliver_message(draft)
+    #   flash[:notice] = "Message sent successfully"
+    # end
 
     redirect_to email_index_path
   end
@@ -99,9 +95,8 @@ class EmailController < ApplicationController
     # TODO: If we can pass {files: [{source: fils1}, {source: file2}, ...]}
     #       using javaScript (or JSON) we can simplify theses
     def file_params
-      return {} if params[:files].blank?
       array_files = params.require(:email).
-                           fetch(:files, nil).try(:permit!).
+                           fetch(:files, {}).try(:permit!).
                            values.map { |pos| {:source => pos} }
       {:attachments_attributes => array_files}
     end
