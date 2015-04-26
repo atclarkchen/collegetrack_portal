@@ -17,12 +17,12 @@
           .email_label
             BCC:
           .recipient_right
-            = text_area :email, :bcc, :class => 'recipient_text', :rows => 1, :multiple => true
+            = text_area :message, :bcc, :class => 'recipient_text', :rows => 1, :multiple => true
     #subject_field
       .email_fields_table
         .email_fields_row
           .recipient_right
-            = text_field :email, :subject, :class => 'subject_text', :placeholder => "Subject"
+            = text_field :message, :subject, :class => 'subject_text', :placeholder => "Subject"
   #filter_label
     .email_label
       Filters:
@@ -33,12 +33,12 @@
     = link_to "change filters", "", :id => "change_filter"
   %table#compose_box
     %tr
-      %td= text_area :email, :body, :class => 'tinymce', :cols => 80, :rows => 20
+      %td= text_area :message, :body, :class => 'tinymce', :cols => 80, :rows => 20
     %tr
       %td
         .recipient
           %span{class: 'recipient_label'}Files to Attach
-          = file_field :email, :files, multiple: true
+          = file_field :message, :files, multiple: true
     %tr
       %td.submit_btns
         = submit_tag 'Send',   name: "send_msg", :class => "btn send_btn"

@@ -21,7 +21,6 @@ class EmailController < ApplicationController
       deliver_message(draft)
       flash[:notice] = "Message sent successfully"
     end
-
     redirect_to email_index_path
   end
 
