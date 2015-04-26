@@ -1,9 +1,18 @@
 class SalesforceController < ApplicationController
+  include SalesforceClient
+
   before_action :ensure_sign_in
-  after_action :verify_authorized
+  after_action :verify_authorized, :except => :reset_salesforce
 
   def reset_salesforce
-    authorize current_user, :edit?
+    begin
+      connect_salesforce
+    rescue
+      authorize current_user, :edit?
+    else
+      flash[:notice] = "Your Salesforce password is already up to date."
+      redirect_to email_index_path
+    end
   end
 
   def save_password
