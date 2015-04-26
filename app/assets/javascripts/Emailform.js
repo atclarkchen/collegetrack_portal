@@ -16,11 +16,12 @@ $(document).ready(function() {
     init: function() {
       var myDropzone = this;
 
-      $('input[type="submit"]').addEventListener("click", function(e) {
+      $('input[type="submit"]').on("click", function(e) {
         e.preventDefault();
         e.stopPropagation();
 
         if(myDropzone.getQueuedFiles().length > 0) {
+          window.alert("files in queue");
           myDropzone.processQueue();
         }
         // } else {
