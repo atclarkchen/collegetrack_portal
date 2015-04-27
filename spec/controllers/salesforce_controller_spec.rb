@@ -13,6 +13,7 @@ describe SalesforceController do
     end
 
     it 'should update the password' do
+      ENV['SALESFORCE_PASSWORD'] = 'outdated'
       post :save_password, :confirm_password => {:confirm_password => "asdfasdf"}, :password => {:password => "asdfasdf"}, :token => {:token => "token"}
       expect(ENV['SALESFORCE_PASSWORD']).to eq("asdfasdf")
       expect(ENV['SALESFORCE_SECURITY_TOKEN']).to eq("token")
