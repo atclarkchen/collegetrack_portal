@@ -1,3 +1,4 @@
+@javascript
 Feature: User Add/Remove
 
   As a College Track admin,
