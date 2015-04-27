@@ -26,7 +26,6 @@ group :development, :test do
   gem 'rspec-autotest'
   gem 'ZenTest'
   gem 'webrick'
-  gem 'chromedriver-helper'
 end
 
 group :production do
