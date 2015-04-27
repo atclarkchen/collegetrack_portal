@@ -1,4 +1,5 @@
 Given /^I see the filters: (.*)$/ do |filters|
+  sleep 3
   step %{I add the filters: #{filters}}
 end
 

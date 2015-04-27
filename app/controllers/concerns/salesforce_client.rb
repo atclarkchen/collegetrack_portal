@@ -1,5 +1,3 @@
-
-
 module SalesforceClient
   extend ActiveSupport::Concern
 
@@ -84,4 +82,3 @@ module SalesforceClient
     end      
   end
 end
->>>>>>> Salesforce auth is through env again:app/controllers/concerns/salesforce_client.rb
