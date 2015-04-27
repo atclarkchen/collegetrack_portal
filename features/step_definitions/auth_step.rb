@@ -12,12 +12,10 @@ World(WithinHelpers)
 
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
-  sleep 2
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
-  sleep 2
 end
 
 Given /^(?:|I )am logged into as "(.+)"$/ do |user_email|
@@ -43,7 +41,7 @@ end
 When /^(?:|I )login as "(.+)"$/ do |user_email|
   set_omniauth(user_email)
   @current_user = User.find_by_email(user_email)
-  click_link("Sign in with Google")
+  click_link("login_button")
 end
 
 Then /I should be rejected/ do
