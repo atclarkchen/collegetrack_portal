@@ -1,5 +1,4 @@
 And /I click the admin tab/ do
-  sleep 3
   click_link("Admin")
 end
 
