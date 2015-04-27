@@ -16,8 +16,5 @@
 .container#home_body
   .center
     %img{:href => "/", :src => image_path("ct-logo.svg"), :width => "392", :height => "178"}
-    %h1
-      Mail App
-    = link_to user_omniauth_authorize_path(:google_oauth2), :class => "popup btn-lg btn-block btn-social btn-google-plus", :"data-width" => 800, :"data-height" => 600 do
-      %i.fa.fa-google-plus
-      Sign in with Google
+    %h1 Mail App
+    = link_to raw('Sign in with Google<i class="fa fa-google-plus"></i>'), user_omniauth_authorize_path(:google_oauth2), :class => "popup btn-lg btn-block btn-social btn-google-plus", :"data-width" => 800, :"data-height" => 600
