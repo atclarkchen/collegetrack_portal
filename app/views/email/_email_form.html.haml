@@ -1,4 +1,4 @@
-= form_tag(drafts_path, {multipart: true, id: "email_form"}) do
+= form_tag(drafts_path, {multipart: true, class: "dropzone", id: "email_form"}) do
   #email_header
     #recipient_header
       .email_fields_table
@@ -38,11 +38,9 @@
     %tr
       %td
         %span Files to Attach
-        .dropzone
-          .fallback
-            = file_field :email, :files
-          %div{id: "dropzone-preview", class: "dz-default dz-message"}
-            %span Drop files to attach
+        .fallback
+          = file_field :email, :files
+        %div{id: "dropzone-preview", class: "dz-default dz-message"}
     %tr
       %td.submit_btns
         = submit_tag  'Send',  name: "send_msg", :class => "btn send_btn", :id => "send_draft"
