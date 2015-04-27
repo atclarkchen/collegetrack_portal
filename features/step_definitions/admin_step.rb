@@ -19,6 +19,7 @@ And /I click "X" to remove user "(.+)"$/ do |email|
     end
   end
   click_button "Yes"
+  sleep 1
   click_button "OK"
 end
 
