@@ -45,6 +45,6 @@
             %span Drop files to attach
     %tr
       %td.submit_btns
-        = submit_tag  'Send',  name: "send_msg", :class => "btn send_btn"
+        = submit_tag  'Send',  name: "send_msg", :class => "btn send_btn", :id => "send_draft"
         = submit_tag  'Draft', name: "save_msg", :class => "btn draft_btn"
         = link_to "Delete", delete_draft_path, :method => :delete, :class => "btn delete_btn", data: {confirm: "Are you sure?"}
