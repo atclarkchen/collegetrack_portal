@@ -1,3 +1,4 @@
+@javascript
 Feature: User Add/Remove
 
   As a College Track admin,
@@ -12,8 +13,7 @@ Background: Users have been added to the database
   | Iago                   | othello@gmail.com   | Admin| password |
   And I am on the login page
   And I login as "othello@gmail.com"
-  Then I should be on the email page
-
+  
 Scenario: Accessing admin page
 
   Given I am on the email page
