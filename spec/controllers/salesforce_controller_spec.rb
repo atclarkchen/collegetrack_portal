@@ -24,7 +24,7 @@ describe SalesforceController do
     describe 'reset salesforce' do
       it 'should redirect to email page' do
           get :reset_salesforce
-          expect(response).to render_template(:reset_salesforce)
+          expect(response).to redirect_to email_index_path
       end
     end
   end
