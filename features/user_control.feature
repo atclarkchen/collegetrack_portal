@@ -16,15 +16,18 @@ Background: Users have been added to the database
   And I click the admin tab
   
 Scenario: Accessing admin page
+
   Then I should be on the admin page
 
 Scenario: Adding a user
+
   Given I fill in 'Email' with "admin@collegetrack.com"
   And I click '+' to add a new user
   Then I should see "admin@collegetrack.com"
   And I should be on the admin page
 
 Scenario: Removing a user
+
   Given I click "X" to remove user "magiclamp@gmail.com"
   And I should not see "magiclamp@gmail.com"
   And I should see "othello@gmail.com"
