@@ -18,11 +18,11 @@ FactoryGirl.define do
     body "This is body"
 
     # draft = create(:draft_with_attachment)
-    factory :draft_with_attachment do |attachment|
-      after(:create) do |draft|
-        create(:attachment, draft: draft)
-      end
-    end
+    # factory :draft_with_attachment do |attachment|
+    #   after(:create) do |draft|
+    #     create(:attachment, draft: draft)
+    #   end
+    # end
   end
 
   factory :token do
@@ -39,6 +39,18 @@ FactoryGirl.define do
     # associations
     draft
     token
+  end
+
+  factory :email, class: Hash do
+    to  ["to1@gmail.com", "to2@yahoo.com"]
+    cc  ["cc@naver.com"]
+    bcc ["bcc1@gmail.com", "bcc2@gmail.com", "bcc3@gmail.com"]
+    subject "This is subject"
+    body "This is a test body"
+    files {{"0" => fixture_file_upload(Rails.root.join('spec/fixtures/image.gif'), 'image/gif'),
+            "1" => fixture_file_upload(Rails.root.join('spec/fixtures/sample.pdf'), 'sample/pdf')}}
+
+    initialize_with { attributes }
   end
 
 end

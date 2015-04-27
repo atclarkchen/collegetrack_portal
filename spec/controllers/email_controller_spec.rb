@@ -4,30 +4,56 @@ RSpec.describe EmailController, type: :controller do
 
   include EmailHelper
 
-  let(:user)  { create(:user) }
-  let(:draft) { create(:draft) }
-  let(:email) { {to:  ["to@gmail.com"],
-                cc:  ["cc@gmail.com"],
-                bcc: ["bcc@gmail.com", "bcc2@gmail.com"],
-                subject: "Test Message",
-                body: "This is body",
-                files: {}} }
+  let(:user)  { create(:user)  }
   let(:current_user) { user }
+
+  let(:draft) { create(:draft) }
+  let(:email) { build(:email) }
+  let(:message) { email.reject { |k,v| k == :files } }
+  let(:files) { email[:files].values }
 
   before :each do
     allow(controller).to receive(:ensure_sign_in) { true }
+    allow(controller).to receive(:current_user) { user }
   end
 
-  describe '#strong_params' do
-    it 'call require on params' do
-      allow(controller).to receive(:file_params) {}
-      allow(controller).to receive(:array_email) { email }
-      strong_params = controller.send(:strong_params)
-      expect(strong_params[:to].class).to    eq String
-      expect(strong_params[:cc].class).to    eq String
-      expect(strong_params[:bcc].class).to   eq String
-      expect(strong_params[:attachments_attributes].class).to eq Hash
+  describe '#message_params' do
+    it 'generate string of message params' do
+      allow(controller).to receive(:strong_params) { message }
+      msg_params = controller.send(:message_params)
+      expect(msg_params.values).to all (be_an(String))
     end
+  end
+
+  describe "#create" do
+    
+    context 'when user click submit button (draft or send)' do
+      it 'builds draft with message_params' do
+        expect(current_user).to receive(:build_draft) { draft }
+        post :create, { :email => email }
+      end
+      
+      it 'add attachments to draft with files_params'
+    end
+
+    context 'when user clicks send button' do
+      it 'sends an email with current draft'
+      context 'email has sent successfully' do
+        it 'sets notice for successful delievery'
+        it 'sends AJAX response to DropzoneJS'
+      end
+      context 'gmail API throws an error' do
+        it 'sets notice for unsuccessful delievery'
+      end
+    end
+
+    context 'when user clicks draft button' do
+      it 'saves the current draft and attachments'
+      it 'sets notice for saving draft'
+    end
+
+    it 'redirect_to to email_index_path'
+
   end
 
   # describe "#create" do

@@ -3,6 +3,9 @@ class EmailController < ApplicationController
   before_filter :ensure_sign_in
   include SalesforceClient
 
+  # TODO: Rather than asking user, if the user has a draft,
+  #       just render the page with the contents of draft
+
   def index
     # TODO: Ask user if he/she wants to continue on existing draft
     # TODO: Use AJAX with JSON to update _email_form rather than render whole page
@@ -35,9 +38,7 @@ class EmailController < ApplicationController
   end
 
   def create
-    # build and compose draft message for current user
-    debugger
-    # draft = current_user.create_draft(strong_params)
+    draft = current_user.build_draft(message_params)
 
     # flash[:notice] = "Draft message saved successfully"
 
@@ -92,25 +93,20 @@ class EmailController < ApplicationController
 
   private
 
-    # TODO: If we can pass {files: [{source: fils1}, {source: file2}, ...]}
-    #       using javaScript (or JSON) we can simplify theses
-    def file_params
-      array_files = params.require(:email).
-                           fetch(:files, {}).try(:permit!).
-                           values.map { |pos| {:source => pos} }
-      {:attachments_attributes => array_files}
-    end
-
-    def array_email
-      params.require(:email).
-             permit(:subject, :body, to: [], cc: [], bcc: []).to_a
+    def files_params
+      files = params.require(:email).fetch(:files, []).try(:permit!)
+      files.values if files.class == Hash
     end
 
     def strong_params
-      str_params = array_email.collect do |key, val|
-          val = val.compact.reject(&:empty?).join(", ") if val.class == Array
-          [key, val]
+      params.require(:email).
+             permit(:subject, :body, to: [], cc: [], bcc: [])
+    end
+
+    def message_params
+      message = strong_params
+      message.each do |key, val|
+        message[key] = val.compact.reject(&:empty?).join(", ") if val.class == Array
       end
-      Hash[str_params].merge(file_params)
     end
 end
