@@ -12,6 +12,21 @@ var EmailFilter = {
     remove: function() {
         var filterText = $(this).prev().text();
         $(this).parent().remove();
+        if (filterText == "Parent" || filterText == "Student") {
+            count = 0;
+            $('#filters .ui_fil .left_fil').each(function() {
+                if ($(this).text() == "Parent" || $(this).text() == "Student") {
+                    count += 1;
+                }
+            });
+            if (count == 0) {
+                swal({
+                    title: "Warning",
+                    text: "You have just removed Parent/Student. The field will be blank!",
+                    type: "warning"
+                });
+            }
+        }
         $(".selected").each(function() {
             if ($(this).text() === filterText) {
                 $(this).toggleClass('selected');
@@ -56,6 +71,7 @@ var RecipientField = {
     restore: function() {
         var input = $(this).val().trim();
         var parent = $(this).parent();
+        var field = $(parent).prev().text().trim().slice(0, -1).toLowerCase();
         if (input === '') {
             $(this).remove();
         } else {
@@ -64,7 +80,7 @@ var RecipientField = {
             var prev = ($(this).prev().length === 0) ? $(this) : $(this).prev();
             for (var i in emails) {
                 if (filter.test(emails[i])) {
-                    $(prev).after("<div class='edit_box'><span class='ui_fil'><div class ='left_fil'>" + emails[i] + "</div><div class='x'></div></span><input name='email[bcc][]' type='hidden' value='" + emails[i] + "'></div>");
+                    $(prev).after("<div class='edit_box'><span class='ui_fil'><div class ='left_fil'>" + emails[i] + "</div><div class='x'></div></span><input name='message[" + field + "][]' type='hidden' value='" + emails[i] + "'></div>");
                 } else {
                     var restEmails = emails.slice(i);
                     restEmails = restEmails.join(" ");

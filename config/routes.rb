@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post   'email/' => 'email#create_message', as: :create_message
   delete 'email/' => 'email#delete_message', as: :delete_message
   get    'email/email_list'
+  get    'email/save_draft'
 
   get    'admin/' => 'admin#index', :as => :admin
   post   'admin/' => 'admin#new', :as => :new_user

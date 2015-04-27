@@ -1,6 +1,10 @@
 var Navbar = {
   setup: function() {
     $('.navbar').on('click', 'a:first-child', Navbar.logout);
+
+    /* Call save draft when leaving url */
+    //$(window).on("unload", Navbar.saveDraft);
+
     Navbar.highlight();
   },
   logout: function() {
@@ -23,6 +27,16 @@ var Navbar = {
     });
     return false;
   },
+  /*
+  saveDraft: function() {
+    if ($(location).prop('pathname') == "/email") {
+      $.ajax({
+        type: "GET",
+        url: "/email/save_draft"
+      });
+    }
+  },
+  */
   highlight: function() {
     $('nav > div > a').each(function () {
       if (window.location.href.indexOf($(this).text().toLowerCase().trim()) >= 0) {

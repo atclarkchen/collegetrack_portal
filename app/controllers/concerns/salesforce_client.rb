@@ -9,6 +9,7 @@ module SalesforceClient
   end
 
   def generate_email(filters)
+    return "" unless filters
     sf_keys = []
     email = ""
     filters.each_key do |category|
@@ -27,23 +28,28 @@ module SalesforceClient
         sf_keys << "(#{or_query})"
       end
     end
-    query = sf_keys.join(" and ")
-    values = self.client.query("select #{email} from Contact where #{query}")
-    emails = []
-    email.split(', ').each do |column|
-      emails.concat(values.map{ |value| value["#{column}"] }.uniq)
+    query = ""
+    unless sf_keys === []
+      query = "where "
+      query << sf_keys.join(" and ")
     end
-    emails.compact.sort { |x,y| y <=> x }
+    unless email === ""
+      values = self.client.query("select #{email} from Contact #{query}")
+      emails = []
+      email.split(', ').each do |column|
+        emails.concat(values.map{ |value| value["#{column}"] }.uniq)
+      end
+      emails.compact.sort.reverse
+    end
   end
 
   def get_filter_values
-    locations = get_values("Site__c")
     races = get_values("Race__c")
     genders = get_values("Gender__c")
     years = get_values("Class_Level__c").sort_by { |x| x[/\d+/].to_i }
     high_schools = get_values("High_School__r").sort
     parent_student = ["Student", "Parent"]
-    {"Locations" => locations, "Race" => races, "Gender" => genders, "Year" => years, "High School" => high_schools, "Parent/Student" => parent_student}
+    {"Parent/Student" => parent_student, "Race" => races, "Gender" => genders, "Year" => years, "High School" => high_schools}
   end
 
   def get_values(column)
@@ -58,8 +64,6 @@ module SalesforceClient
 
   def get_column(category)
     case category
-    when "Locations"
-      "Site__c"
     when "Race"
       "Race__c"
     when "Gender"
