@@ -41,7 +41,7 @@ end
 When /^(?:|I )login as "(.+)"$/ do |user_email|
   set_omniauth(user_email)
   @current_user = User.find_by_email(user_email)
-  page.find('.popup').click
+  page.all('a', :text => "Sign in with Google").click
 end
 
 Then /I should be rejected/ do
