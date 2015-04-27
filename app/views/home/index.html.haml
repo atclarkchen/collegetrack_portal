@@ -1,6 +1,6 @@
 - content_for(:head) do
   = javascript_include_tag 'google_auth'
-  
+  = stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Montserrat:400,700'
 
 - if flash
   - flash.each do |type, message|
@@ -13,8 +13,11 @@
       else if ('#{type}' == 'error')
         toastr.error('#{message}');
 
-.container
+.container#home_body
   .center
-    = link_to user_omniauth_authorize_path(:google_oauth2), :class => "popup btn btn-block btn-social btn-google-plus", :"data-width" => 800, :"data-height" => 600 do
+    %img{:href => "/", :src => image_path("ct-logo.svg"), :width => "392", :height => "178"}
+    %h1
+      Mail App
+    = link_to user_omniauth_authorize_path(:google_oauth2), :class => "popup btn-lg btn-block btn-social btn-google-plus", :"data-width" => 800, :"data-height" => 600 do
       %i.fa.fa-google-plus
       Sign in with Google
