@@ -25,7 +25,7 @@ describe AdminController do
       new_user  = User.new({:name => "Michael Jackson", :email => "BeatitandTweetit@thriller.com", :role => "Admin", :password => "password"})
         new_user.save!
         expect{ 
-              delete :destroy, :user => new_user
+              delete :destroy, :email => new_user.email
         }.to change(User, :count).by(-1)
         expect(response).to render_template("_user_table.html.haml")
     end
