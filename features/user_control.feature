@@ -23,7 +23,6 @@ Scenario: Accessing admin page
 Scenario: Adding a user
 
   Given I am on the admin page
-  And I fill in 'Name' with "Admin"
   And I fill in 'Email' with "admin@collegetrack.com"
   And I click '+' to add a new user
   Then I should see "admin@collegetrack.com"
@@ -32,9 +31,7 @@ Scenario: Adding a user
 Scenario: Removing a user
 
   Given I am on the admin page
-  And I click "X" to remove user "Aladdin"
-  Then I should not see "Aladdin"
+  And I click "X" to remove user "magiclamp@gmail.com"
   And I should not see "magiclamp@gmail.com"
-  But I should see "Iago"
   And I should see "othello@gmail.com"
   And I should be on the admin page

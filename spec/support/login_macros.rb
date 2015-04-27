@@ -1,4 +1,4 @@
-module AdminMacros
+module LoginMacros
  
   def login_user
     request.env["devise.mapping"] = Devise.mappings[:user]

@@ -3,12 +3,6 @@ module SalesforceClient
 
   cattr_accessor :client
 
-  def change_password(new_password, new_token)
-    ENV['SALESFORCE_PASSWORD'] = new_password
-    ENV['SALESFORCE_SECURITY_TOKEN'] = new_token
-    self.client = Restforce.new :host => "test.salesforce.com", :password => new_password, :security_token => new_token
-  end
-
   def connect_salesforce
     self.client = Restforce.new :host => "test.salesforce.com", :password => ENV['SALESFORCE_PASSWORD'], :security_token => ENV['SALESFORCE_SECURITY_TOKEN']
     self.client.authenticate!

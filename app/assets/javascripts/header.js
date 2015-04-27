@@ -1,8 +1,10 @@
 var Navbar = {
   setup: function() {
     $('.navbar').on('click', 'a:first-child', Navbar.logout);
+
     /* Call save draft when leaving url */
     //$(window).on("unload", Navbar.saveDraft);
+
     Navbar.highlight();
   },
   logout: function() {
