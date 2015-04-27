@@ -2,7 +2,6 @@ class SalesforceController < ApplicationController
   include SalesforceClient
 
   before_action :ensure_sign_in
-  after_action :verify_authorized, :except => :reset_salesforce
 
   def reset_salesforce
     begin

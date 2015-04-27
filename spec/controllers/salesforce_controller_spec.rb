@@ -7,7 +7,7 @@ describe SalesforceController do
   end
 
   describe 'save_password' do
-    it 'should redirect' do
+    it 'should redirect to login page' do
         post :save_password, :confirm_password => {:confirm_password => "asdfasdf"}, :password => {:password => "asdfasdf"}, :token => {:token => "token"}
         expect(response).to redirect_to root_path
     end
@@ -20,9 +20,9 @@ describe SalesforceController do
   end
 
   describe 'reset salesforce' do
-    it 'should render' do
+    it 'should redirect to email page' do
         get :reset_salesforce
-        expect(response).to render_template("reset_salesforce")
+        expect(response).to redirect_to email_index_path
     end
   end
 
