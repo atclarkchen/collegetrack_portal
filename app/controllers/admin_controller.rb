@@ -27,7 +27,7 @@ class AdminController < ApplicationController
 
   def destroy
     authorize current_user, :edit?
-  	@user = User.find_by_email(params[:user])
+  	@user = User.find_by_email(params[:email])
   	@user.destroy
     @users = User.all
     render "_user_table.html.haml", layout: false

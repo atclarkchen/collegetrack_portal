@@ -4,7 +4,7 @@ var Admin = {
     $('#add_user_form').on('submit', Admin.submit);
   },
   destroy: function() {
-    var user = $(this).parent().prev().prev().text();
+    var email = $(this).parent().prev().prev().text();
     swal({
       title: "Are you sure?",
       text: "Your will have to re-add the user!",
@@ -19,7 +19,7 @@ var Admin = {
       $.ajax({
         url: "/admin/",
         method: "delete",
-        data: {"user": user},
+        data: {"email": email},
         success: function(html) {
           $('#users').html(html);
           $('#add_user_form')[0].reset();
