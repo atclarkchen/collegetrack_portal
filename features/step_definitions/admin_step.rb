@@ -15,11 +15,11 @@ And /I click "X" to remove user "(.+)"$/ do |email|
     within(row) do |entry|
       if find('td:nth-child(2)').text() == email
         click_button "X"
-        click_button "Yes"
-        click_button "OK"
       end
     end
   end
+  click_button "Yes"
+  click_button "OK"
 end
 
 Then /^(?:|I )should not see "([^"]*)"$/ do |text|
