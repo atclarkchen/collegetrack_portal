@@ -62,9 +62,6 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
-    chromedriver-helper (0.0.8)
-      nokogiri (~> 1.6)
-      version_sorter (~> 1.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -299,7 +296,6 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    version_sorter (1.1.1)
     warden (1.2.3)
       rack (>= 1.0)
     warden-rspec-rails (0.1.0)
@@ -323,7 +319,6 @@ DEPENDENCIES
   ZenTest
   aws-sdk (~> 1)
   bootstrap-sass (~> 3.3.3)
-  chromedriver-helper
   coffee-rails (~> 4.1.0)
   cucumber-rails
   database_cleaner
