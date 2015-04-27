@@ -20,4 +20,33 @@ body {
   padding: 0;
 }
 
-.center {height: 100%; display:table-cell; vertical-align: middle; width: 200px}
+#home_body {
+	background-color:#00b4f0;
+}
+
+.center {
+	height: 500px;
+	width: 600px;
+	background-color: white;
+	border-radius: 50px;
+	margin: auto;
+	margin-top: 15%;
+	padding-top: 80px;
+}
+.center img {
+	display: block;
+	margin:auto;
+}
+.center h1 {
+	text-align:center;
+	font-family: Montserrat;
+	color: #767778;
+}
+.btn-google-plus {
+		 margin: auto;
+		 width:300px;
+		 margin-top: 60px;		 
+}
+
+
+

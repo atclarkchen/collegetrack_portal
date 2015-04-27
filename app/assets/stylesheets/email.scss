@@ -32,7 +32,6 @@ body {
 }
 
 .email_fields_table {
-
 	width: 100%;
 	border-spacing: 0;
 	display: table;
@@ -87,10 +86,22 @@ body {
     width: 100%;
 }
 
-#email_form {
-  width: 1000px;
-  margin-left: 15%;
-  float: left;
+
+
+@media (max-width:1500px) {
+        #email_form {
+       		   width: 50%;
+  		   margin-left: 15%;
+	   	   float: left;
+	}
+}
+
+@media (min-width:1500px) {	
+	#email_form {
+	    width: 1000px;
+	    margin-left: 18%;
+	    float: left;
+	    }
 }
 
 #accordian {
@@ -99,32 +110,36 @@ body {
   display: none;
   margin-left: 50px;
   margin-top: 20px;
-  background: #767778;
+  background: #e7e7e7;
   width: 295px;
   color: white;
 }
+
 /*heading styles*/
 #accordian h3 {
   font-size: 18px;
   line-height: 35px;
   padding: 0 10px;
   cursor: pointer;
-  background: #272727;
+  background: #767778;
   margin: 0;
-  border: solid 1px black;
+  border: solid 1px #6F6F6F;
 }
+
 /*iconfont styles*/
 #accordian h3 span {
   font-size: 19px;
   margin-right: 10px;
 }
+
 /*list items*/
 #accordian li {
   list-style-type: none;
 }
+
 /*links*/
 #accordian ul ul li a {
-  color: white;
+  color: #6F6F6F;
   text-decoration: none;
   font-size: 14px;
   line-height: 30px;
@@ -133,15 +148,18 @@ body {
   /*transition for smooth hover animation*/
   transition: all 0.15s;
 }
+
 /*hover effect on links*/
 .selected {
   background: #00b4f0;
   border-left: 5px solid #00b4f0;
 }
+
 /*Lets hide the non active LIs by default*/
 #accordian ul ul {
   display: none;
 }
+
 #accordian li.active ul {
   display: block;
 }
