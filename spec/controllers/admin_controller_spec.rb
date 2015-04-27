@@ -16,7 +16,7 @@ describe AdminController do
   describe 'new' do
     it 'should make new' do
       get :new, :user => {:name => "Michael Jackson", :email => "BeatitandTweetit@thriller.com", :role => "Admin", :password => "password"}
-      expect(response).to redirect_to admin_path
+      expect(response).to render_template("_user_table.html.haml")
     end
   end   
 
@@ -27,7 +27,7 @@ describe AdminController do
         expect{ 
               delete :destroy, :user => new_user
         }.to change(User, :count).by(-1)
-        expect(response).to redirect_to admin_path
+        expect(response).to render_template("_user_table.html.haml")
     end
   end
 
