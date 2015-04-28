@@ -38,30 +38,17 @@ class EmailController < ApplicationController
   end
 
   def create
-    debugger
-    draft = current_user.build_draft(message_params)
+    draft = current_user.create_draft(message_params)
     draft.add_attachments = files_params
-    # flash[:notice] = "Draft message saved successfully"
+    flash[:notice] = "Draft message saved successfully"
 
-    # if params[:send_msg]
-    #   deliver_message(draft)
-    #   flash[:notice] = "Message sent successfully"
-    # end
-
-    redirect_to email_index_path
+    if params[:send_msg]
+      send_draft(draft)
+      flash[:notice] = "Message sent successfully"
+    end
   end
 
-  def destroy
-    flash[:notice] = "Message is deleted"
-    redirect_to new_email_path
-  end
-
-  def email_list
-    filters = params[:filters]
-    render json: generate_email(filters).to_json
-  end
-
-  def deliver_message(draft)
+  def send_draft(draft)
     gmail = Gmail.connect(:xoauth2, current_user.email, current_user.token.fresh_token)
     message = gmail.compose do
       to   draft.to
@@ -76,13 +63,23 @@ class EmailController < ApplicationController
     end
 
     # add attachments to message from S3
-    draft.attachments.each do |attachment|
-      message.add_file load_from_s3(attachment)
-    end
+    # draft.attachments.each do |attachment|
+    #   message.add_file load_from_s3(attachment)
+    # end
 
     # deliver and close the current session
     message.deliver!
     gmail.logout
+  end
+
+  def destroy
+    flash[:notice] = "Message is deleted"
+    redirect_to new_email_path
+  end
+
+  def email_list
+    filters = params[:filters]
+    render json: generate_email(filters).to_json
   end
 
   # def load_from_s3(attachment)
@@ -95,7 +92,7 @@ class EmailController < ApplicationController
   private
 
     def files_params
-      files = params.require(:email).fetch(:files, []).try(:permit!)
+      files = params.require(:email).fetch(:files, {}).try(:permit!)
       files.values
     end
 

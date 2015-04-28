@@ -18,11 +18,17 @@ $(document).ready(function() {
       var submitForm = document.querySelector('input[type="submit"]');
 
       submitForm.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+        if(myDropzone.getQueuedFiles().length > 0) {
+          e.preventDefault();
+          e.stopPropagation();
 
-        tinyMCE.get('email_body').save();
-        myDropzone.processQueue();
+          tinyMCE.get('email_body').save();
+          myDropzone.processQueue();
+        };
+      });
+
+      this.on("queuecomplete", function() {
+        myDropzone.removeAllFiles();
       });
     }
   });

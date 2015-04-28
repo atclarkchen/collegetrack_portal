@@ -17,3 +17,4 @@
 //= require sweet-alert.min
 //= require dropzone
 //= require Emailform
+//= require tinyMceInit

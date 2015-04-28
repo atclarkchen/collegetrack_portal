@@ -18,8 +18,8 @@ RSpec.describe EmailController, type: :controller do
   describe "#create" do
     
     context 'when user click submit button (draft or send)' do
-      it 'builds draft with message_params' do
-        expect(current_user).to receive(:build_draft) { draft }
+      it 'creates draft with message_params' do
+        expect(current_user).to receive(:create_draft) { draft }
         post :create, { :email => email }
       end
       

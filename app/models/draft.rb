@@ -4,7 +4,7 @@ class Draft < ActiveRecord::Base
 
   def add_attachments=(files)
     files.each do |file|
-      attachments.build(:source => file)
+      attachments.create(:source => file)
     end
   end
 
