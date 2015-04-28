@@ -375,7 +375,6 @@ DEPENDENCIES
   jasmine
   jbuilder (~> 2.0)
   jquery-rails
-  json
   omniauth-google-oauth2
   paperclip
   pg

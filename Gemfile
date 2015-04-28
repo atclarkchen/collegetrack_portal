@@ -50,7 +50,6 @@ end
 
 gem 'toastr-rails'
 gem 'gmail'
-gem 'json'
 gem 'restforce'
 gem 'devise'
 gem 'omniauth-google-oauth2'

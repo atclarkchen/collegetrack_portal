@@ -31,5 +31,6 @@ describe SalesforceClient do
       @client.change_password("updated", "updated")
       expect(ENV['SALESFORCE_PASSWORD']).to eq("updated")
       expect(ENV['SALESFORCE_SECURITY_TOKEN']).to eq("updated")
+    end
   end
 end

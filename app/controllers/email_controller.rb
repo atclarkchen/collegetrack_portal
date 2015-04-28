@@ -38,8 +38,9 @@ class EmailController < ApplicationController
   end
 
   def create
+    debugger
     draft = current_user.build_draft(message_params)
-
+    draft.add_attachments = files_params
     # flash[:notice] = "Draft message saved successfully"
 
     # if params[:send_msg]
@@ -95,7 +96,7 @@ class EmailController < ApplicationController
 
     def files_params
       files = params.require(:email).fetch(:files, []).try(:permit!)
-      files.values if files.class == Hash
+      files.values
     end
 
     def strong_params

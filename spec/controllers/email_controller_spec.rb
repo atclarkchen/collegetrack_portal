@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe EmailController, type: :controller do
 
-  include EmailHelper
-
   let(:user)  { create(:user)  }
   let(:current_user) { user }
 
@@ -17,14 +15,6 @@ RSpec.describe EmailController, type: :controller do
     allow(controller).to receive(:current_user) { user }
   end
 
-  describe '#message_params' do
-    it 'generate string of message params' do
-      allow(controller).to receive(:strong_params) { message }
-      msg_params = controller.send(:message_params)
-      expect(msg_params.values).to all (be_an(String))
-    end
-  end
-
   describe "#create" do
     
     context 'when user click submit button (draft or send)' do
@@ -33,7 +23,10 @@ RSpec.describe EmailController, type: :controller do
         post :create, { :email => email }
       end
       
-      it 'add attachments to draft with files_params'
+      it 'add attachments to draft with files_params' do
+        allow(controller).to receive(:files_params) { files }
+        expect(draft).to receive(:add_attachments).with(files)
+      end
     end
 
     context 'when user clicks send button' do
@@ -53,7 +46,14 @@ RSpec.describe EmailController, type: :controller do
     end
 
     it 'redirect_to to email_index_path'
+  end
 
+  describe '#message_params' do
+    it 'generate string of message params' do
+      allow(controller).to receive(:strong_params) { message }
+      msg_params = controller.send(:message_params)
+      expect(msg_params.values).to all (be_an(String))
+    end
   end
 
   # describe "#create" do

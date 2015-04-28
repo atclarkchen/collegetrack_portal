@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     init: function() {
       var myDropzone = this;
-      var submitForm = document.querySelector("#send_draft");
+      var submitForm = document.querySelector('input[type="submit"]');
 
       submitForm.addEventListener('click', function(e) {
         e.preventDefault();
