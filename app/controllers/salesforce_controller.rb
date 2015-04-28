@@ -28,7 +28,8 @@ class SalesforceController < ApplicationController
         flash[:notice] = "Salesforce password successfully updated."
       end
     ensure
-      redirect_to root_path
+      @after_sign_in_url = root_path
+      render 'partials/_callback', :layout => false
     end
   end
 end
