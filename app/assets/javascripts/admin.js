@@ -7,7 +7,7 @@ var Admin = {
     var email = $(this).parent().prev().prev().text();
     swal({
       title: "Are you sure?",
-      text: "Your will have to re-add the user!",
+      text: "You will have to re-add the user!",
       type: "error",
       showCancelButton: true,
       confirmButtonClass: "btn-danger",
