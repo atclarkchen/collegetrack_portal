@@ -38,11 +38,9 @@
     %tr
       %td
         .dropzone
-          %div{id: "dropzone-preview", class: "dz-default dz-message"} Drag files here
-          .fallback
-            = file_field :email, :files, multiple: true
+          %div{id: "dropzone-preview", class: "dz-default dz-message"}
     %tr
       %td.submit_btns
-        = submit_tag  'Send',  name: "send_msg", :class => "btn send_btn"
-        = submit_tag  'Draft', name: "save_msg", :class => "btn draft_btn"
+        = submit_tag 'Send',  :class => "btn send_btn"
+        = submit_tag 'Draft', :class => "btn draft_btn"
         = link_to "Delete", delete_draft_path, :method => :delete, :class => "btn delete_btn", data: {confirm: "Are you sure?"}

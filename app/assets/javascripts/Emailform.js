@@ -15,20 +15,42 @@ $(document).ready(function() {
 
     init: function() {
       var myDropzone = this;
-      var submitForm = document.querySelector('input[type="submit"]');
+      var submitButton;
 
-      submitForm.addEventListener('click', function(e) {
+      $("input[type=submit]").on("click", function() {
+        submitButton = $(this).val();
+      });
+
+      $('#email_form').on("submit", function(e) {
         if(myDropzone.getQueuedFiles().length > 0) {
           e.preventDefault();
           e.stopPropagation();
-
-          tinyMCE.get('email_body').save();
+          tinymce.get('email_body').save();
           myDropzone.processQueue();
-        };
+        } else {
+          var formData = form.serializedArray();
+          formData.push({ name: "user_press", value: submitButton });
+          $.ajax({
+            type: form.attr('method'),
+            url:  form.attr('action'),
+            data: formData,
+            success: function(data) {
+              if(data.status == "redirect") {
+                window.location = data.to;
+              }
+            }
+          });
+        }
       });
 
-      this.on("queuecomplete", function() {
-        myDropzone.removeAllFiles();
+      this.on("sendingmultiple", function(file, xhr, formData) {
+        formData.append('user_press', submitButton);
+      });
+
+      this.on("successmultiple", function(file, data) {
+        if(data.status == "redirect") {
+          window.location = data.to;
+        }
       });
     }
   });

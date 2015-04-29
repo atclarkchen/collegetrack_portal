@@ -38,13 +38,25 @@ class EmailController < ApplicationController
   end
 
   def create
-    draft = current_user.create_draft(message_params)
+    draft = Draft.new(message_params)
     draft.add_attachments = files_params
-    flash[:notice] = "Draft message saved successfully"
 
-    if params[:send_msg]
-      send_draft(draft)
+    unless draft.save
+      # TODO: How to display error message??
+      flash[:error] = draft.errors.full_messages.join(',')
+      render json: {}.to_json, status: 400 and return
+    end
+
+    if params[:user_press] == "Send"
+      # send_draft(draft)
       flash[:notice] = "Message sent successfully"
+    else
+      flash[:notice] = "Draft message saved successfully"
+    end
+
+    respond_to do |format|
+      format.html { redirect_to new_email_path }
+      format.json { render json: { success: true, status: 'redirect', to: new_email_url }.to_json }
     end
   end
 
