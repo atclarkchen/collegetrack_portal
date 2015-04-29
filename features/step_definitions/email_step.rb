@@ -1,7 +1,7 @@
 Then /^(?:|I )should see the following fields:(.*)$/ do |fields|
   trim_fields = fields.gsub(/,/, ' ')
   trim_fields.split.each do |name|
-    field_id = "message_" + name
+    field_id = "email_" + name
     expect(page).to have_field field_id
   end
 end
@@ -22,7 +22,7 @@ end
 
 And /^I compose the following email:$/ do |email_table|
   email_table.rows_hash.each do |field|
-    field_id = "message_" + field.first
+    field_id = "email_" + field.first
     fill_in field_id, :with => field.second
   end
 end
@@ -36,9 +36,9 @@ When /^I follow "(.*?)"$/ do |link|
 end
 
 Then /^all fields on the email page should be empty$/ do
-  expect(find_field('message_to').value).to      be_blank
-  expect(find_field('message_cc').value).to      be_blank
-  expect(find_field('message_bcc').value).to     be_blank
-  expect(find_field('message_subject').value).to be_blank
-  expect(find_field('message_body').value).to    be_blank
+  expect(find_field('email_to').value).to      be_blank
+  expect(find_field('email_cc').value).to      be_blank
+  expect(find_field('email_bcc').value).to     be_blank
+  expect(find_field('email_subject').value).to be_blank
+  expect(find_field('email_body').value).to    be_blank
 end
