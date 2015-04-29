@@ -80,7 +80,7 @@ var RecipientField = {
             var prev = ($(this).prev().length === 0) ? $(this) : $(this).prev();
             for (var i in emails) {
                 if (filter.test(emails[i])) {
-                    $(prev).after("<div class='edit_box'><span class='ui_fil'><div class ='left_fil'>" + emails[i] + "</div><div class='x'></div></span><input name='message[" + field + "][]' type='hidden' value='" + emails[i] + "'></div>");
+                    $(prev).after("<div class='edit_box'><span class='ui_fil'><div class ='left_fil'>" + emails[i] + "</div><div class='x'></div></span><input name='email[" + field + "][]' type='hidden' value='" + emails[i] + "'></div>");
                 } else {
                     var restEmails = emails.slice(i);
                     restEmails = restEmails.join(" ");
