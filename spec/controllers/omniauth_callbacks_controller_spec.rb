@@ -31,7 +31,7 @@ describe Users::OmniauthCallbacksController do
       it 'should render a popup' do
         request.env['omniauth.params']['popup'] = true
         get :google_oauth2
-        expect(response).to render_template("callback")
+        expect(response).to render_template("partials/_callback")
       end
     end
 

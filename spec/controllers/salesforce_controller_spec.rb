@@ -11,7 +11,7 @@ describe SalesforceController do
     describe 'save password' do
       it 'should redirect to login page' do
         post :save_password, :confirm_password => {:confirm_password => "asdfasdf"}, :password => {:password => "asdfasdf"}, :token => {:token => "token"}
-        expect(response).to redirect_to root_path
+        expect(response).to render_template("partials/_callback")
       end
 
       it 'should not modify the Salesforce password or token' do
@@ -38,7 +38,7 @@ describe SalesforceController do
     describe 'save_password' do
       it 'should redirect to login page' do
           post :save_password, :confirm_password => {:confirm_password => "asdfasdf"}, :password => {:password => "asdfasdf"}, :token => {:token => "token"}
-          expect(response).to redirect_to root_path
+          expect(response).to render_template("partials/_callback")
       end
 
       it 'should update the Salesforce password' do
