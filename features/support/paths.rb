@@ -10,6 +10,7 @@ module NavigationHelpers
 
     when /^the login page$/ then root_path
     when /^the email page$/ then email_index_path
+    when /^the new email page$/ then new_email_path
     when /^the admin page$/ then admin_path
     when /^the Salesforce password reset page$/ then reset_salesforce_path
 
