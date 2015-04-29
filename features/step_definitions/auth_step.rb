@@ -35,7 +35,11 @@ Given /^(?:|I )am an (un)?authorized user$/ do |unauthorized|
 end
 
 Then /^(?:|I )should see "([^\"]*)"$/ do |text|
-  expect(page).to have_content(text)
+  if (flash.values.include?(text))
+    expect(flash.values).to include(text)
+  else
+    expect(page).to have_content(text)
+  end
 end
 
 When /^(?:|I )login as "(.+)"$/ do |user_email|
