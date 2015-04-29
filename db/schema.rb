@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20150421191043) do
 
   create_table "attachments", force: :cascade do |t|
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "source_file_name"
+    t.string   "source_content_type"
+    t.integer  "source_file_size"
+    t.datetime "source_updated_at"
     t.integer  "draft_id"
   end
 

@@ -1,4 +1,4 @@
-= form_tag(email_index_path, {:id => "email_form", multipart: true}) do
+= form_tag(drafts_path, {multipart: true, id: "email_form"}) do
   #email_header
     #recipient_header
       .email_fields_table
@@ -6,13 +6,12 @@
           .email_label 
             To:
           .recipient_right
-
-            = text_area :message, :to, :class => 'recipient_text', :multiple => true
+            = text_area :email, :to, :class => 'recipient_text', :multiple => true
         .email_fields_row#cc_row
           .email_label
             CC:
           .recipient_right
-            = text_area :message, :cc, :class => 'recipient_text', :multiple => true
+            = text_area :email, :cc, :class => 'recipient_text', :multiple => true
         .email_fields_row#bcc_row
           .email_label
             BCC:
@@ -22,7 +21,8 @@
       .email_fields_table
         .email_fields_row
           .recipient_right
-            = text_field :message, :subject, :class => 'subject_text', :placeholder => "Subject"
+            = text_field :email, :subject, :class => 'subject_text', :placeholder => "Subject"
+
   #filter_label
     .email_label
       Filters:
@@ -31,16 +31,16 @@
         .left_fil Student
         .x
     = link_to "change filters", "", :id => "change_filter"
+
   %table#compose_box
     %tr
       %td= text_area :message, :body, :class => 'tinymce', :cols => 80, :rows => 20
     %tr
       %td
-        .recipient
-          %span{class: 'recipient_label'}Files to Attach
-          = file_field :message, :files, multiple: true
+        .dropzone
+          %div{id: "dropzone-preview", class: "dz-default dz-message"}
     %tr
       %td.submit_btns
-        = submit_tag 'Send',   name: "send_msg", :class => "btn send_btn"
-        = submit_tag 'Draft',  name: "draft_msg", :class => "btn draft_btn"
-        = link_to "Delete", delete_message_url, :method => :delete, :class => "btn delete_btn", data: {confirm: "Are you sure?"}
+        = submit_tag 'Send',  :class => "btn send_btn"
+        = submit_tag 'Draft', :class => "btn draft_btn"
+        = link_to "Delete", delete_draft_path, :method => :delete, :class => "btn delete_btn", data: {confirm: "Are you sure?"}
