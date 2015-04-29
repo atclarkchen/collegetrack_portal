@@ -26,6 +26,7 @@ group :development, :test do
   gem 'rspec-autotest'
   gem 'ZenTest'
   gem 'webrick'
+  gem 'guard-rspec', require: false
 end
 
 group :production do
@@ -49,7 +50,6 @@ end
 
 gem 'toastr-rails'
 gem 'gmail'
-gem 'json'
 gem 'restforce'
 gem 'devise'
 gem 'omniauth-google-oauth2'
@@ -57,6 +57,7 @@ gem 'haml'
 gem 'pundit'
 gem 'tinymce-rails'
 gem 'paperclip'
+gem 'dropzonejs-rails'
 gem 'aws-sdk', '~> 1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

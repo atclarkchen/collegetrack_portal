@@ -19,5 +19,5 @@
 
 = render "partials/header"
 .container#email_body
-  = render "email_form"
+  = render "email_form", :draft => @draft
   = render "filters", :filter_values => @filter_values

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-
-  get    'email/' => 'email#index',          as: :email_index
-  post   'email/' => 'email#create_message', as: :create_message
-  delete 'email/' => 'email#delete_message', as: :delete_message
+  get    'email/index', to: 'email#index',   as: 'email_index'
+  post   'email/',      to: 'email#create',  as: 'drafts'
+  get    'email/new',   to: 'email#new',     as: 'new_email'
+  get    'email/edit',  to: 'email#edit',    as: 'edit_email'
+  delete 'email/',      to: 'email#destroy', as: 'delete_draft'
   get    'email/email_list'
   get    'email/save_draft'
 
