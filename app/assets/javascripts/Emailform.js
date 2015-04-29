@@ -16,25 +16,28 @@ $(document).ready(function() {
     init: function() {
       var myDropzone = this;
       var submitButton;
+      var form = $('#email_form');
 
       $("input[type=submit]").on("click", function() {
         submitButton = $(this).val();
       });
 
       $('#email_form').on("submit", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        tinymce.get('email_body').save();
+
         if(myDropzone.getQueuedFiles().length > 0) {
-          e.preventDefault();
-          e.stopPropagation();
-          tinymce.get('email_body').save();
           myDropzone.processQueue();
         } else {
-          var formData = form.serializedArray();
+          var formData = form.serializeArray();
           formData.push({ name: "user_press", value: submitButton });
           $.ajax({
             type: form.attr('method'),
             url:  form.attr('action'),
             data: formData,
             success: function(data) {
+              console.log(data);
               if(data.status == "redirect") {
                 window.location = data.to;
               }

@@ -44,20 +44,20 @@ class EmailController < ApplicationController
     unless draft.save
       # TODO: How to display error message??
       flash[:error] = draft.errors.full_messages.join(',')
+      # Respons back with status 400 is necessary unless
+      # Dropzone try to upload files anyway
       render json: {}.to_json, status: 400 and return
     end
 
     if params[:user_press] == "Send"
-      # send_draft(draft)
+      send_draft(draft)
       flash[:notice] = "Message sent successfully"
     else
       flash[:notice] = "Draft message saved successfully"
     end
 
-    respond_to do |format|
-      format.html { redirect_to new_email_path }
-      format.json { render json: { success: true, status: 'redirect', to: new_email_url }.to_json }
-    end
+    render json: { success: true, status: 'redirect', to: new_email_url }.to_json
+
   end
 
   def send_draft(draft)
@@ -75,9 +75,9 @@ class EmailController < ApplicationController
     end
 
     # add attachments to message from S3
-    # draft.attachments.each do |attachment|
-    #   message.add_file load_from_s3(attachment)
-    # end
+    draft.attachments.each do |attachment|
+      message.add_file attachment.read_from_s3
+    end
 
     # deliver and close the current session
     message.deliver!
@@ -93,13 +93,6 @@ class EmailController < ApplicationController
     filters = params[:filters]
     render json: generate_email(filters).to_json
   end
-
-  # def load_from_s3(attachment)
-  #   {
-  #     filename: attachment.file_file_name,
-  #     content: open(attachment.file.url).read
-  #   }
-  # end
 
   private
 
