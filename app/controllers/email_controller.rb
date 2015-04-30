@@ -53,6 +53,7 @@ class EmailController < ApplicationController
       send_draft(draft)
       flash[:notice] = "Message sent successfully"
     else
+      current_user.draft = draft
       flash[:notice] = "Draft message saved successfully"
     end
 
@@ -86,6 +87,7 @@ class EmailController < ApplicationController
 
   def destroy
     flash[:notice] = "Message is deleted"
+    current_user.delete_draft
     redirect_to new_email_path
   end
 
