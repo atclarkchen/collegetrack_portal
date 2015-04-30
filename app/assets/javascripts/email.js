@@ -55,13 +55,13 @@ var RecipientField = {
     disableSelect: function() {
         return false;
     },
-    disableEnter: function() {
+    disableEnter: function(event) {
         var key = (event.keyCode ? event.keyCode : event.which);
         if (key === 13) {
             return false;
         }
     },
-    edit: function() {
+    edit: function(event) {
         $(this).parent().find('.recipient_text').detach();
         var boxWidth = $(this).outerWidth();
         $(this).replaceWith('<textarea class="recipient_text" rows="1" style="width: ' + boxWidth + 'px;">' + $(this).text() + '</textarea>');
@@ -176,7 +176,7 @@ var RecipientField = {
             return false;
         }
     },
-    selectTextArea: function() {
+    selectTextArea: function(event) {
         if(event.target === this) {
             $(this).find('.recipient_text').focus();
         }
