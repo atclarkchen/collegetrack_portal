@@ -1,10 +1,20 @@
 default:
+  theme: modern
+  skin: light
+  toolbar:
+    - bold italic | forecolor backcolor | charmap link | preview fullscreen
+  contextmenu: link inserttable
   plugins:
-    - image
     - link
-
-alternate:
-  selector: textarea.table-editor
-  toolbar: styleselect | bold italic | undo redo | table
-  plugins:
+    - autolink
+    - charmap
+    - legacyoutput
+    - paste
+    - preview
     - table
+    - textcolor
+    - wordcount
+    - colorpicker
+    - lists
+    - contextmenu
+    - fullscreen
