@@ -14,7 +14,7 @@ Background: Users have been added to the database
   And I am on the login page
   And I login as "othello@gmail.com"
   And I click the admin tab
-  
+
 Scenario: Accessing admin page
 
   Then I should be on the admin page

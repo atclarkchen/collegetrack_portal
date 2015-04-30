@@ -34,6 +34,6 @@ Scenario: Salesforce password cannot be reset if up to date
   Given I am on the login page
   And the Salesforce password is up to date
   When I login as "admin@gmail.com"
-  Then I should be on the email page
+  Then I should be on the new email page
   And I go to the Salesforce password reset page
-  Then I should be on the email page
+  Then I should be on the new email page

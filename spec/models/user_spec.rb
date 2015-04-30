@@ -16,4 +16,16 @@ describe User do
     end
 
   end
+
+  describe '#delete_draft' do
+
+    let(:user)  { User.create(email: "test@gmail.com", password: "1234") }
+    let(:draft) { user.create_draft(subject: "test mail") }
+
+    it 'deletes the draft if it exists' do
+      user.delete_draft
+      expect(user.draft).not_to be_present
+    end
+  end
+
 end

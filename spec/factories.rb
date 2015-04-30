@@ -7,22 +7,23 @@ include ActionDispatch::TestProcess
 FactoryGirl.define do
   
   factory :attachment do
-    file { fixture_file_upload(Rails.root.join('spec/fixtures/image.gif'), 'image/gif') }
+    source { fixture_file_upload(Rails.root.join('spec/fixtures/image.gif'), 'image/gif') }
   end
 
   factory :draft do
     to  "to@gmail.com"
     cc  "cc@gmail.com"
-    bcc ["bcc1@gmail.com", "bcc2@gmail.com"]
+    bcc "bcc1@gmail.com, bcc2@gmail.com"
     subject "Test Subject"
     body "This is body"
+  end
 
-    # draft = create(:draft_with_attachment)
-    factory :draft_with_attachment do |attachment|
-      after(:create) do |draft|
-        create(:attachment, draft: draft)
-      end
-    end
+  factory :invalid_draft do
+    to  "to@gmail.com"
+    cc  "cc@gmail.com"
+    bcc "bcc1@gmail.com, bcc2@gmail.com"
+    subject ""
+    body "This is body"
   end
 
   factory :token do
@@ -39,6 +40,18 @@ FactoryGirl.define do
     # associations
     draft
     token
+  end
+
+  factory :email, class: Hash do
+    to  ["to1@gmail.com", "to2@yahoo.com"]
+    cc  ["cc@naver.com"]
+    bcc ["bcc1@gmail.com", "bcc2@gmail.com", "bcc3@gmail.com"]
+    subject "This is subject"
+    body "This is a test body"
+    files {{"0" => fixture_file_upload(Rails.root.join('spec/fixtures/image.gif'), 'image/gif'),
+            "1" => fixture_file_upload(Rails.root.join('spec/fixtures/sample.pdf'), 'sample/pdf')}}
+
+    initialize_with { attributes }
   end
 
 end

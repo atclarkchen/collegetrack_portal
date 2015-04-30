@@ -23,4 +23,4 @@ Scenario: Signing in as an unauthorized user
 Scenario: Signing in as an authorized user
 	Given I am an authorized user
 	And I login as "petrduong@gmail.com"
-	Then I should be on the email page
+	Then I should be on the new email page
