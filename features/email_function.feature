@@ -21,7 +21,6 @@ Scenario: Successfully sending email
 
   When I press "Send"
   Then I should be on the email page
-  And all fields on the email page should be empty
 
 Scenario: Should be able to reset message
   Given I compose the following email:
@@ -44,7 +43,6 @@ Scenario: Successfully save email draft
   | body    | Test message from CollegeTrack      |
   When I press "Draft"
   Then I should be on the email page
-  And all fields on the email page should be empty
 
 # Scenario: Successfully undo the sent email
 #   Given I fill in “to field” with “asianM2010@gmail.com”
