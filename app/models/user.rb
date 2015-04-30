@@ -23,4 +23,9 @@ class User < ActiveRecord::Base
   def set_user_name(name)
     self.update_attributes(:name => name.titleize) unless @user == name
   end
+
+  def delete_draft
+    draft.destroy if draft.present?
+  end
+
 end

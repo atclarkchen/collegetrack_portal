@@ -13,16 +13,17 @@ FactoryGirl.define do
   factory :draft do
     to  "to@gmail.com"
     cc  "cc@gmail.com"
-    bcc ["bcc1@gmail.com", "bcc2@gmail.com"]
+    bcc "bcc1@gmail.com, bcc2@gmail.com"
     subject "Test Subject"
     body "This is body"
+  end
 
-    # draft = create(:draft_with_attachment)
-    # factory :draft_with_attachment do |attachment|
-    #   after(:create) do |draft|
-    #     create(:attachment, draft: draft)
-    #   end
-    # end
+  factory :invalid_draft do
+    to  "to@gmail.com"
+    cc  "cc@gmail.com"
+    bcc "bcc1@gmail.com, bcc2@gmail.com"
+    subject ""
+    body "This is body"
   end
 
   factory :token do
