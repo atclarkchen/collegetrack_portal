@@ -32,8 +32,8 @@ Scenario: Should be able to reset message
   | body    | Test message from CollegeTrack      |
   
   When I follow "Delete"
-  Then all fields on the email page should be empty
-  And I should be on the new email page
+  Then I should be on the new email page
+  And all fields on the email page should be empty
 
 Scenario: Successfully save email draft
   Given I compose the following email:
