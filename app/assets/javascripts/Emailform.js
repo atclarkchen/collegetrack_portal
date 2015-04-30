@@ -38,7 +38,7 @@ $(document).ready(function() {
             data: formData,
             success: function(data) {
               console.log(data);
-              if(data.status == "redirect") {
+              if(data.status === "redirect") {
                 window.location = data.to;
               }
             }
@@ -51,7 +51,7 @@ $(document).ready(function() {
       });
 
       this.on("successmultiple", function(file, data) {
-        if(data.status == "redirect") {
+        if(data.status === "redirect") {
           window.location = data.to;
         }
       });
