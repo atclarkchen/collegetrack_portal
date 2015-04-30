@@ -1,4 +1,4 @@
-Feature: Sending an Email as an authorized user
+  Feature: Sending an Email as an authorized user
   As a College Track staff,
   In order to contact students without copy and pasting from salesforce database,
   I want to be able to email students from one web app.
@@ -20,7 +20,7 @@ Scenario: Successfully sending email
   | body    | Test message from CollegeTrack      |
 
   When I press "Send"
-  Then I should see "Message sent successfully"
+  Then I should be on the new email page
   And all fields on the email page should be empty
 
 Scenario: Should be able to reset message
@@ -33,7 +33,7 @@ Scenario: Should be able to reset message
   
   When I follow "Delete"
   Then all fields on the email page should be empty
-  And I should see "Message is deleted"
+  And I should be on the new email page
 
 Scenario: Successfully save email draft
   Given I compose the following email:
@@ -43,7 +43,8 @@ Scenario: Successfully save email draft
   | subject | Hello from CollegeTrack             |
   | body    | Test message from CollegeTrack      |
   When I press "Draft"
-  Then I should see "Message saved in your Gmail Draftbox"
+  Then I should be on the new email page
+  And all fields on the email page should be empty
 
 # Scenario: Successfully undo the sent email
 #   Given I fill in “to field” with “asianM2010@gmail.com”
