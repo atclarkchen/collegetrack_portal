@@ -36,9 +36,10 @@ When /^I follow "(.*?)"$/ do |link|
 end
 
 Then /^all fields on the email page should be empty$/ do
-  expect(page.find('email_to').value).to      be_blank
-  expect(page.find('email_cc').value).to      be_blank
-  expect(page.find('email_bcc').value).to     be_blank
-  expect(page.find('email_subject').value).to be_blank
-  expect(page.find('email_body').value).to    be_blank
+  sleep 5
+  expect(find_field('email_to').value).to      be_blank
+  expect(find_field('email_cc').value).to      be_blank
+  expect(find_field('email_bcc').value).to     be_blank
+  expect(find_field('email_subject').value).to be_blank
+  expect(find_field('email_body').value).to    be_blank
 end
