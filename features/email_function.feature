@@ -20,7 +20,7 @@ Scenario: Successfully sending email
   | body    | Test message from CollegeTrack      |
 
   When I press "Send"
-  Then I should be on the new email page
+  Then I should be on the email page
   And all fields on the email page should be empty
 
 Scenario: Should be able to reset message
@@ -43,7 +43,7 @@ Scenario: Successfully save email draft
   | subject | Hello from CollegeTrack             |
   | body    | Test message from CollegeTrack      |
   When I press "Draft"
-  Then I should be on the new email page
+  Then I should be on the email page
   And all fields on the email page should be empty
 
 # Scenario: Successfully undo the sent email
