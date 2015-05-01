@@ -6,8 +6,19 @@ var EmailFilter = {
         $('#filters').on('click', '.x', EmailFilter.remove);
     },
     slideOpen: function() {
-        $('#accordian').animate({width: 'toggle'});
-        return false;
+	if (!$('#accordian').is(":visible")) {
+	    if ($(window).width() > 1000) { 
+		$('#email_form').width('55%');
+	    } else {
+		$('#email_form').width('45%');
+	    }
+	} 
+        $('#accordian').animate({width: 'toggle'},complete=function(){
+	    if (!$('#accordian').is(":visible")) {
+		$('#email_form').width('80%');
+	    }
+	});
+	return false;
     },
     remove: function() {
         var filterText = $(this).prev().text();

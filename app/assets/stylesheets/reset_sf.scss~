@@ -1,0 +1,13 @@
+#reset_body {
+	    font-family: Montserrat;
+	    margin-top: 50px;
+}
+
+#reset_body .form-control {
+	    width: 200px;
+	    display:inline;
+}
+
+#reset_body form {
+	    text-align: center;
+}

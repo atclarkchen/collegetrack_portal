@@ -88,20 +88,17 @@ body {
 
 
 
-@media (max-width:1500px) {
-        #email_form {
-       		   width: 50%;
-  		   margin-left: 15%;
-	   	   float: left;
-	}
+#email_form {
+       	   width: 80%;
+	   max-width:1000px;
+ 	   margin-left: 14%;
+	   float: left;
 }
 
-@media (min-width:1500px) {	
-	#email_form {
-	    width: 1000px;
-	    margin-left: 18%;
-	    float: left;
-	    }
+@media (max-width:1200px) {
+       #email_form {
+       		   margin-left: 5%;
+       }
 }
 
 #accordian {
@@ -235,23 +232,13 @@ div.dropzone {
 	  min-height:100px;
 	  border-style:dashed;
 	  border-width:5px;
+	  background-color:#f8f8f8;
 }
-.dropzone h3 {
-	  text-align:center;
-}
-.dropzone div.btn {
-	  background-color:#00b4f0;
-	  color:white;
-	  margin:auto;
-	  margin-left:10px;
-}
-.dropzone .btn:hover {
-	  background-color:#0086F0;
-	  color:white;
-}
+
 #compose_box {
   width: 100%;
   margin-top:20px;
+  margin-bottom:20px;
 }
 .submit_btns {
   padding-top:20px;

@@ -1,14 +1,17 @@
-%h1 Reset Salesforce Password
+- content_for(:head) do
+  = stylesheet_link_tag 'reset_sf', '//fonts.googleapis.com/css?family=Montserrat:400,700'
 
-= form_tag save_password_path do
+%body#reset_body
+  %h1 Reset Salesforce Password
+  = form_tag save_password_path do
 
-  = label :password, :password, "Enter New Password"
-  = text_field :password, 'password'
+    = label :password, :password, "Enter New Password"
+    = text_field :password, 'password', :class => "form-control"
 
-  = label :confirm_password, :confirm_password, "Confirm New Password"
-  = text_field :confirm_password, 'confirm_password'
+    = label :confirm_password, :confirm_password, "Confirm New Password"
+    = text_field :confirm_password, 'confirm_password', :class => "form-control"
 
-  =label :token, :token, "Enter New Security Token"
-  = text_field :token, 'token'
+    =label :token, :token, "Enter New Security Token"
+    = text_field :token, 'token', :class => "form-control"
 
-  = submit_tag "Save"
+    = submit_tag "Save", :class => "btn btn-lg"
