@@ -44,6 +44,5 @@
               select file
     %tr
       %td.submit_btns
-        = submit_tag 'Send',  :class => "btn send_btn"
-        = submit_tag 'Draft', :class => "btn draft_btn"
-        = link_to "Delete", delete_draft_path, :method => :delete, :class => "btn delete_btn", data: {confirm: "Are you sure?"}
+        = submit_tag 'Send',   class: "btn send_btn"
+        = link_to "Delete", delete_path, :method => :delete, :class => "btn delete_btn", data: {confirm: "Are you sure?"}

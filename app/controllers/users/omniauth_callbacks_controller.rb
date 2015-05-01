@@ -15,7 +15,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def check_auth_or_redirect
     if sales_auth
       flash[:notice] = "Logged in as #{request.env['omniauth.auth']['info']['name']}"
-      popup(email_index_path)
+      popup(new_email_path)
     else
       flash[:error] = "Your Salesforce account is invalid or outdated. Please update your password or contact an admin."
       redirect_to reset_salesforce_path

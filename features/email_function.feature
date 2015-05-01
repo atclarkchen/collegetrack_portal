@@ -33,26 +33,3 @@ Scenario: Should be able to reset message
   When I follow "Delete"
   Then I should be on the new email page
   And all fields on the email page should be empty
-
-Scenario: Successfully save email draft
-  Given I compose the following email:
-  | to      | mail_to@gmail.com                   |
-  | cc      | mail_cc@gmail.com                   |
-  | bcc     | mail_bcc@gmail.com                  |
-  | subject | Hello from CollegeTrack             |
-  | body    | Test message from CollegeTrack      |
-  When I press "Draft"
-  Then I should be on the email page
-
-# Scenario: Successfully undo the sent email
-#   Given I fill in “to field” with “asianM2010@gmail.com”
-#   And I fill in “cc field” with “whiteF2010@gmail.com”
-#   And I fill in “bcc field” with “blackF2012@gmail.com”
-#   And I fill in “subject field” with “Hello from CollegeTrack!”
-#   And I fill in “body field” with “This is a message from CollegeTrack!”
-
-#   When I press “Send”
-#   Then I should see “Undo Send”
-#   And I wait “5” seconds
-#   And I press “Undo Send”
-#   Then I should see “Message was not sent per your request”

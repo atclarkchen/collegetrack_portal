@@ -10,7 +10,7 @@ class SalesforceController < ApplicationController
       authorize current_user, :edit?
     else
       flash[:notice] = "Your Salesforce password is already up to date."
-      redirect_to email_index_path
+      redirect_to new_email_path
     end
   end
 

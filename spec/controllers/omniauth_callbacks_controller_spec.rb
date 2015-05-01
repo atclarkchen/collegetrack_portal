@@ -23,7 +23,7 @@ describe Users::OmniauthCallbacksController do
     
       it 'should redirect to the email page' do
         get :google_oauth2
-        expect(response).to redirect_to email_index_path
+        expect(response).to redirect_to new_email_path
       end
     end
 
