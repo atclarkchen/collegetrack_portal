@@ -2,7 +2,7 @@ default:
   theme: modern
   skin: light
   toolbar:
-    - bold italic | forecolor backcolor | charmap link | preview fullscreen
+    - bold italic | forecolor backcolor | charmap link | preview
   contextmenu: link inserttable
   plugins:
     - link
