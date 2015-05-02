@@ -11,7 +11,7 @@ $(document).ready(function() {
     autoProcessQueue: false,
     parallelUploads: 50,
     maxFiles: 10,
-    previewsContainer: "#dropzone-preview",
+    previewsContainer: "#dz-previews",
     clickable: ".dropzone",
 
     init: function() {
