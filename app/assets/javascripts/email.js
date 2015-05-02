@@ -6,31 +6,31 @@ var EmailFilter = {
         $('#filters').on('click', '.x', EmailFilter.remove);
     },
     slideOpen: function() {
-	if (!$('#accordian').is(":visible")) {
-	    if ($(window).width() > 1000) { 
-		$('#email_form').width('55%');
-	    } else {
-		$('#email_form').width('45%');
-	    }
-	} 
+        if (!$('#accordian').is(":visible")) {
+            if ($(window).width() > 1000) { 
+                $('#email_form').width('55%');
+            } else {
+                $('#email_form').width('45%');
+            }
+        } 
         $('#accordian').animate({width: 'toggle'},complete=function(){
-	    if (!$('#accordian').is(":visible")) {
-		$('#email_form').width('80%');
-	    }
-	});
-	return false;
+            if (!$('#accordian').is(":visible")) {
+                $('#email_form').width('80%');
+            }
+        });
+        return false;
     },
     remove: function() {
         var filterText = $(this).prev().text();
         $(this).parent().remove();
-        if (filterText == "Parent" || filterText == "Student") {
-            count = 0;
+        if (filterText === "Parent" || filterText === "Student") {
+            var count = 0;
             $('#filters .ui_fil .left_fil').each(function() {
-                if ($(this).text() == "Parent" || $(this).text() == "Student") {
+                if ($(this).text() === "Parent" || $(this).text() === "Student") {
                     count += 1;
                 }
             });
-            if (count == 0) {
+            if (count === 0) {
                 swal({
                     title: "Warning",
                     text: "You have just removed Parent/Student. The field will be blank!",
