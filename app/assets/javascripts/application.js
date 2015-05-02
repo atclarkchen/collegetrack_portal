@@ -18,3 +18,5 @@
 //= require dropzone
 //= require Emailform
 //= require tinymce-jquery
+//= require selectize
+//= require selectize-text

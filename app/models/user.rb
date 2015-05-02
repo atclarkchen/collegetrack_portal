@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
     draft.destroy if draft.present?
   end
 
+  def self.selectize
+    select(:email, :name).as_json.map{|r| r.select{|k,v| k != "id"}}
+  end
+
 end

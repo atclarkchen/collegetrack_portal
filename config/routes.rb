@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get    'email/new',   to: 'email#new',     as: 'new_email'
   delete 'email/',      to: 'email#delete',  as: 'delete'
   get    'email/email_list'
+  get    'email/user_list'
 
   get    'admin/' => 'admin#index', :as => :admin
   post   'admin/' => 'admin#new', :as => :new_user

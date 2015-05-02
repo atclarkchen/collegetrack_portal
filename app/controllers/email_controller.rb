@@ -55,6 +55,11 @@ class EmailController < ApplicationController
     render json: generate_email(filters).to_json
   end
 
+  def user_list
+    user_list = User.selectize
+    render json: user_list
+  end
+
   private
 
     def files_params
