@@ -38,8 +38,9 @@
     %tr
       %td
         .dropzone
-          %div{id: "dropzone-preview", class: "dz-default dz-message"}
+          %div{class: "dz-default dz-message"}
             Drop files here or click to upload
+          %div{id: 'dz-previews', class: "dropzone-previews"}
     %tr
       %td.submit_btns
         = submit_tag 'Send',   class: "btn send_btn"
