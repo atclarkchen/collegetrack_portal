@@ -12,6 +12,7 @@ $(document).ready(function() {
     parallelUploads: 50,
     maxFiles: 10,
     previewsContainer: "#dropzone-preview",
+    clickable: ".dropzone",
 
     init: function() {
       var myDropzone = this;
