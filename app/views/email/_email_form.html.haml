@@ -3,16 +3,15 @@
     #recipient_header
       .email_fields_table
         .email_fields_row#to_row
-          -# .email_label 
-          -#   To:
+          .email_label 
+            To:
           .recipient_right
-            -# = text_area :email, :to, :class => 'recipient_text', :multiple => true
-            = text_field :email, :to, :id => 'select-to', :multiple => true, :placeholder => "TO"
+            = text_area :email, :to, :class => 'recipient_text', :multiple => true
         .email_fields_row#cc_row
-          -# .email_label
-          -#   CC:
+          .email_label
+            CC:
           .recipient_right
-            = text_area :email, :cc, :id => 'select-cc', :multiple => true, :placeholder => "CC"
+            = text_area :email, :cc, :class => 'recipient_text', :multiple => true
         .email_fields_row#bcc_row
           .email_label
             BCC:
