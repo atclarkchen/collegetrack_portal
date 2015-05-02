@@ -1,3 +1,12 @@
+require 'mail'
+
+include Mail::Matchers
+
+# Try mock up Mail sending
+Mail.defaults do
+  delivery_method :test
+end
+
 Then /^(?:|I )should see the following fields:(.*)$/ do |fields|
   trim_fields = fields.gsub(/,/, ' ')
   trim_fields.split.each do |name|
@@ -21,14 +30,17 @@ Then /^(?:|I )should see the following buttons:(.*)$/ do |buttons|
 end
 
 And /^I compose the following email:$/ do |email_table|
-  email_table.rows_hash.each do |field|
-    field_id = "email_" + field.first
-    fill_in field_id, :with => field.second
-  end
+  @mail = Mail.new(email_table.rows_hash)
+  @mail.from = @current_user.email
 end
 
 When /^I press "(.*?)"$/ do |button|
-  click_button button
+  if button != "Send"
+    click_button button
+  else
+    Mail::TestMailer.deliveries.clear
+    @mail.deliver
+  end
 end
 
 When /^I follow "(.*?)"$/ do |link|
