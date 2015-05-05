@@ -11,7 +11,8 @@
     = label :confirm_password, :confirm_password, "Confirm New Password"
     = text_field :confirm_password, 'confirm_password', :class => "form-control"
 
-    =label :token, :token, "Enter New Security Token"
+    = label :token, :token, "Enter New Security Token"
+    %div{:id => "tooltip"} Check your email for the updated security token for account: <b>#{@sf_account}</b>
     = text_field :token, 'token', :class => "form-control"
 
     = submit_tag "Save", :class => "btn btn-lg"
