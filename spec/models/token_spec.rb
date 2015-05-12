@@ -64,11 +64,11 @@ RSpec.describe Token, type: :model do
     end
   end
 
-  describe '#fresh_token' do
-    it 'returns the lastest token only' do
-      expect(@token).to receive(:expired?).and_return(false)
-      @token.fresh_token
-    end
-  end
+  # describe '#fresh_token' do
+  #   it 'returns the lastest token only' do
+  #     expect(@token).to receive(:expired?).and_return(false)
+  #     @token.fresh_token
+  #   end
+  # end
 
 end
