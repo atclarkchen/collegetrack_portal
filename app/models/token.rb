@@ -30,7 +30,7 @@ class Token < ActiveRecord::Base
   end
  
   def fresh_token
-    refresh! if expired?
+    # refresh! if expired?
     access_token
   end
  
