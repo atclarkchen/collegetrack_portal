@@ -32,4 +32,12 @@ class User < ActiveRecord::Base
     select(:email, :name).as_json.map{|r| r.select{|k,v| k != "id"}}
   end
 
+  def set_token(param)
+    if self.token.present?
+      self.token.update_attributes(param)
+    else
+      self.create_token(param)
+    end
+  end
+
 end
