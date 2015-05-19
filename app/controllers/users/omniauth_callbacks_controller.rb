@@ -51,10 +51,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def set_access_token
-    @user.set_token(
-      { access_token:  @auth['token'],
-        refresh_token: @auth['refresh_token'],
-        expires_at:    Time.at(@auth['expires_at']).to_datetime
-      }.compact)
+    @user.create_token(
+      access_token:   @auth['token'],
+      refresh_token:  @auth['refresh_token'],
+      expires_at:     Time.at(@auth['expires_at']).to_datetime)
   end
 end

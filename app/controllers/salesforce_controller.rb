@@ -8,7 +8,6 @@ class SalesforceController < ApplicationController
       connect_salesforce
     rescue
       authorize current_user, :edit?
-      @sf_account = ENV['SALESFORCE_USERNAME']
     else
       flash[:notice] = "Your Salesforce password is already up to date."
       redirect_to new_email_path
