@@ -27,7 +27,7 @@ RSpec.describe Token, type: :model do
 
   describe '#request_token_from_google' do
     it 'create URI object with Google oauth2 url' do
-      uri = URI('https://accounts.google.com/o/oauth2/token')
+      uri = URI('https://www.googleapis.com/oauth2/v3/token')
       expect(Net::HTTP).to receive(:post_form).with(uri, @params)
       @token.request_token_from_google
     end
