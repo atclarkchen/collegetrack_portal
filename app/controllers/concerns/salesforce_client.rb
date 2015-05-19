@@ -46,8 +46,10 @@ module SalesforceClient
   def get_filter_values
     races = get_values("Race__c")
     genders = get_values("Gender__c")
-    years = get_values("Class_Level__c").sort_by { |x| x[/\d+/].to_i }
-    high_schools = get_values("High_School__r").sort
+    years = get_values("Class_Level__c")
+    years = years.nil? ? years : years.sort_by { |x| x[/\d+/].to_i }
+    high_schools = get_values("High_School__r")
+    high_schools = high_schools.nil? : high_schools : high_schools.sort
     parent_student = ["Student", "Parent"]
     {"Parent/Student" => parent_student, "Race" => races, "Gender" => genders, "Year" => years, "High School" => high_schools}
   end
