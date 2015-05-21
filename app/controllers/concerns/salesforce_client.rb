@@ -4,7 +4,11 @@ module SalesforceClient
   cattr_accessor :client
 
   def connect_salesforce
-    self.client = Restforce.new :host => "login.salesforce.com", :password => ENV['SALESFORCE_PASSWORD'], :security_token => ENV['SALESFORCE_SECURITY_TOKEN']
+    Restforce.log = true
+    self.client = Restforce.new :cache => Rails.cache, 
+      :host => "login.salesforce.com", 
+      :password => ENV['SALESFORCE_PASSWORD'], 
+      :security_token => ENV['SALESFORCE_SECURITY_TOKEN']
     self.client.authenticate!
   end
 
