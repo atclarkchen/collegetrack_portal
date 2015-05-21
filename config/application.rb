@@ -26,5 +26,6 @@ module CollegetrackPortal
     config.after_initialize do
       Rack::Utils.multipart_part_limit = 0
     end
+    config.cache_store = :file_store, Rails.root.join('public/cache')
   end
 end
