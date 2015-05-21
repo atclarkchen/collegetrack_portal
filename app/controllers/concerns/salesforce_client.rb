@@ -10,7 +10,7 @@ module SalesforceClient
 
   def generate_email(filters)
     return "" unless filters
-    sf_keys = []
+    sf_keys = ["Site__c = 'Oakland'"]
     email = ""
     filters.each_key do |category|
       if category === "Parent/Student"
