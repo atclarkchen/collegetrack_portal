@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -23,8 +23,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'jasmine'
   gem 'webmock', :require => false
-  gem 'rspec-autotest'
-  gem 'ZenTest'
   gem 'webrick'
   gem 'guard-rspec', require: false
 end

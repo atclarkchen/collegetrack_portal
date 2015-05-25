@@ -40,6 +40,8 @@ class EmailController < ApplicationController
     end
 
     # deliver and close the current session
+    debugger
+    true
     message.deliver!
     gmail.logout
   end

@@ -13,7 +13,7 @@ class Token < ActiveRecord::Base
   end
  
   def request_token_from_google
-    url = URI("https://accounts.google.com/o/oauth2/token")
+    url = URI("https://www.googleapis.com/oauth2/v3/token")
     Net::HTTP.post_form(url, self.to_params)
   end
  
