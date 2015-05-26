@@ -1,3 +1,5 @@
+require 'Gmail'
+
 class EmailController < ApplicationController
 
   before_filter :ensure_sign_in
@@ -24,8 +26,7 @@ class EmailController < ApplicationController
   end
 
   def send_draft(draft)
-    gmail = Gmail.connect(:xoauth2, current_user.email, current_user.token.fresh_token)
-    message = gmail.compose do
+    message = Mail.new do
       to   draft.to
       cc   draft.cc
       bcc  draft.bcc
@@ -37,16 +38,38 @@ class EmailController < ApplicationController
       end
     end
 
-    # add attachments to message from S3
-    draft.attachments.each do |attachment|
-      message.add_file attachment.read_from_s3
-    end
+    raw = Base64.urlsafe_encode64 message.to_s
+    msg = Gmail::Message.new(raw: raw)
 
-    # deliver and close the current session
+    msg.client_id = ENV['GOOGLE_ID']
+    msg.client_secret = ENV['GOOGLE_SECRET']
+    msg.refresh_token = current_user.token.refresh_token
+
     debugger
     true
-    message.deliver!
-    gmail.logout
+    # gmail = Gmail.connect(:xoauth2, current_user.email, current_user.token.fresh_token)
+    # message = gmail.compose do
+    #   to   draft.to
+    #   cc   draft.cc
+    #   bcc  draft.bcc
+
+    #   subject draft.subject
+    #   html_part do
+    #     content_type "text/html; charset=UTF-8"
+    #     body  draft.body
+    #   end
+    # end
+
+    # # add attachments to message from S3
+    # draft.attachments.each do |attachment|
+    #   message.add_file attachment.read_from_s3
+    # end
+
+    # # deliver and close the current session
+    # debugger
+    # true
+    # message.deliver!
+    # gmail.logout
   end
 
   def delete
