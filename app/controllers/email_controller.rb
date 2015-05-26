@@ -11,6 +11,9 @@ class EmailController < ApplicationController
   end
 
   def create
+    # mail = Mail.new { ... }
+    # gmail.deliver(mail)
+    
     draft = current_user.create_draft(message_params)
     draft.add_attachments = files_params
 
