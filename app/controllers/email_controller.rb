@@ -26,6 +26,10 @@ class EmailController < ApplicationController
   end
 
   def send_draft(draft)
+    Gmail.client_id = ENV['GOOGLE_ID']
+    Gmail.client_secret = ENV['GOOGLE_SECRET']
+    Gmail.refresh_token = current_user.token.refresh_token
+
     message = Mail.new do
       to   draft.to
       cc   draft.cc
@@ -38,38 +42,18 @@ class EmailController < ApplicationController
       end
     end
 
-    raw = Base64.urlsafe_encode64 message.to_s
-    msg = Gmail::Message.new(raw: raw)
+    # add attachments to message from S3
+    draft.attachments.each do |attachment|
+      message.add_file attachment.read_from_s3
+    end
 
-    msg.client_id = ENV['GOOGLE_ID']
-    msg.client_secret = ENV['GOOGLE_SECRET']
-    msg.refresh_token = current_user.token.refresh_token
+    # Mail object does not set X-Bcc header
+    # Also need to substitue regular bcc to X-Bcc
+    message.header["X-Bcc"] = draft.bcc
+    raw = Base64.urlsafe_encode64 message.to_s.sub("X-Bcc", "Bcc")
 
-    debugger
-    true
-    # gmail = Gmail.connect(:xoauth2, current_user.email, current_user.token.fresh_token)
-    # message = gmail.compose do
-    #   to   draft.to
-    #   cc   draft.cc
-    #   bcc  draft.bcc
-
-    #   subject draft.subject
-    #   html_part do
-    #     content_type "text/html; charset=UTF-8"
-    #     body  draft.body
-    #   end
-    # end
-
-    # # add attachments to message from S3
-    # draft.attachments.each do |attachment|
-    #   message.add_file attachment.read_from_s3
-    # end
-
-    # # deliver and close the current session
-    # debugger
-    # true
-    # message.deliver!
-    # gmail.logout
+    gmail = Gmail::Message.new(raw: raw)
+    gmail.create_draft
   end
 
   def delete
