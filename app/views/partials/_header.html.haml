@@ -5,9 +5,9 @@
 
 %nav.navbar.navbar-default.navbar-static-top
   %img{:href => "/", :src => image_path("ct-logo.svg"), :width => "196", :height => "89"}
-  %div= "Logged in as #{full_name} (#{user_email})"
+  %div= "Logged in as #{current_user.name} (#{current_user.email})"
   %div
     = link_to "Logout", destroy_user_session_path, :method => :delete
-    -if policy(current_user).edit?
+    - if policy(current_user).edit?
       = link_to "Admin", admin_path
     = link_to "Email", new_email_path

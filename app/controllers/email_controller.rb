@@ -3,10 +3,8 @@ require 'Gmail'
 class EmailController < ApplicationController
 
   before_filter :ensure_sign_in
-  include SalesforceClient
 
   def new
-    # TODO: need to DRY out
     @filter_values = get_filter_values
   end
 
