@@ -8,14 +8,9 @@ class EmailController < ApplicationController
   def new
     # TODO: need to DRY out
     @filter_values = get_filter_values
-    @full_name = current_user['name']
-    @user_email = current_user['email']
   end
 
   def create
-    # mail = Mail.new { ... }
-    # gmail.deliver(mail)
-    
     draft = current_user.create_draft(message_params)
     draft.add_attachments = files_params
 
