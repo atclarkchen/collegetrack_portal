@@ -1,4 +1,4 @@
-= form_tag(drafts_path, {multipart: true, id: "email_form"}) do
+= form_tag(emails_path, {multipart: true, id: "email_form"}) do
   #email_header
     #recipient_header
       .email_fields_table
@@ -43,5 +43,6 @@
           %div{id: 'dz-previews', class: "dropzone-previews"}
     %tr
       %td.submit_btns
-        = submit_tag 'Send',   class: "btn send_btn"
+        = submit_tag 'Send',  class: "btn send_btn",  id: "send_btn"
+        = submit_tag 'Draft', class: "btn draft_btn", id: "draft_btn"
         = link_to "Delete", delete_path, :method => :delete, :class => "btn delete_btn", data: {confirm: "Are you sure?"}

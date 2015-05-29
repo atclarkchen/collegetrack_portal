@@ -3,16 +3,17 @@ require 'Gmail'
 class EmailController < ApplicationController
 
   before_filter :ensure_sign_in
+  include SalesforceClient
 
   def new
     @filter_values = get_filter_values
   end
 
   def create
-    draft = current_user.create_draft(message_params)
-    draft.add_attachments = files_params
+    # draft = current_user.create_draft(message_params)
+    # draft.add_attachments = files_params
 
-    send_draft(draft)
+    # send_draft(draft)
     flash[:notice] = "Message sent successfully"
 
     render json: { success: true, status: 'redirect', to: new_email_url }.to_json
