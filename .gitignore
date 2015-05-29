@@ -26,3 +26,6 @@ set_local.sh
 /coverage/.last_run.json
 /coverage/.resultset.json
 /coverage/index.html
+
+# Ignore all cache files
+/public/cache/
