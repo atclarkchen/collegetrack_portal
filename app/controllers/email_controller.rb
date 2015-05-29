@@ -6,6 +6,7 @@ class EmailController < ApplicationController
   include SalesforceClient
 
   def new
+    # Set filter values for _filter partial
     @filter_values = get_filter_values
   end
 
@@ -22,7 +23,7 @@ class EmailController < ApplicationController
   def send_draft(draft)
     Gmail.client_id = ENV['GOOGLE_ID']
     Gmail.client_secret = ENV['GOOGLE_SECRET']
-    Gmail.refresh_token = current_user.token.refresh_token
+    Gmail.refresh_token = current_user.refresh_token
 
     message = Mail.new do
       to   draft.to

@@ -35,4 +35,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def refresh_token
+    token.refresh_token
+  end
+
 end
