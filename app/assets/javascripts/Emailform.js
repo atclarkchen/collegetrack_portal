@@ -16,7 +16,12 @@ $(document).ready(function() {
 
     init: function() {
       var myDropzone = this;
+      var submitButton;
       var form = $('#email_form');
+
+      $("#send_btn,#draft_btn").on("click", function() {
+        submitButton = $(this).val();
+      });
 
       $('#email_form').on("submit", function(e) {
         e.preventDefault();
@@ -27,18 +32,23 @@ $(document).ready(function() {
           myDropzone.processQueue();
         } else {
           var formData = form.serializeArray();
+          formData.push({ name: "user_action", value: submitButton });
+
           $.ajax({
             type: form.attr('method'),
             url:  form.attr('action'),
             data: formData,
             success: function(data) {
-              console.log(data);
               if(data.status === "redirect") {
                 window.location = data.to;
               }
             }
           });
         }
+      });
+
+      this.on("sendingmultiple", function(file, xhr, formData) {
+        formData.append('user_action', submitButton);
       });
 
       this.on("successmultiple", function(file, data) {

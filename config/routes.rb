@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post   'email/',      to: 'email#create',  as: 'drafts'
+  post   'email/',      to: 'email#create',  as: 'emails'
   get    'email/new',   to: 'email#new',     as: 'new_email'
   delete 'email/',      to: 'email#delete',  as: 'delete'
   get    'email/email_list'

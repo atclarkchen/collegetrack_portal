@@ -20,23 +20,10 @@ ActiveRecord::Schema.define(version: 20150421191043) do
     t.string   "source_content_type"
     t.integer  "source_file_size"
     t.datetime "source_updated_at"
-    t.integer  "draft_id"
-  end
-
-  add_index "attachments", ["draft_id"], name: "index_attachments_on_draft_id"
-
-  create_table "drafts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "subject"
-    t.text     "body"
-    t.text     "to"
-    t.text     "cc"
-    t.text     "bcc"
     t.integer  "user_id"
   end
 
-  add_index "drafts", ["user_id"], name: "index_drafts_on_user_id"
+  add_index "attachments", ["user_id"], name: "index_attachments_on_user_id"
 
   create_table "salesforce_clients", force: :cascade do |t|
     t.string   "password"

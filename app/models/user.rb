@@ -2,9 +2,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  has_one :token, dependent: :destroy
-  has_one :draft, dependent: :destroy
-  has_many :attachments, through: :draft
+  has_one  :token, dependent: :destroy
+  has_many :attachments, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -22,10 +21,6 @@ class User < ActiveRecord::Base
 
   def set_user_name(name)
     self.update_attributes(:name => name.titleize) unless @user == name
-  end
-
-  def delete_draft
-    draft.destroy if draft.present?
   end
 
   def self.selectize
