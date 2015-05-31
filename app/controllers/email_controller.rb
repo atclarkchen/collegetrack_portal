@@ -25,13 +25,17 @@ class EmailController < ApplicationController
     # Clean up the current attachments
     current_user.clean_up_files
 
-    email_handler and return
+    email_handler
   end
 
   def email_handler
     if params['user_action'] == "Send"
       flash[:notice] = "Message sent successfully"
-      gmail_encoded.deliver
+      begin
+        gmail_encoded.deliver
+      rescue
+        true
+      end
     else
       flash[:notice] = "Draft saved in Gmail account"
       gmail_encoded.create_draft
@@ -80,7 +84,7 @@ class EmailController < ApplicationController
       Gmail.refresh_token = current_user.refresh_token
 
       # Encode the Mail object into Gmail raw message
-      raw = Base64.urlsafe_encode64 @message.to_s.sub("X-Bcc", "Bcc")
+      raw = Base64.urlsafe_encode64 @message.to_s.sub("X-Bcc", "bcc")
       Gmail::Message.new(raw: raw)
     end
 
