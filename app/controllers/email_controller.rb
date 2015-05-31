@@ -11,49 +11,37 @@ class EmailController < ApplicationController
   end
 
   def create
-    # draft = current_user.create_draft(message_params)
-    # draft.add_attachments = files_params
+    # Create message with Mail object
+    @message = Mail.new(msg_header)
+    @message.html_part = msg_body
+    @message.header["X-Bcc"] = @message.bcc
 
-    # send_draft(draft)
-    flash[:notice] = "Message sent successfully"
+    # add attachments to message from file system
+    current_user.add_attachments = files_param
+    current_user.attachments.each do |attachment|
+      @message.add_file attachment.path
+    end
+
+    # Clean up the current attachments
+    current_user.clean_up_files
+
+    email_handler and return
+  end
+
+  def email_handler
+    if params['user_action'] == "Send"
+      flash[:notice] = "Message sent successfully"
+      gmail_encoded.deliver
+    else
+      flash[:notice] = "Draft saved in Gmail account"
+      gmail_encoded.create_draft
+    end
 
     render json: { success: true, status: 'redirect', to: new_email_url }.to_json
   end
 
-  def send_draft(draft)
-    Gmail.client_id = ENV['GOOGLE_ID']
-    Gmail.client_secret = ENV['GOOGLE_SECRET']
-    Gmail.refresh_token = current_user.refresh_token
-
-    message = Mail.new do
-      to   draft.to
-      cc   draft.cc
-      bcc  draft.bcc
-
-      subject draft.subject
-      html_part do
-        content_type "text/html; charset=UTF-8"
-        body  draft.body
-      end
-    end
-
-    # add attachments to message from S3
-    draft.attachments.each do |attachment|
-      message.add_file attachment.read_from_s3
-    end
-
-    # Mail object does not set X-Bcc header
-    # Also need to substitue regular bcc to X-Bcc
-    message.header["X-Bcc"] = draft.bcc
-    raw = Base64.urlsafe_encode64 message.to_s.sub("X-Bcc", "Bcc")
-
-    gmail = Gmail::Message.new(raw: raw)
-    gmail.create_draft
-  end
-
   def delete
-    flash[:notice] = "Message is deleted"
-    current_user.delete_draft
+    flash[:notice] = "Message has been deleted"
     redirect_to new_email_path
   end
 
@@ -69,20 +57,31 @@ class EmailController < ApplicationController
 
   private
 
-    def files_params
-      files = params.require(:email).fetch(:files, {}).try(:permit!)
-      files.values
+    def files_param
+      params.require(:email).fetch(:files, {}).try(:permit!).values
     end
 
-    def strong_params
-      params.require(:email).
-             permit(:subject, :body, to: [], cc: [], bcc: [])
+    def msg_header
+      params[:email].select { |k,v| /to|cc|bcc|subject/ === k }
     end
 
-    def message_params
-      message = strong_params
-      message.each do |key, val|
-        message[key] = val.compact.reject(&:empty?).join(', ') if val.class == Array
+    def msg_body
+      content = params[:email][:body]
+      Mail::Part.new do
+        content_type 'text/html; charset=UTF-8'
+        body content
       end
     end
+
+    def gmail_encoded
+      # Setup Gmail client
+      Gmail.client_id = ENV['GOOGLE_ID']
+      Gmail.client_secret = ENV['GOOGLE_SECRET']
+      Gmail.refresh_token = current_user.refresh_token
+
+      # Encode the Mail object into Gmail raw message
+      raw = Base64.urlsafe_encode64 @message.to_s.sub("X-Bcc", "Bcc")
+      Gmail::Message.new(raw: raw)
+    end
+
 end

@@ -39,4 +39,14 @@ class User < ActiveRecord::Base
     token.refresh_token
   end
 
+  def add_attachments=(files)
+    files.each do |file|
+      attachments.create(:source => file)
+    end
+  end
+
+  def clean_up_files
+    attachments.destroy_all
+  end
+
 end
