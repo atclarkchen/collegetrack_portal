@@ -25,7 +25,7 @@ class EmailController < ApplicationController
     # Clean up the current attachments
     current_user.clean_up_files
 
-    email_handler
+    email_handler and return
   end
 
   def email_handler
