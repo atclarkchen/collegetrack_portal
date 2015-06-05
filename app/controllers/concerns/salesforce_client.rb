@@ -4,8 +4,8 @@ module SalesforceClient
   cattr_accessor :client
 
   def connect_salesforce
-    self.client = Restforce.new :cache => Rails.cache, 
-      :host => "login.salesforce.com", 
+    # :cache => Rails.cache, 
+    self.client = Restforce.new :host => "login.salesforce.com", 
       :password => ENV['SALESFORCE_PASSWORD'], 
       :security_token => ENV['SALESFORCE_SECURITY_TOKEN']
     self.client.authenticate!
@@ -13,57 +13,53 @@ module SalesforceClient
 
   def generate_email(filters)
     return "" unless filters
-    sf_keys = ["Site__c = 'Oakland'"]
-    email = ""
-    filters.each_key do |category|
-      if category === "Parent/Student"
-        email = grab_email(filters[category])
-      else
-        sf_key = get_column(category);
-        or_query = ""
-        filters[category].each do |filter|
-          if or_query === ""
-            or_query = "#{sf_key} = '#{filter}'"
-          else
-            or_query << " or #{sf_key} = '#{filter}'"
-          end
-        end
-        sf_keys << "(#{or_query})"
-      end
+    options = ["Site__c = 'Oakland'",
+               "RecordType.Name = 'CT High School Student'"]
+
+    emailFields = grab_email(filters.delete("Parent/Student"))
+    emailFields.split(', ').each do |field|
+      options << "#{field} != null"
     end
-    query = ""
-    unless sf_keys === []
-      query = "where "
-      query << sf_keys.join(" and ")
+
+    filters.each do |category, values|
+      query_key = get_column(category)
+      group = values.map {|v| "'#{v}'"}.join(', ')
+      options << "#{query_key} IN (#{group})"
     end
-    unless email === ""
-      values = self.client.query("select #{email} from Contact #{query}")
-      emails = []
-      email.split(', ').each do |column|
-        emails.concat(values.map{ |value| value["#{column}"] }.uniq)
-      end
-      emails.compact.sort.reverse
-    end
+
+    query = options.join(' AND ')
+    self.client.query("SELECT #{emailFields}
+                   FROM Contact 
+                  WHERE #{query}").map(&:Email).sort {|x,y| y <=> x}
   end
 
   def get_filter_values
-    races = get_values("Race__c").compact
-    genders = get_values("Gender__c").compact
-    years = get_values("Class_Level__c").compact.sort_by { |x| x[/\d+/].to_i }
-    # high_schools = get_values("High_School__r").compact.sort
-    high_schools = []
+    races = get_values("Race__c")
+    genders = get_values("Gender__c")
+    years = ["Graduated HS 6+ years ago",
+             "Graduated HS 2-6 years ago",
+             "Graduated HS within the past year",
+             "12th Grade",
+             "11th Grade",
+             "10th Grade",
+             "9th Grade",
+             "Not started high school"].sort_by { |x| x[/\d+/].to_i }
+    high_schools = client.query("SELECT High_School__r.Name FROM Contact
+                                  WHERE Site__c = 'Oakland' AND 
+                                  RecordType.Name = 'CT High School Student' AND 
+                                  High_School__r.Name != null 
+                                 GROUP BY High_School__r.Name").map(&:Name)
     parent_student = ["Student", "Parent"]
     {"Parent/Student" => parent_student, "Race" => races, "Gender" => genders, "Year" => years, "High School" => high_schools}
   end
 
   def get_values(column)
-    if column.ends_with?("__r")
-      values = self.client.query("select #{column}.Name from Contact")
-      values.map{ |value| value["#{column}"]["Name"] }.uniq
-    else
-      values = self.client.query("select #{column} from Contact")
-      values.map{ |value| value["#{column}"] }.uniq
-    end
+    command = "SELECT #{column} FROM Contact 
+                WHERE #{column} != null AND 
+                RecordType.Name = 'CT High School Student' 
+               GROUP BY #{column}"
+    # column.intern.to_proc generates block of object
+    values = self.client.query(command).map(&column.intern)
   end
 
   def get_column(category)
@@ -81,6 +77,9 @@ module SalesforceClient
   end
 
   def grab_email(values)
+    # check if the values are nil
+    return "" if values.blank?
+
     if values.length == 2
       "Email, Parent_Guardian_Email_1__c, Parent_Guardian_Email_2__c"
     elsif values.include? "Student"
