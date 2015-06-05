@@ -14,7 +14,8 @@ module SalesforceClient
   def generate_email(filters)
     return "" unless filters
     options = ["Site__c = 'Oakland'",
-               "RecordType.Name = 'CT High School Student'"]
+               "RecordType.Name = 'CT High School Student'",
+               "Status__c = 'Youth is currently a student with CT'"]
 
     emailFields = grab_email(filters.delete("Parent/Student"))
     emailFields.split(', ').each do |field|
