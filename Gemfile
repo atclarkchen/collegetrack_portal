@@ -47,7 +47,7 @@ group :assets do
 end
 
 gem 'toastr-rails'
-gem 'gmail-api-ruby', require: false
+gem 'gmail-api-ruby', :require => 'gmail'
 gem 'restforce'
 gem 'devise'
 gem 'omniauth-google-oauth2'
