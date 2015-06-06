@@ -37,10 +37,7 @@ module SalesforceClient
   def get_filter_values
     races = get_values("Race__c")
     genders = get_values("Gender__c")
-    years = ["Graduated HS 6+ years ago",
-             "Graduated HS 2-6 years ago",
-             "Graduated HS within the past year",
-             "12th Grade",
+    years = ["12th Grade",
              "11th Grade",
              "10th Grade",
              "9th Grade",
