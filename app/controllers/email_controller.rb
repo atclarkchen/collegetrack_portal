@@ -1,5 +1,3 @@
-require 'Gmail'
-
 class EmailController < ApplicationController
 
   before_filter :ensure_sign_in
