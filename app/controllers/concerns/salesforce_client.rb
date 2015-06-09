@@ -13,25 +13,32 @@ module SalesforceClient
 
   def generate_email(filters)
     return "" unless filters
+    # Set default options
     options = ["Site__c = 'Oakland'",
                "RecordType.Name = 'CT High School Student'",
                "Status__c = 'Youth is currently a student with CT'"]
 
+    # Set Student/Parent filter options
     emailFields = grab_email(filters.delete("Parent/Student"))
-    emailFields.split(', ').each do |field|
-      options << "#{field} != null"
-    end
+    options << "(" + emailFields.map { |v| "#{v} != null" }.join(' OR ') + ")"
 
+    # Set Additional Options
     filters.each do |category, values|
       query_key = get_column(category)
       group = values.map {|v| "'#{v}'"}.join(', ')
       options << "#{query_key} IN (#{group})"
     end
 
+    # Join all options as a String and request to Salesforce
     query = options.join(' AND ')
-    self.client.query("SELECT #{emailFields}
+    response = self.client.query("SELECT #{emailFields.join(', ')}
                    FROM Contact 
-                  WHERE #{query}").map(&:Email).sort {|x,y| y <=> x}
+                  WHERE #{query}")
+
+    # Extract emails according to Student/Parent filter values
+    result = emailFields.flat_map do |field|
+      response.map(&field.intern).compact
+    end.sort { |x,y| y <=> x }
   end
 
   def get_filter_values
@@ -78,12 +85,12 @@ module SalesforceClient
     # check if the values are nil
     return "" if values.blank?
 
-    if values.length == 2
-      "Email, Parent_Guardian_Email_1__c, Parent_Guardian_Email_2__c"
-    elsif values.include? "Student"
-      "Email"
-    else
-      "Parent_Guardian_Email_1__c, Parent_Guardian_Email_2__c"
-    end      
+    values.flat_map do |v|
+      if v.eql? "Student"
+        "Email"
+      elsif v.eql? "Parent"
+        ["Parent_Guardian_Email_1__c", "Parent_Guardian_Email_2__c"]
+      end
+    end
   end
 end
