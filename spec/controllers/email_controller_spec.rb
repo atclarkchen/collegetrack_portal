@@ -30,6 +30,7 @@ RSpec.describe EmailController, type: :controller do
     before :each do
       allow(controller).to receive(:email_handler) { true }
       allow(controller).to receive(:msg_header) { header }
+      allow(response).to receive(:body) { { success: true }.to_json }
     end
 
     it 'creates a new Mail object' do
