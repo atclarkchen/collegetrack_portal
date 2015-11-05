@@ -11,20 +11,19 @@ class EmailController < ApplicationController
   def create
     # Create message with Mail object
     @message = Mail.new(msg_header)
-    # @message.html_part = msg_body
-    # @message.header["X-Bcc"] = @message.bcc
+    @message.html_part = msg_body
+    @message.header["X-Bcc"] = @message.bcc
 
-    # # add attachments to message from file system
-    # current_user.add_attachments = files_param
-    # current_user.attachments.each do |attachment|
-    #   @message.add_file attachment.path
-    # end
+    # add attachments to message from file system
+    current_user.add_attachments = files_param
+    current_user.attachments.each do |attachment|
+      @message.add_file attachment.path
+    end
 
-    # # Clean up the current attachments
-    # current_user.clean_up_files
+    # Clean up the current attachments
+    current_user.clean_up_files
 
-    email_handler
-    render json: { success: true, status: 'redirect', to: new_email_url }.to_json
+    email_handler and return
   end
 
   def email_handler
@@ -39,6 +38,8 @@ class EmailController < ApplicationController
       flash[:notice] = "Draft saved in Gmail account"
       gmail_encoded.create_draft
     end
+
+    render json: { success: true, status: 'redirect', to: new_email_url }.to_json
   end
 
   def delete
