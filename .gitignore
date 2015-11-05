@@ -29,5 +29,3 @@ set_local.sh
 
 # Ignore all cache files
 /public/cache/
-# Ignore application configuration
-/config/application.yml
